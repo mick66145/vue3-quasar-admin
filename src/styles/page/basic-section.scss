@@ -1,0 +1,64 @@
+.hr {
+  @apply border-solid border-0 border-b-1 border-gray-200 w-full;
+}
+
+.basic-section {
+  @apply flex flex-col;
+
+  .basic-content {
+    @apply w-full;
+    @apply bg-white rounded-md shadow-lg mb-4;
+    @apply flex flex-col justify-center;
+  }
+
+  .basic-header {
+    @apply w-full p-4;
+    @apply <sm:p-2;
+
+    .basic-title {
+      @apply border-solid border-0 border-b-1 border-gray-200;
+      @apply text-lg p-4 pt-0 text-gray-800;
+      @apply <sm:p-2;
+    }
+  }
+
+  .basic-body {
+    @apply w-full p-4;
+    @apply <sm:p-2;
+
+    .basic-components {
+      @apply p-4 pt-0;
+      @apply <sm:p-2;
+    }
+  }
+
+  .basic-footer {
+    @apply w-full p-4;
+    @apply flex justify-center;
+  }
+}
+
+.basic-item {
+  .basic-list {
+    @apply flex mb-2;
+    @apply <sm:flex-wrap;
+
+    .basic-label {
+      @apply rounded bg-gray-100 py-2 px-3 w-160px ;
+      @apply text-base text-center text-gray-500;
+      @apply flex justify-center items-center;
+      @apply <sm:w-full <sm:py-1 <sm:px-2 <sm:justify-start;
+    }
+
+    .basic-plaintext {
+      @apply text-base;
+      @apply py-2 px-3 w-[calc(100%_-_160px)];
+      @apply flex items-center break-all;
+      @apply <sm:w-full ;
+    }
+
+    .basic-remark {
+      @apply text-sm pl-1 text-gray-500;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+<template>
+  <language-setting-detail mode="create" />
+</template>
+
+<script>
+import { defineComponent } from 'vue-demi'
+import LanguageSettingDetail from './components/LanguageSettingDetail.vue'
+
+export default defineComponent({
+  components: {
+    LanguageSettingDetail,
+  },
+})
+</script>
+
+<style lang="postcss" scoped>
+</style>

@@ -1,0 +1,7 @@
+.q-stepper {
+  @apply bg-transparent;
+
+  .q-stepper__content {
+    @apply hidden;
+  }
+}
