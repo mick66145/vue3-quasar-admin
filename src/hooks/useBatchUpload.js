@@ -15,9 +15,9 @@ export default function useBatchUpload() {
       if (!value) {
         resUpload[key] = value;
         return;
-      }
-      const uploadFunction = fileResource.upload({ file: value.raw }).then(res => res.data);
+      }      
       if (value.raw) {
+        const uploadFunction = fileResource.upload({ file: value.raw }).then(res => res.data);
         const response = await uploadFunction;
         resUpload[key] = response.data;
       } else {
