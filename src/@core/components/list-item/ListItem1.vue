@@ -40,11 +40,9 @@ export default defineComponent({
 .q-card {
   &.active {
     @apply bg-primary;
-
     .q-item__label {
       @apply text-white;
     }
-
     .q-btn {
       background: white !important;
     }
