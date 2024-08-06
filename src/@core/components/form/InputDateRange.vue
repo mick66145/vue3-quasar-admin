@@ -139,7 +139,7 @@ export default defineComponent({
       return props.modelValue ? `${props.modelValue?.from} - ${props.modelValue?.to}` : ''
     })
     const observePlaceholder = computed(() => {
-      return placeholder.value ? placeholder.value : i18n.global.t('g.common.select', { field: i18n.global.t('g.form.date-range') })
+      return placeholder.value ? placeholder.value : i18n.global.t('g.common.select', { field: i18n.global.t('g.common.date-range') })
     })
     const dateRangeValue = computed({
       get () {

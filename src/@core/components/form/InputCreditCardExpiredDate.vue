@@ -71,10 +71,10 @@ export default defineComponent({
 
     // computed
     const observeLabel = computed(() => {
-      return label.value ? label.value : i18n.global.t('g.form.credit-card-expired-date')
+      return label.value ? label.value : i18n.global.t('g.common.credit-card-expired-date')
     })
     const observePlaceholder = computed(() => {
-      return placeholder.value ? placeholder.value : i18n.global.t('g.common.input', { field: i18n.global.t('g.form.credit-card-expired-date') })
+      return placeholder.value ? placeholder.value : i18n.global.t('g.common.input', { field: i18n.global.t('g.common.credit-card-expired-date') })
     })
     const ruleList = computed(() => {
       const rule = [

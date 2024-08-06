@@ -57,10 +57,10 @@ export default defineComponent({
 
     // computed
     const observeLabel = computed(() => {
-      return label.value ? label.value : i18n.global.t('g.form.keyword')
+      return label.value ? label.value : i18n.global.t('g.common.keyword')
     })
     const observePlaceholder = computed(() => {
-      return placeholder.value ? placeholder.value : i18n.global.t('g.common.input', { field: i18n.global.t('g.form.keyword') })
+      return placeholder.value ? placeholder.value : i18n.global.t('g.common.input', { field: i18n.global.t('g.common.keyword') })
     })
 
     return {

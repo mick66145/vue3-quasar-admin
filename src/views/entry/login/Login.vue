@@ -8,13 +8,13 @@
       </q-card-section>
       <card-body>
         <base-form ref="form" class="q-gutter-md">
-          <base-form-item :label="$t('g.form.account')">
-            <input-text v-model="formData.account" :label="$t('g.form.account')" lazy-rules required
-              :placeholder="$t('g.common.input', {field: $t('g.form.account')})" />
+          <base-form-item :label="$t('g.common.account')">
+            <input-text v-model="formData.account" :label="$t('g.common.account')" lazy-rules required
+              :placeholder="$t('g.common.input', {field: $t('g.common.account')})" />
           </base-form-item>
-          <base-form-item :label="$t('g.form.password')">
-            <input-password v-model="formData.password" :label="$t('g.form.password')" lazy-rules
-              required @keyup.enter="handleLogin" :placeholder="$t('g.common.input', {field: $t('g.form.password')})" />
+          <base-form-item :label="$t('g.common.password')">
+            <input-password v-model="formData.password" :label="$t('g.common.password')" lazy-rules
+              required @keyup.enter="handleLogin" :placeholder="$t('g.common.input', {field: $t('g.common.password')})" />
           </base-form-item>
           <div>
             <base-button class="w-full q-mb-md" :label="$t('entry.login.btn.login')" @click.prevent="handleLogin" />

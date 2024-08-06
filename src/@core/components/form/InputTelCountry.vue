@@ -92,10 +92,10 @@ export default defineComponent({
 
     // computed
     const observeLabel = computed(() => {
-      return label.value ? label.value : i18n.global.t('g.form.phone')
+      return label.value ? label.value : i18n.global.t('g.common.phone')
     })
     const observePlaceholder = computed(() => {
-      return placeholder.value ? placeholder.value : i18n.global.t('g.common.input', { field: i18n.global.t('g.form.phone') })
+      return placeholder.value ? placeholder.value : i18n.global.t('g.common.input', { field: i18n.global.t('g.common.phone') })
     })
 
     // mounted

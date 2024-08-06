@@ -84,9 +84,9 @@ export default defineComponent({
       keyword: null,
     })
     const tableFields = reactive([
-      { title: 'g.form.account', field: 'account', min_width: '130' },
+      { title: 'g.common.account', field: 'account', min_width: '130' },
       { title: 'user.form.name', field: 'name', min_width: '130' },
-      { title: 'g.form.email', field: 'email', min_width: '130' },
+      { title: 'g.common.email', field: 'email', min_width: '130' },
       { title: 'user.form.company', field: 'company.name', min_width: '130' },
       { title: 'user.form.role', field: 'role.name', min_width: '130' },
     ])

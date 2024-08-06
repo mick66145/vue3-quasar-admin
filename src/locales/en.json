@@ -34,7 +34,12 @@
       "add": "Add",
       "view": "View"
     },
-    "form": {
+    "common": {
+      "input": "Please Enter {field}",
+      "select": "Please Select {field}",
+      "operate": "Operate",
+      "enable": "Enable",
+      "un-enable": "UnEnable",
       "account": "Account",
       "password": "Password",
       "old-password": "OldPassword",
@@ -61,15 +66,7 @@
       "barcode": "Barcode",
       "locale": "Locale",
       "sourceip": "SourceIp",
-      "state": "State",
-      "date-range": "DateRange",
-      "enable": "Enable",
-      "UnEnable": "UnEnable"
-    },
-    "common": {
-      "input": "Please Enter {field}",
-      "select": "Please Select {field}",
-      "operate": "Operate"
+      "state": "State"
     },
     "validation": {
       "required": "{attribute} Is Required",

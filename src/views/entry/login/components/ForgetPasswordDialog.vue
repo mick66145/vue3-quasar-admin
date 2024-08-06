@@ -4,14 +4,14 @@
       <div class="row">
         <div class="col-12">
           <q-item>
-            <input-text v-model="data.state.account" class="full-width" :label="`${$t('g.form.account')} *`"
-              :placeholder="$t('g.common.input', { field: $t('g.form.account') })" required />
+            <input-text v-model="data.state.account" class="full-width" :label="`${$t('g.common.account')} *`"
+              :placeholder="$t('g.common.input', { field: $t('g.common.account') })" required />
           </q-item>
         </div>
         <div class="col-12">
           <q-item>
-            <input-email v-model="data.state.email" class="full-width" :label="`${$t('g.form.email')} *`"
-              :placeholder="$t('g.common.input', { field: $t('g.form.email') })" required />
+            <input-email v-model="data.state.email" class="full-width" :label="`${$t('g.common.email')} *`"
+              :placeholder="$t('g.common.input', { field: $t('g.common.email') })" required />
           </q-item>
         </div>
       </div>

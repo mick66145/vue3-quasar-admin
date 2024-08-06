@@ -76,7 +76,7 @@ export default defineComponent({
       { title: 'mailinfo.form.cc', field: 'cc', min_width: '130' },
       { title: 'mailinfo.form.bcc', field: 'bcc', min_width: '130' },
       { title: 'mailinfo.form.subject', field: 'subject', min_width: '200' },
-      { title: 'g.form.state', field: 'state_text', min_width: '130' },
+      { title: 'g.common.state', field: 'state_text', min_width: '130' },
     ])
 
     // methods

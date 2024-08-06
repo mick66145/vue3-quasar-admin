@@ -39,10 +39,10 @@ export default defineComponent({
 
     // computed
     const observeLabel = computed(() => {
-      return label.value ? label.value : i18n.global.t('g.form.area')
+      return label.value ? label.value : i18n.global.t('g.common.area')
     })
     const observePlaceholder = computed(() => {
-      return placeholder.value ? placeholder.value : i18n.global.t('g.common.select', { field: i18n.global.t('g.form.area') })
+      return placeholder.value ? placeholder.value : i18n.global.t('g.common.select', { field: i18n.global.t('g.common.area') })
     })
 
     // methods

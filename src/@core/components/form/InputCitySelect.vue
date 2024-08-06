@@ -33,10 +33,10 @@ export default defineComponent({
 
     //computed
     const observeLabel = computed(() => {
-      return label.value ? label.value : i18n.global.t('g.form.city')
+      return label.value ? label.value : i18n.global.t('g.common.city')
     })
     const observePlaceholder = computed(() => {
-      return placeholder.value ? placeholder.value : i18n.global.t('g.common.select', { field: i18n.global.t('g.form.city') })
+      return placeholder.value ? placeholder.value : i18n.global.t('g.common.select', { field: i18n.global.t('g.common.city') })
     })
 
     // mounted

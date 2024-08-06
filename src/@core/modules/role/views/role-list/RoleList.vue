@@ -76,7 +76,7 @@ export default defineComponent({
       keyword: null,
     })
     const tableFields = reactive([
-      { title: 'g.form.created-at', field: 'created_at', min_width: '130' },
+      { title: 'g.common.created-at', field: 'created_at', min_width: '130' },
       { title: 'role.form.name', field: 'name', min_width: '130' },
     ])
 

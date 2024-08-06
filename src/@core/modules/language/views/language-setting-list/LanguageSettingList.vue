@@ -14,7 +14,7 @@
           @update:current="onChangePage">
           <vxe-column v-for="{ field, title, min_width } in tableFields" :key="field" :field="field"
             :title="`${$t(title)}`" :min-width="min_width" />
-          <vxe-column :title="`${$t('g.form.is-enable')}`" width="155">
+          <vxe-column :title="`${$t('g.common.is-enable')}`" width="155">
             <template #default="{ row }">
               <input-toggle v-model="row.is_enable" :label="row.is_enable ? $t('g.form.enable') : $t('g.form.UnEnable')"
               :left-label="row.is_enable" @update:modelValue="onDisplay(row)" />
@@ -53,7 +53,7 @@ export default defineComponent({
     })
     const tableFields = reactive([
       { title: 'language-setting.form.name', field: 'name', min_width: '130' },
-      { title: 'g.form.sequence', field: 'sequence', min_width: '130' },
+      { title: 'g.common.sequence', field: 'sequence', min_width: '130' },
     ])
 
     // methods

@@ -34,7 +34,12 @@
       "add": "新增",
       "view": "查看"
     },
-    "form": {
+    "common": {
+      "input": "請輸入{field}",
+      "select": "請選擇{field}",
+      "operate": "操作",
+      "enable": "啟用",
+      "un-enable": "不啟用",
       "account": "帳號",
       "password": "密碼",
       "old-password": "舊密碼",
@@ -61,15 +66,7 @@
       "barcode": "條碼",
       "locale": "語系",
       "sourceip": "來源IP",
-      "state": "狀態",
-      "date-range": "開始日期至結束日期",
-      "enable": "啟用",
-      "UnEnable": "不啟用"
-    },
-    "common": {
-      "input": "請輸入{field}",
-      "select": "請選擇{field}",
-      "operate": "操作"
+      "state": "狀態"
     },
     "validation": {
       "required": "{attribute}必填",

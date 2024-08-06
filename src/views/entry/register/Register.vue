@@ -12,14 +12,14 @@
         <base-form ref="form" class="q-gutter-md">
           <input-text
             v-model="formData.account"
-            :label="$t('g.form.account')"
+            :label="$t('g.common.account')"
             lazy-rules
             required
           />
 
           <input-password
             v-model="formData.password"
-            :label="$t('g.form.password')"
+            :label="$t('g.common.password')"
             lazy-rules
             required
             @keyup.enter="handleRegister"

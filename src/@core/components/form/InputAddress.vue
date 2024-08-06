@@ -35,8 +35,8 @@
         required
         :prefix=" (showPostCode && postCodeType ==='prefix') ? observeValue.post_code :''"
         :hint="hint"
-        :label="`${$t('g.form.address')}`"
-        :placeholder="`${$t('g.common.input', { field: $t('g.form.address')})}`"
+        :label="`${$t('g.common.address')}`"
+        :placeholder="`${$t('g.common.input', { field: $t('g.common.address')})}`"
       />
     </div>
     <slot name="default" />

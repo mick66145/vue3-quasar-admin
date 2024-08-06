@@ -77,10 +77,10 @@ export default defineComponent({
     })
     const tableFields = ref([
       { title: 'company.form.name', field: 'name', min_width: '130' },
-      { title: 'g.form.tel', field: 'tel', min_width: '130' },
+      { title: 'g.common.tel', field: 'tel', min_width: '130' },
       { title: 'company.form.customer-service-hotline', field: 'tel_service', min_width: '130' },
-      { title: 'g.form.address', field: 'address_text', min_width: '130' },
-      { title: 'g.form.email', field: 'email', min_width: '130' },
+      { title: 'g.common.address', field: 'address_text', min_width: '130' },
+      { title: 'g.common.email', field: 'email', min_width: '130' },
     ])
 
     // methods

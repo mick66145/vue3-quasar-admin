@@ -14,16 +14,16 @@
         <base-form ref="form">
           <div class="row q-col-gutter-md">
             <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-              <base-form-item :label="`${$t('g.form.account')} *`">
-                <input-text v-model="formData.account" class="full-width" :label="`${$t('g.form.account')}`"
-                  :placeholder="$t('g.common.input', { field: $t('g.form.account') })" required
+              <base-form-item :label="`${$t('g.common.account')} *`">
+                <input-text v-model="formData.account" class="full-width" :label="`${$t('g.common.account')}`"
+                  :placeholder="$t('g.common.input', { field: $t('g.common.account') })" required
                   :readonly="mode === 'edit'" />
               </base-form-item>
             </div>
             <div v-if="mode === 'create'" class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-              <base-form-item :label="`${$t('g.form.password')}  *`">
-                <input-password v-model="formData.password" class="full-width" :label="`${$t('g.form.password')}`"
-                  autocomplete="new-password" :placeholder="$t('g.common.input', { field: $t('g.form.password') })"
+              <base-form-item :label="`${$t('g.common.password')}  *`">
+                <input-password v-model="formData.password" class="full-width" :label="`${$t('g.common.password')}`"
+                  autocomplete="new-password" :placeholder="$t('g.common.input', { field: $t('g.common.password') })"
                   required :rules="[
                     $rules.regex(/^(?=.*\d)(?=.*[a-zA-Z])(?=.*\W)(?!.* ).{8,}$/i, $t('g.validation.password'))
                   ]">
@@ -40,9 +40,9 @@
               </base-form-item>
             </div>
             <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-              <base-form-item :label="`${$t('g.form.email')}`">
-                <input-email v-model="formData.email" class="full-width" :label="`${$t('g.form.email')}`"
-                  :placeholder="$t('g.common.input', { field: $t('g.form.email') })" />
+              <base-form-item :label="`${$t('g.common.email')}`">
+                <input-email v-model="formData.email" class="full-width" :label="`${$t('g.common.email')}`"
+                  :placeholder="$t('g.common.input', { field: $t('g.common.email') })" />
               </base-form-item>
             </div>
             <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
@@ -67,9 +67,9 @@
               </base-form-item>
             </div>
             <div class="col-12">
-              <base-form-item :label="`${$t('g.form.remark')}`">
-                <input-textarea v-model="formData.remark" class="full-width" :label="`${$t('g.form.remark')}`"
-                  :placeholder="$t('g.common.input', { field: $t('g.form.remark') })" />
+              <base-form-item :label="`${$t('g.common.remark')}`">
+                <input-textarea v-model="formData.remark" class="full-width" :label="`${$t('g.common.remark')}`"
+                  :placeholder="$t('g.common.input', { field: $t('g.common.remark') })" />
               </base-form-item>
             </div>
           </div>

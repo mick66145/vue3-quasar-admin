@@ -67,10 +67,10 @@ export default defineComponent({
 
     // computed
     const observeLabel = computed(() => {
-      return label.value ? label.value : i18n.global.t('g.form.identification-number')
+      return label.value ? label.value : i18n.global.t('g.common.identification-number')
     })
     const observePlaceholder = computed(() => {
-      return placeholder.value ? placeholder.value : i18n.global.t('g.common.input', { field: i18n.global.t('g.form.identification-number') })
+      return placeholder.value ? placeholder.value : i18n.global.t('g.common.input', { field: i18n.global.t('g.common.identification-number') })
     })
     const ruleList = computed(() => {
       const rule = [

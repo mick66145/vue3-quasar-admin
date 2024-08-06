@@ -4,9 +4,9 @@
       <div class="row q-col-gutter-x-md q-col-gutter-y-xs">
         <div class="col-12">
           <stream-barcode-reader @decode="onDecode" />
-          <base-form-item :label="`${$t('g.form.barcode')} *`">
-            <input-text v-model="data.state.barcode" class="full-width" :label="`${$t('g.form.barcode')}`"
-              :placeholder="$t('g.common.input', { field: $t('g.form.barcode') })" required />
+          <base-form-item :label="`${$t('g.common.barcode')} *`">
+            <input-text v-model="data.state.barcode" class="full-width" :label="`${$t('g.common.barcode')}`"
+              :placeholder="$t('g.common.input', { field: $t('g.common.barcode') })" required />
           </base-form-item>
         </div>
       </div>

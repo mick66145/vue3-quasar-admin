@@ -53,10 +53,10 @@ export default defineComponent({
     })
     const tableFields = reactive([
       { title: 'user.form.name', field: 'user.name', min_width: '130' },
-      { title: 'g.form.account', field: 'user.account', min_width: '130' },
-      { title: 'g.form.created-at', field: 'created_at', min_width: '130' },
+      { title: 'g.common.account', field: 'user.account', min_width: '130' },
+      { title: 'g.common.created-at', field: 'created_at', min_width: '130' },
       { title: 'operate-log.form.description', field: 'description', min_width: '130' },
-      { title: 'g.form.sourceip', field: 'sourceip', min_width: '130' },
+      { title: 'g.common.sourceip', field: 'sourceip', min_width: '130' },
     ])
 
     // methods
