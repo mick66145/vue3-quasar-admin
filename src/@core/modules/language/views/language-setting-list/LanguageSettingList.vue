@@ -16,7 +16,7 @@
             :title="`${$t(title)}`" :min-width="min_width" />
           <vxe-column :title="`${$t('g.common.is-enable')}`" width="155">
             <template #default="{ row }">
-              <input-toggle v-model="row.is_enable" :label="row.is_enable ? $t('g.form.enable') : $t('g.form.UnEnable')"
+              <input-toggle v-model="row.is_enable" :label="row.is_enable ? $t('g.common.enable') : $t('g.common.un-enable')"
               :left-label="row.is_enable" @update:modelValue="onDisplay(row)" />
             </template>
           </vxe-column>

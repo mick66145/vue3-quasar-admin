@@ -66,7 +66,9 @@
       "barcode": "Barcode",
       "locale": "Locale",
       "sourceip": "SourceIp",
-      "state": "State"
+      "state": "State",
+      "image": "Image",
+      "company": "Company"
     },
     "validation": {
       "required": "{attribute} Is Required",
