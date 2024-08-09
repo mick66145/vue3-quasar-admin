@@ -87,6 +87,7 @@ import BaseImage from './image/BaseImage.vue'
 import BaseLink from './link/BaseLink.vue'
 import BaseButtonGroup from './button-group/BaseButtonGroup.vue'
 import BaseTabs from './tabs/BaseTabs.vue'
+import LanguageTabs from './tabs/LanguageTabs.vue'
 import BaseDialog from './dialog/BaseDialog.vue'
 import ImagePreviewDialog from './dialog/ImagePreviewDialog.vue'
 import LightboxDialog from './dialog/LightboxDialog.vue'
@@ -104,6 +105,8 @@ import FileUploader from './uploader/FileUploader.vue'
 import BaseTooltip from './tooltip/BaseTooltip.vue'
 import SelectTree from './tree/SelectTree.vue'
 import ChipColumn from './table-column/ChipColumn.vue'
+import LanguageSimpleDynamicForm from './simple-dynamic-form/LanguageSimpleDynamicForm.vue'
+import SimpleDynamicForm from './simple-dynamic-form/SimpleDynamicForm.vue'
 import LangSelect from './LangSelect.vue'
 import ScShadow from './shadow/ScShadow.vue'
 import BasePage from './page/BasePage.vue'
@@ -209,6 +212,7 @@ export default {
     app.component('BaseLink', BaseLink)
     app.component('BaseButtonGroup', BaseButtonGroup)
     app.component('BaseTabs', BaseTabs)
+    app.component('LanguageTabs', LanguageTabs)
     app.component('BaseDialog', BaseDialog)
     app.component('ImagePreviewDialog', ImagePreviewDialog)
     app.component('MessageDialog', MessageDialog)
@@ -226,6 +230,8 @@ export default {
     app.component('BaseTooltip', BaseTooltip)
     app.component('SelectTree', SelectTree)
     app.component('ChipColumn', ChipColumn)
+    app.component('SimpleDynamicForm', SimpleDynamicForm)
+    app.component('LanguageSimpleDynamicForm', LanguageSimpleDynamicForm)
     app.component('LangSelect', LangSelect)
     app.component('ScShadow', ScShadow)
     app.component('BasePage', BasePage)
