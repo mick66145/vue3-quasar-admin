@@ -51,11 +51,11 @@ export const useFormStore = (formId = 'form') => {
           }
         }
       },
-      updateModels(options) {
+      updateModels({models}) {
         this.clear();
         // this.originalModel = deepCopy(this.models);
 
-        options.models.forEach((item) => {
+        models.forEach((item) => {
           const parentComps = this.compRelationship[item.layout.parent];
           if (parentComps) {
             parentComps.push(item.id);
@@ -63,11 +63,7 @@ export const useFormStore = (formId = 'form') => {
             this.compRelationship[item.layout.parent] = [item.id];
           }
 
-          this.models.set(item.id, {
-            ...item,
-            display: item.display === undefined || item.display === '' ? true : item.display,
-            component: item.component,
-          });
+          this.models.set(item.id, {...item});
 
           if (item.data_key) {
             Object.assign(this.mainFormData, { [item.data_key]: item.value });

@@ -3,12 +3,15 @@
     <div class="row col-12">
       <language-tabs v-model="currentLang" @update:modelValue="onChange('languageTabs')"  />
     </div>
-    <simple-dynamic-form :id="id" :models="observeModels"  />
+    <div class="col-12">
+      <simple-dynamic-form ref="simpleDynamicForm" :models="observeModels" :store="storeForm"  />
+    </div>
   </div>
 </template>
 
 <script>
 import { defineComponent, ref, onMounted, toRefs } from 'vue-demi'
+import { useFormStore } from './stores/form'
 
 export default defineComponent({
   props: {
@@ -18,15 +21,23 @@ export default defineComponent({
   setup(props) {
     // data
     const { models } = toRefs(props)
+    const simpleDynamicForm = ref()
+    const storeForm = useFormStore(props.id)
     const currentLang = ref('zh-TW')
     const observeModels = ref([])
 
     // mounted
     onMounted(() => {
-      observeModels.value = getLocaleModel()
+      observeModels.value = models.value.map(item => item.locale !== currentLang.value ? { ...item, is_show: false } : item) || [];
     })
 
     // methods
+    const getFormModels = () => {
+      return simpleDynamicForm.value.getFormModels()
+    }
+    const getFormData = () =>{
+      return simpleDynamicForm.value.getFormData()
+    }
     const onChange = (action) => {
       switch (action) {
       case 'languageTabs':
@@ -36,13 +47,17 @@ export default defineComponent({
         break
       }
     }
-    const getLocaleModel = () =>{
-      return models.value.map(item => item.locale !== currentLang.value ? { ...item, is_show: false } : item) || [];
+    const getLocaleModel = () => {
+      return Array.from(getFormModels()).map(item =>{ return { ...item, is_show: item.locale === currentLang.value }}) || []
     }
 
     return {
+      simpleDynamicForm,
+      storeForm,
       currentLang,
       observeModels,
+      getFormModels,
+      getFormData,
       onChange
     }
   },
