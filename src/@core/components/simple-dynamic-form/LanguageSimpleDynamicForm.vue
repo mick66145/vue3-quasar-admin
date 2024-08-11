@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { defineComponent, ref, onMounted, toRefs } from 'vue-demi'
+import { defineComponent, ref, onMounted, toRefs, watch } from 'vue-demi'
 import { useFormStore } from './stores/form'
 
 export default defineComponent({
@@ -28,7 +28,7 @@ export default defineComponent({
 
     // mounted
     onMounted(() => {
-      observeModels.value = models.value.map(item => item.locale !== currentLang.value ? { ...item, is_show: false } : item) || [];
+      observeModels.value = setLocaleModelShow(models.value)
     })
 
     // methods
@@ -47,9 +47,17 @@ export default defineComponent({
         break
       }
     }
-    const getLocaleModel = () => {
-      return Array.from(getFormModels()).map(item =>{ return { ...item, is_show: item.locale === currentLang.value }}) || []
+    const setLocaleModelShow = (models) => {
+      return models.map(item =>{ return { ...item, is_show: item.locale === currentLang.value }}) || []
     }
+    const getLocaleModel = () => {
+      return setLocaleModelShow(Array.from(getFormModels()))
+    }
+
+    // watch
+    watch(() => models.value, (models) => {
+      observeModels.value = setLocaleModelShow(models)
+    });
 
     return {
       simpleDynamicForm,
