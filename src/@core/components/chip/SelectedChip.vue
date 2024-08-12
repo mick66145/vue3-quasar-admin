@@ -1,19 +1,22 @@
 <template>
   <base-chip
-    v-model:selected="selected"
-    :color="selected ? selectedColor : color"
-    :text-color="selected ? selectedTextColor : textColor"
+    v-model:selected="observeValue"
+    :color="observeValue ? selectedColor : color"
+    :text-color="observeValue ? selectedTextColor : textColor"
     :label="label"
     :clickable="true"
     :square="true"
     @update:selected="onSelected"
   />
+
 </template>
 
 <script>
 import { defineComponent, ref } from "vue-demi";
+import { useVModel } from '@vueuse/core'
 export default defineComponent({
   props: {
+    modelValue: { type: Boolean , default: false },
     label: { type: String},
     val: { type: [String,Object,Number]},
     color: { type: String , default: 'white' },
@@ -21,16 +24,16 @@ export default defineComponent({
     selectedColor: { type: String , default: 'primary' },
     selectedTextColor: { type: String , default: 'white' },
   },
-  emits: ['update:selected'],
+  emits: ['update:selected','update:modelValue'],
   setup(props,{emit}) {
     //data
-    const selected = ref(false)
+    const observeValue = useVModel(props, 'modelValue', emit)
 
     const onSelected = (state) =>{
       emit('update:selected', { state:state,val:props.val})
     }
     return {
-      selected,
+      observeValue,
       onSelected,
     };
   },
