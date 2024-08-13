@@ -7,7 +7,7 @@
     @error "百分比函數需要數字作為參數。";
   }
 
-  @return ($fraction / $total-columns) * 100%;
+  @return math.div($fraction, $total-columns) * 100%;
 }
 
 // 定義列寬的 mixin
