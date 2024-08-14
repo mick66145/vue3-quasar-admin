@@ -68,7 +68,9 @@
       "sourceip": "來源IP",
       "state": "狀態",
       "image": "圖片",
-      "company": "公司"
+      "company": "公司",
+      "role": "權限群組",
+      "company-job": "職稱"
     },
     "validation": {
       "required": "{attribute}必填",
@@ -311,16 +313,14 @@
         }
       }
     },
-    "form": {
-      "name": "資料權限群組名稱"
-    },
-    "title": "資料權限維護"
-  },
-  "data-access-role-list": {
     "dialog": {
       "delete": {
         "message": "確認刪除資料權限群組？"
       }
-    }
+    },
+    "form": {
+      "name": "資料權限群組名稱"
+    },
+    "title": "資料權限維護"
   }
 }

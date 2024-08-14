@@ -68,7 +68,9 @@
       "sourceip": "SourceIp",
       "state": "State",
       "image": "Image",
-      "company": "Company"
+      "company": "Company",
+      "role": "Role",
+      "company-job": "CompanyJob"
     },
     "validation": {
       "required": "{attribute} Is Required",
@@ -313,16 +315,14 @@
         }
       }
     },
-    "form": {
-      "name": "DataAccessRoleName"
-    },
-    "title": "DataAccessRole"
-  },
-  "data-access-role-list": {
     "dialog": {
       "delete": {
         "message": "Confirm Delet Data Access Role?"
       }
-    }
+    },
+    "form": {
+      "name": "DataAccessRoleName"
+    },
+    "title": "DataAccessRole"
   }
 }

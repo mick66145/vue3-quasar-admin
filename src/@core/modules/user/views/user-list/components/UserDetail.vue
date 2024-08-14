@@ -3,7 +3,7 @@
     <page-header showPrev showCancel showConfirm @confirm="onSubmit">
       {{ $t('user.detail.title') }}
     </page-header>
-    <base-tabs class="q-mb-md" v-model="currentCard">
+    <base-tabs class="q-mb-md" v-model="currentBlock">
       <q-tab name="accountInfo" :label="`${$t('user.detail.card.account-info.title')}`" />
     </base-tabs>
     <q-card>
@@ -46,24 +46,18 @@
               </base-form-item>
             </div>
             <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-              <base-form-item :label="`${$t('user.form.company')}`">
-                <input-company-select v-model="formData.company" class="full-width"
-                  :label="`${$t('user.form.company')}`"
-                  :placeholder="$t('g.common.input', { field: $t('user.form.company') })" />
+              <base-form-item :label="`${$t('g.common.company')}`">
+                <input-company-select v-model="formData.company" class="full-width" />
               </base-form-item>
             </div>
             <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-              <base-form-item :label="`${$t('user.form.company-job')}`">
-                <input-select v-model="formData.company_job" :options="companyJobList" class="full-width"
-                  :label="`${$t('user.form.company-job')}`"
-                  :placeholder="$t('g.common.select', { field: $t('user.form.company-job') })" />
+              <base-form-item :label="`${$t('g.common.company-job')}`">
+                <input-company-job-select v-model="formData.company_job" class="full-width" />
               </base-form-item>
             </div>
             <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-              <base-form-item :label="`${$t('user.form.role')} *`">
-                <input-select v-model="formData.role" :options="roleList" class="full-width"
-                  :label="`${$t('user.form.role')}`"
-                  :placeholder="$t('g.common.select', { field: $t('user.form.role') })" required />
+              <base-form-item :label="`${$t('g.common.role')} *`">
+                <input-role-select v-model="formData.role" class="full-width" required />
               </base-form-item>
             </div>
             <div class="col-12">
@@ -84,15 +78,11 @@
 import { defineComponent, ref, toRefs, onMounted } from 'vue-demi'
 import { useRoute } from 'vue-router'
 import { UserResource } from '@core/modules/user/api'
-import { CompanyJobResource } from '@core/modules/company-job/api'
-import { RoleResource } from '@core/modules/role/api'
 import { UserViewModel } from '@core/modules/user/models'
 import useCRUD from '@/hooks/useCRUD'
 import useGoBack from '@/hooks/useGoBack'
 
 const userResource = UserResource({})
-const roleResource = RoleResource({})
-const companyJobResource = CompanyJobResource({})
 
 export default defineComponent({
   props: {
@@ -101,18 +91,14 @@ export default defineComponent({
   setup(props) {
     // data
     const { mode } = toRefs(props)
-    const currentCard = ref('accountInfo')
     const route = useRoute()
     const formData = ref(UserViewModel())
-    const roleList = ref([])
-    const companyJobList = ref([])
     const fallBack = { name: 'UserList' }
+    const currentBlock = ref('accountInfo')
     const id = route.params.id || null
 
     // mounted
     onMounted(async () => {
-      callRoleListFetch()
-      callCompanyJobListFetch()
       if (id) {
         const [res] = await callReadFetch(id)
         formData.value = res
@@ -123,21 +109,6 @@ export default defineComponent({
     const readFetch = (id, query) => userResource.get({ id, query })
     const createFetch = (payload) => userResource.post({ payload })
     const updateFetch = (id, payload) => userResource.patch({ id, payload })
-
-    const fetchRoleData = (query) => {
-      return roleResource.list({ query }).then((res) => {
-        roleList.value = []
-        roleList.value = res.list
-      })
-    }
-
-    const fetchCompanyJobData = (query) => {
-      return companyJobResource.list({ query }).then((res) => {
-        companyJobList.value = []
-        companyJobList.value = res.list
-      })
-    }
-
     const onSubmit = async () => {
       form.value.validate().then(async (success) => {
         if (success) {
@@ -146,7 +117,7 @@ export default defineComponent({
             create: () => callCreateFetch({ ...payload }),
             edit: () => callUpdateFetch(id, { ...payload }),
           }
-          const [res] = mode.value === 'create' ? await urlObj.create() : await urlObj.edit()
+          const [res] = await urlObj[mode.value]()
           if (res) goBack()
         }
       })
@@ -159,21 +130,11 @@ export default defineComponent({
       createFetch: createFetch,
       updateFetch: updateFetch,
     })
-    // role
-    const { callReadListFetch: callRoleListFetch } = useCRUD({
-      readListFetch: fetchRoleData,
-    })
-    // role
-    const { callReadListFetch: callCompanyJobListFetch } = useCRUD({
-      readListFetch: fetchCompanyJobData,
-    })
 
     return {
       form,
       formData,
-      currentCard,
-      roleList,
-      companyJobList,
+      currentBlock,
       onSubmit,
     }
   },
