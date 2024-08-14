@@ -44,170 +44,117 @@ export default defineComponent({})
 <style lang="postcss" scoped>
 .wscn-http404-container {
   transform: translate(-50%, -50%);
+  top: 40%;
+  left: 50%;
 
-  @apply top-2/5 left-1/2 absolute;
+  @apply absolute;
 }
-
 .wscn-http404 {
-  @apply py-0 px-50px w-1200px relative overflow-hidden;
+  @apply py-0 px-[20px] md:px-[50px] w-full md:w-[1200px] relative overflow-hidden;
+}
+.pic-404 {
+  @apply w-full md:w-[600px] relative float-none md:float-left overflow-hidden;
+  &__parent {
+    @apply w-full;
+  }
+  &__child {
+    @apply absolute opacity-0;
+    &.left {
+      @apply top-[10px] md:top-[17px] left-[60px] md:left-[220px] w-[60px] md:w-[80px];
 
-  .pic-404 {
-    @apply w-600px relative float-left overflow-hidden;
-
-    &__parent {
-      @apply w-full;
+      animation: cloudLeft 2s linear 1s forwards;
     }
+    &.mid {
+      @apply top-[5px] md:top-[10px] left-[120px] md:left-[420px] w-[36px] md:w-[46px];
 
-    &__child {
-      @apply absolute;
+      animation: cloudMid 2s linear 1.2s forwards;
+    }
+    &.right {
+      @apply top-[50px] md:top-[100px] left-[180px] md:left-[500px] w-[42px] md:w-[62px];
 
-      &.left {
-        @apply top-17px left-220px w-80px;
-        @apply opacity-0;
-
-        animation-name: cloudLeft;
-        animation-duration: 2s;
-        animation-timing-function: linear;
-        animation-fill-mode: forwards;
-        animation-delay: 1s;
-      }
-
-      &.mid {
-        @apply top-10px left-420px w-46px;
-        @apply opacity-0;
-
-        animation-name: cloudMid;
-        animation-duration: 2s;
-        animation-timing-function: linear;
-        animation-fill-mode: forwards;
-        animation-delay: 1.2s;
-      }
-
-      &.right {
-        @apply top-100px left-500px w-62px;
-        @apply opacity-0;
-
-        animation-name: cloudRight;
-        animation-duration: 2s;
-        animation-timing-function: linear;
-        animation-fill-mode: forwards;
-        animation-delay: 1s;
-      }
-
-      @keyframes cloudLeft {
-        0% {
-          @apply opacity-0 top-17px left-220px;
-        }
-
-        20% {
-          @apply opacity-100 top-33px left-188px;
-        }
-
-        80% {
-          @apply opacity-100 top-81px left-92px;
-        }
-
-        100% {
-          @apply opacity-0 top-97px left-60px;
-        }
-      }
-
-      @keyframes cloudMid {
-        0% {
-          @apply opacity-0 top-10px left-420px;
-        }
-
-        20% {
-          @apply opacity-100 top-40px left-360px;
-        }
-
-        70% {
-          @apply opacity-100 top-130px left-180px;
-        }
-
-        100% {
-          @apply opacity-0 top-160px left-120px;
-        }
-      }
-
-      @keyframes cloudRight {
-        0% {
-          @apply opacity-0 top-100px left-500px;
-        }
-
-        20% {
-          @apply opacity-100 top-120px left-460px;
-        }
-
-        80% {
-          @apply opacity-100 top-180px left-340px;
-        }
-
-        100% {
-          @apply opacity-0 top-200px left-300px;
-        }
-      }
+      animation: cloudRight 2s linear 1s forwards;
     }
   }
+}
+.bullshit {
+  @apply relative float-none md:float-left overflow-hidden py-[30px] px-0 w-full md:w-[300px] text-center md:text-left;
+  &__oops {
+    @apply font-bold text-[24px] md:text-[32px] leading-[30px] md:leading-[40px] mb-[15px] md:mb-[20px] text-blue-500 opacity-0;
 
-  .bullshit {
-    @apply relative float-left overflow-hidden;
-    @apply py-30px px-0 w-300px;
+    animation: slideUp 0.5s forwards;
+  }
+  &__headline {
+    @apply font-bold text-[18px] md:text-[20px] leading-[22px] md:leading-[24px] mb-[8px] md:mb-[10px] text-slate-900 opacity-0;
 
-    &__oops {
-      @apply font-bold text-32px leading-40px;
-      @apply mb-20px opacity-0 text-blue-500;
+    animation: slideUp 0.5s 0.1s forwards;
+  }
+  &__info {
+    @apply text-[12px] md:text-[13px] leading-[18px] md:leading-[21px] mb-[20px] md:mb-[30px] text-gray-400 opacity-0;
 
-      animation-name: slideUp;
-      animation-duration: 0.5s;
-      animation-fill-mode: forwards;
+    animation: slideUp 0.5s 0.2s forwards;
+  }
+  &__return-home {
+    @apply h-[30px] md:h-[36px] w-[90px] md:w-[110px] block mx-auto md:mx-0 float-none md:float-left bg-blue-500 rounded-full text-white text-center text-[14px] leading-[30px] md:leading-[36px] cursor-pointer opacity-0;
+
+    animation: slideUp 0.5s 0.3s forwards;
+  }
+
+  @keyframes slideUp {
+    0% {
+      transform: translateY(60px);
+
+      @apply opacity-0;
     }
+    100% {
+      transform: translateY(0);
 
-    &__headline {
-      @apply font-bold text-20px leading-24px;
-      @apply mb-10px opacity-0 text-slate-900;
-
-      animation-name: slideUp;
-      animation-duration: 0.5s;
-      animation-delay: 0.1s;
-      animation-fill-mode: forwards;
+      @apply opacity-100;
     }
+  }
+}
 
-    &__info {
-      @apply text-13px leading-21px ;
-      @apply mb-30px opacity-0 text-gray-400;
+@keyframes cloudLeft {
+  0% {
+    @apply opacity-0 top-[10px] md:top-[17px] left-[60px] md:left-[220px];
+  }
+  20% {
+    @apply opacity-100 top-[20px] md:top-[33px] left-[50px] md:left-[188px];
+  }
+  80% {
+    @apply opacity-100 top-[40px] md:top-[81px] left-[20px] md:left-[92px];
+  }
+  100% {
+    @apply opacity-0 top-[50px] md:top-[97px] left-[10px] md:left-[60px];
+  }
+}
 
-      animation-name: slideUp;
-      animation-duration: 0.5s;
-      animation-delay: 0.2s;
-      animation-fill-mode: forwards;
-    }
+@keyframes cloudMid {
+  0% {
+    @apply opacity-0 top-[5px] md:top-[10px] left-[120px] md:left-[420px];
+  }
+  20% {
+    @apply opacity-100 top-[20px] md:top-[40px] left-[100px] md:left-[360px];
+  }
+  70% {
+    @apply opacity-100 top-[60px] md:top-[130px] left-[60px] md:left-[180px];
+  }
+  100% {
+    @apply opacity-0 top-[80px] md:top-[160px] left-[40px] md:left-[120px];
+  }
+}
 
-    &__return-home {
-      @apply h-36px w-110px block float-left;
-      @apply bg-blue-500 rounded-100px opacity-0;
-      @apply text-white text-center text-14px leading-36px;
-      @apply cursor-pointer;
-
-      animation-name: slideUp;
-      animation-duration: 0.5s;
-      animation-delay: 0.3s;
-      animation-fill-mode: forwards;
-    }
-
-    @keyframes slideUp {
-      0% {
-        transform: translateY(60px);
-
-        @apply opacity-0;
-      }
-
-      100% {
-        transform: translateY(0);
-
-        @apply opacity-100;
-      }
-    }
+@keyframes cloudRight {
+  0% {
+    @apply opacity-0 top-[50px] md:top-[100px] left-[180px] md:left-[500px];
+  }
+  20% {
+    @apply opacity-100 top-[60px] md:top-[120px] left-[160px] md:left-[460px];
+  }
+  80% {
+    @apply opacity-100 top-[90px] md:top-[180px] left-[120px] md:left-[340px];
+  }
+  100% {
+    @apply opacity-0 top-[100px] md:top-[200px] left-[100px] md:left-[300px];
   }
 }
 </style>
