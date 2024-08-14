@@ -60,6 +60,11 @@
                 <input-role-select v-model="formData.role" class="full-width" required />
               </base-form-item>
             </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+              <base-form-item :label="`${$t('g.common.data-access-role')}`">
+                <input-data-access-role-select v-model="formData.data_access_roles" class="full-width"/>
+              </base-form-item>
+            </div>
             <div class="col-12">
               <base-form-item :label="`${$t('g.common.remark')}`">
                 <input-textarea v-model="formData.remark" class="full-width" :label="`${$t('g.common.remark')}`"

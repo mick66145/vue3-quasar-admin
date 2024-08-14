@@ -70,7 +70,8 @@
       "image": "Image",
       "company": "Company",
       "role": "Role",
-      "company-job": "CompanyJob"
+      "company-job": "CompanyJob",
+      "data-access-role": "DataAccessRole"
     },
     "validation": {
       "required": "{attribute} Is Required",

@@ -70,7 +70,8 @@
       "image": "圖片",
       "company": "公司",
       "role": "權限群組",
-      "company-job": "職稱"
+      "company-job": "職稱",
+      "data-access-role": "資料權限群組"
     },
     "validation": {
       "required": "{attribute}必填",

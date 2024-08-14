@@ -10,6 +10,7 @@ const User = {
   role: "",
   company_job: "",
   company: "",
+  data_access_roles: [],
 }
 
 export const UserModel = (item = null) => {
@@ -25,6 +26,7 @@ export const UserModel = (item = null) => {
       role: item?.role || "",
       company_job: item?.company_job || "",
       company: item?.company || "",
+      data_access_roles: item?.data_access_roles || [],
     };
     return userObj;
   };
