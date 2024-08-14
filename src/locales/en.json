@@ -303,5 +303,26 @@
     "detail": {
       "title": "BarcodeDetail"
     }
+  },
+  "data-access-role": {
+    "detail": {
+      "title": "DataAccessRoleDetail",
+      "card": {
+        "data-access-role-info": {
+          "title": "DataAccessRoleInfo"
+        }
+      }
+    },
+    "form": {
+      "name": "DataAccessRoleName"
+    },
+    "title": "DataAccessRole"
+  },
+  "data-access-role-list": {
+    "dialog": {
+      "delete": {
+        "message": "Confirm Delet Data Access Role?"
+      }
+    }
   }
 }

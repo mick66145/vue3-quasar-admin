@@ -301,5 +301,26 @@
     "detail": {
       "title": "條碼詳情"
     }
+  },
+  "data-access-role": {
+    "detail": {
+      "title": "資料權限詳情",
+      "card": {
+        "data-access-role-info": {
+          "title": "資料權限群組資訊"
+        }
+      }
+    },
+    "form": {
+      "name": "資料權限群組名稱"
+    },
+    "title": "資料權限維護"
+  },
+  "data-access-role-list": {
+    "dialog": {
+      "delete": {
+        "message": "確認刪除資料權限群組？"
+      }
+    }
   }
 }
