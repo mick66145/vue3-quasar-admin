@@ -6,7 +6,7 @@
         ref="inputCity"
         v-model="observeValue.city"
         class="full-width"
-        required
+        :required="required"
         @update:modelValue="onChange('city')"
       />
     </div>
@@ -15,7 +15,7 @@
         ref="inputArea"
         v-model="observeValue.area"
         class="full-width"
-        required
+        :required="required"
         :city-id="observeValue.city?.id"
         @update:modelValue="onChange('area')"
       />
@@ -32,7 +32,7 @@
       <input-text
         v-model="observeValue.address"
         class="full-width"
-        required
+        :required="required"
         :prefix=" (showPostCode && postCodeType ==='prefix') ? observeValue.post_code :''"
         :hint="hint"
         :label="`${$t('g.common.address')}`"
