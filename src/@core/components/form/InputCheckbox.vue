@@ -1,20 +1,8 @@
 <template>
-  <q-field
-    v-model="observeValue"
-    :rules="rules"
-    borderless
-  >
+  <q-field v-model="observeValue" :rules="rules" borderless>
     <template #control>
-      <q-checkbox
-        v-model="observeValue"
-        :class="observeClass"
-        :label="label"
-        :val="val"
-        :checked-icon="checkedIcon"
-        :unchecked-icon="uncheckedIcon"
-        :left-label="leftLabel"
-        :dense="dense"
-      >
+      <q-checkbox v-model="observeValue" :class="observeClass" :label="label" :val="val" :checked-icon="checkedIcon"
+        :unchecked-icon="uncheckedIcon" :left-label="leftLabel" :dense="dense">
         <template v-if="$slots.default" #default>
           <slot name="default" />
         </template>
@@ -41,7 +29,7 @@ export default defineComponent({
   emits: [
     'update:modelValue',
   ],
-  setup (props, { emit }) {
+  setup(props, { emit }) {
     // data
     const observeValue = useVModel(props, 'modelValue', emit)
     const observeClass = computed(() => {
@@ -59,4 +47,10 @@ export default defineComponent({
 </script>
 
 <style lang="postcss" scoped>
+:deep(.q-field__control) {
+  @apply !min-h-0;
+  .q-field__native {
+    @apply min-h-0;
+  }
+}
 </style>
