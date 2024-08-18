@@ -34,7 +34,7 @@ export default defineComponent({
     const storeUser = useUser()
     const userInfo = reactive(storeUser.info)
     const isShow = reactive({
-      langSelect: false,
+      langSelect: true,
     })
 
     // methods

@@ -71,7 +71,22 @@
       "company": "Company",
       "role": "Role",
       "company-job": "CompanyJob",
-      "data-access-role": "DataAccessRole"
+      "data-access-role": "DataAccessRole",
+      "value": "Value",
+      "usage-type": "UsageType",
+      "field-label": "FieldLabel",
+      "layout-xs": "Layout Xs",
+      "layout-sm": "Layout Sm",
+      "layout-md": "Layout Md",
+      "layout-lg": "Layout Lg",
+      "layout-xl": "Layout Xl",
+      "data-key": "DataKey",
+      "i18n-key": "I18nKey",
+      "placeholder": "Placeholder",
+      "required": "Required",
+      "is-show": "IsShow",
+      "readonly": "Readonly",
+      "disable": "Disable"
     },
     "validation": {
       "required": "{attribute} Is Required",
@@ -116,7 +131,8 @@
     "system-log": "SystemLog",
     "system-information-manage": "SystemInfoManage",
     "basic-setting": "BasicSetting",
-    "full-site-setting": "FullSiteSetting"
+    "full-site-setting": "FullSiteSetting",
+    "language-manage": "LanguageManage"
   },
   "company-job": {
     "title": "CompanyJob",
@@ -325,5 +341,22 @@
       "name": "DataAccessRoleName"
     },
     "title": "DataAccessRole"
+  },
+  "language-data": {
+    "title": "LanguageData",
+    "detail": {
+      "title": "LanguageDataDetail",
+      "card": {
+        "language-data-info": {
+          "title": "LanguageDataInfo"
+        },
+        "field-width-setting": {
+          "title": "FieldWidthSetting"
+        },
+        "field-setting": {
+          "title": "FieldSetting"
+        }
+      }
+    }
   }
 }

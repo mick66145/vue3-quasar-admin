@@ -1,13 +1,9 @@
 /* Layout */
 import MainLayout from '@/layouts/MainLayout.vue'
 
-import { languageSettingRouter } from '@core/modules/language/router'
-
 const fullSiteSettingRouter = {
   path: '/',
-  group: [
-    '/language-setting'
-  ],
+  group: [],
   groupName: 'first',
   component: MainLayout,
   meta: {
@@ -15,9 +11,7 @@ const fullSiteSettingRouter = {
     slug: 'dropdown',
     icon: 'menu_open',
   },
-  children: [
-    languageSettingRouter,
-  ],
+  children: [],
 }
 
 export default fullSiteSettingRouter

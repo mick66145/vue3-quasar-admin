@@ -71,7 +71,22 @@
       "company": "公司",
       "role": "權限群組",
       "company-job": "職稱",
-      "data-access-role": "資料權限群組"
+      "data-access-role": "資料權限群組",
+      "value": "值",
+      "usage-type": "使用類別",
+      "field-label": "顯示名稱",
+      "layout-xs": "xs",
+      "layout-sm": "sm",
+      "layout-md": "md",
+      "layout-lg": "lg",
+      "layout-xl": "xl",
+      "required": "必填",
+      "is-show": "顯示",
+      "readonly": "唯讀",
+      "disable": "禁用",
+      "i18n-key": "語系鍵值",
+      "data-key": "資料鍵值",
+      "placeholder": "Placeholder"
     },
     "validation": {
       "required": "{attribute}必填",
@@ -114,7 +129,8 @@
     "system-log": "系統紀錄",
     "system-information-manage": "系統資訊管理",
     "basic-setting": "基礎設定",
-    "full-site-setting": "全站設定"
+    "full-site-setting": "全站設定",
+    "language-manage": "多語系管理"
   },
   "company-job": {
     "title": "職稱維護",
@@ -323,5 +339,22 @@
       "name": "資料權限群組名稱"
     },
     "title": "資料權限維護"
+  },
+  "language-data": {
+    "title": "語系資料維護",
+    "detail": {
+      "title": "語系資料詳情",
+      "card": {
+        "language-data-info": {
+          "title": "語系資料資訊"
+        },
+        "field-width-setting": {
+          "title": "欄位寬度設定"
+        },
+        "field-setting": {
+          "title": "欄位設定"
+        }
+      }
+    }
   }
 }
