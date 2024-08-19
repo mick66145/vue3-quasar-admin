@@ -4,7 +4,8 @@ import CardHeader from './card/CardHeader.vue'
 import CardBody from './card/CardBody.vue'
 import SocialCard from './card/SocialCard.vue'
 import CategoryCard from './card/CategoryCard.vue'
-import ActiveBoardCard from './card/ActiveBoardCard.vue'
+import BorderedCard from './card/BorderedCard.vue'
+import ActiveBorderedCard from './card/ActiveBorderedCard.vue'
 import BaseForm from './form/form/BaseForm.vue'
 import SubmitForm from './form/form/SubmitForm.vue'
 import BaseFormItem from './form/form-item/BaseFormItem.vue'
@@ -129,7 +130,8 @@ export default {
     app.component('CardBody', CardBody)
     app.component('SocialCard', SocialCard)
     app.component('CategoryCard', CategoryCard)
-    app.component('ActiveBoardCard', ActiveBoardCard)
+    app.component('BorderedCard', BorderedCard)
+    app.component('ActiveBorderedCard', ActiveBorderedCard)
     app.component('BaseForm', BaseForm)
     app.component('SubmitForm', SubmitForm)
     app.component('BaseFormItem', BaseFormItem)
