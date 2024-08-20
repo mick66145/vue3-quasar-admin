@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-show="!isReadingList">
+    <div v-show="!isReading">
       <div v-if="showAllSelectBlock" class="flex items-center q-mb-sm">
         <!-- <q-checkbox
           v-model="allSelectd"
@@ -8,62 +8,48 @@
           @update:modelValue="onSelect"
         /> -->
         已選取 : {{ allCheckboxRecordsCount }}
-        <base-flat-button
-          label="全選"
-          @click="onSelectAll"
-        />
-        <base-flat-button
-          color="red"
-          label="清除"
-          @click="clearAllCheckboxRow"
-        />
+        <base-flat-button label="全選" @click="onSelectAll" />
+        <base-flat-button color="red" label="清除" @click="clearAllCheckboxRow" />
       </div>
-      <vxe-table
-        ref="dataTable"
-        :key="refreshKey"
-        class="q-mb-sm"
-        auto-resize
-        round
-        stripe
-        :row-config="observeRowConfig"
-        :data="data"
-        :max-height="maxHeight"
-        :sort-config="{ trigger: 'cell', remote: true }"
-        :show-footer="showFooter"
-        :footer-span-method="footerSpanMethod"
-        :footer-method="footerMethod"
-        :checkbox-config="observeCheckboxConfig"
-        :tree-config="treeConfig"
-        :expand-config="expandConfig"
-        :header-cell-style="headerCellStyle"
-        :cell-style="cellStyle"
-        :footer-cell-style="footerCellStyle"
-        @sort-change="onChangeSort"
-        @checkbox-all="onCheckboxAll"
-        @checkbox-change="onCheckboxChange"
-        @cell-click="onCellClick"
-      >
-        <slot />
+      <vxe-table ref="dataTable" :key="refreshKey" class="q-mb-sm" auto-resize round stripe
+        :row-config="observeRowConfig" :data="data" :max-height="maxHeight"
+        :sort-config="{ trigger: 'cell', remote: true }" :show-footer="showFooter"
+        :footer-span-method="footerSpanMethod" :footer-method="footerMethod" :checkbox-config="observeCheckboxConfig"
+        :tree-config="treeConfig" :expand-config="expandConfig" :header-cell-style="headerCellStyle"
+        :cell-style="cellStyle" :footer-cell-style="footerCellStyle" @sort-change="onChangeSort"
+        @checkbox-all="onCheckboxAll" @checkbox-change="onCheckboxChange" @cell-click="onCellClick">
+        <slot name="default" />
+        <vxe-column :title="`${$t('g.common.operate')}`" fixed="right" width="115" v-if="mode === 'edit'">
+          <template #default="{ row }">
+            <div class="row">
+              <template v-if="row.mode === 'edit'">
+                <confirm-icon-button class="q-mr-xs q-mb-xs" @click="row.mode = 'view'" />
+                <cancel-icon-button class="q-mb-xs" @click="row.mode = 'view'" />
+              </template>
+              <template v-else>
+                <edit-icon-button class="q-mr-xs q-mb-xs" @click="row.mode = 'edit'" />
+                <template v-if="$slots.action">
+                  <slot name="action" />
+                </template>
+                <delete-icon-button class="q-mb-xs" @click="remove(row);" />
+              </template>
+            </div>
+          </template>
+        </vxe-column>
       </vxe-table>
-      <pagination
-        v-if="total > 0 && showPagination"
-        :total="total"
-        :current="current"
-        :auto-scroll="false"
-        @update:current="onUpdateCurrent"
-      />
+      <pagination v-if="total > 0 && showPagination" :total="total" :current="current" :auto-scroll="false"
+        @update:current="onUpdateCurrent" />
     </div>
-    <skeleton-table v-if="isReadingList && showSkeleton" />
+    <skeleton-table v-if="isReading && showSkeleton" />
   </div>
 </template>
 
 <script>
 import { defineComponent, ref, computed } from 'vue-demi'
-import { useApp } from '@/stores/app'
 import mapKeys from 'lodash-es/mapKeys'
 export default defineComponent({
   props: {
-    data: { type: Array, default () { return [] } },
+    data: { type: Array, default() { return [] } },
     total: { type: Number, default: 0 },
     current: { type: Number, default: 1 },
     showPagination: { type: Boolean, default: true },
@@ -76,23 +62,21 @@ export default defineComponent({
     treeConfig: { type: Object },
     expandConfig: { type: Object },
     rowConfig: { type: Object },
-    maxHeight: { type: [String,Number] },
+    maxHeight: { type: [String, Number] },
     headerCellStyle: { type: [Object, Function] },
     cellStyle: { type: [Object, Function] },
     footerCellStyle: { type: [Object, Function] },
+    isReading: { type: Boolean, default: false },
+    mode: { type: String }, // edit
   },
   emits: ['sort-change', 'checkbox-all', 'checkbox-change', 'update:current', 'select-all', 'update:all-checkbox-records', 'cell-click'],
-  setup (props, { emit }) {
+  setup(props, { emit }) {
     // data
-    const storeApp = useApp()
     const dataTable = ref()
     const refreshKey = ref(0)
     const allSelectd = ref(false)
 
     // computed
-    const isReadingList = computed(() => {
-      return storeApp.isReadingList
-    })
     const observeCheckboxConfig = computed(() => {
       const config = {
         reserve: true,
@@ -181,7 +165,7 @@ export default defineComponent({
     }
     const updateRow = (obj, row) => {
       const fullData = getFullData()
-      dataTable.value.setRow(fullData[row],obj)
+      dataTable.value.setRow(fullData[row], obj)
     }
     const remove = (row) => {
       dataTable.value.remove(row)
@@ -252,7 +236,6 @@ export default defineComponent({
       observeCheckboxConfig,
       observeRowConfig,
       allCheckboxRecordsCount,
-      isReadingList,
       sort,
       refresh,
       updateFooter,
@@ -284,5 +267,4 @@ export default defineComponent({
 })
 </script>
 
-<style lang="postcss" scoped>
-</style>
+<style lang="postcss" scoped></style>

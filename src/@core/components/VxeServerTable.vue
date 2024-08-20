@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-show="!isReadingList">
+    <div v-show="!isReading">
       <div v-if="showAllSelectBlock" class="flex items-center q-mb-sm">
         <!-- <q-checkbox
           v-model="allSelectd"
@@ -53,13 +53,12 @@
         @update:current="onUpdateCurrent"
       />
     </div>
-    <skeleton-table v-if="isReadingList && showSkeleton" />
+    <skeleton-table v-if="isReading && showSkeleton" />
   </div>
 </template>
 
 <script>
 import { defineComponent, ref, computed } from 'vue-demi'
-import { useApp } from '@/stores/app'
 import mapKeys from 'lodash-es/mapKeys'
 export default defineComponent({
   props: {
@@ -85,19 +84,16 @@ export default defineComponent({
     headerCellStyle: { type: [Object, Function] },
     cellStyle: { type: [Object, Function] },
     footerCellStyle: { type: [Object, Function] },
+    isReading: { type: Boolean, default: false },
   },
   emits: ['sort-change', 'checkbox-all', 'checkbox-change', 'update:current', 'select-all', 'update:all-checkbox-records', 'cell-click'],
   setup (props, { emit }) {
     // data
-    const storeApp = useApp()
     const dataTable = ref()
     const refreshKey = ref(0)
     const allSelectd = ref(false)
 
     // computed
-    const isReadingList = computed(() => {
-      return storeApp.isReadingList
-    })
     const observeCheckboxConfig = computed(() => {
       const config = {
         reserve: true,
@@ -257,7 +253,6 @@ export default defineComponent({
       observeCheckboxConfig,
       observeRowConfig,
       allCheckboxRecordsCount,
-      isReadingList,
       sort,
       refresh,
       updateFooter,
