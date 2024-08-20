@@ -511,7 +511,7 @@ $dark-shadow-up-24: 0 -11px 15px -7px $elevation-dark-umbra, 0 -24px 38px 3px $e
 $dark-shadows-up: ($dark-shadow-up-1, $dark-shadow-up-2, $dark-shadow-up-3, $dark-shadow-up-4, $dark-shadow-up-5, $dark-shadow-up-6, $dark-shadow-up-7, $dark-shadow-up-8, $dark-shadow-up-9, $dark-shadow-up-10, $dark-shadow-up-11, $dark-shadow-up-12, $dark-shadow-up-13, $dark-shadow-up-14, $dark-shadow-up-15, $dark-shadow-up-16, $dark-shadow-up-17, $dark-shadow-up-18, $dark-shadow-up-19, $dark-shadow-up-20, $dark-shadow-up-21, $dark-shadow-up-22, $dark-shadow-up-23, $dark-shadow-up-24);
 $generic-border-radius: 4px !default;
 $generic-hover-transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1) !default;
-$typography-font-family: "Roboto", "-apple-system", "Helvetica Neue", helvetica, arial, sans-serif !default;
+$typography-font-family: "Noto Sans TC", "sans-serif", "Roboto", "-apple-system", "Helvetica Neue", helvetica, arial, sans-serif ;
 $min-line-height: 1.12 !default;
 $avatar-font-size: 3em !default;
 $avatar-content-font-size: 0.5em !default;
