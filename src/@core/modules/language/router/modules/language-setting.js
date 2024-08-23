@@ -4,6 +4,7 @@ export const languageSettingRouter = {
   meta: {
     title: 'language-setting.title',
     slug: 'link',
+    permissions: ['view language_setting'],
   },
   redirect: { name: 'LanguageSettingList' },
   children: [
@@ -11,20 +12,20 @@ export const languageSettingRouter = {
       path: '',
       component: () => import('@core/modules/language/views/language-setting-list/LanguageSettingList.vue'),
       name: 'LanguageSettingList',
-      meta: { title: 'language-setting.title', icon: 'fas fa-genderless' },
+      meta: { title: 'language-setting.title', icon: 'fas fa-genderless', permissions: ['view language_setting'] },
     },
     {
       path: 'create',
       component: () => import('@core/modules/language/views/language-setting-list/LanguageSettingCreate.vue'),
       name: 'LanguageSettingCreate',
-      meta: { title: 'language-setting.detail.title'},
+      meta: { title: 'language-setting.detail.title', permissions: ['create language_setting']},
       hidden: true,
     },
     {
       path: 'edit/:id',
       component: () => import('@core/modules/language/views/language-setting-list/LanguageSettingEdit.vue'),
       name: 'LanguageSettingEdit',
-      meta: { title: 'language-setting.detail.title'},
+      meta: { title: 'language-setting.detail.title', permissions: ['update language_setting']},
       hidden: true,
     },
   ],

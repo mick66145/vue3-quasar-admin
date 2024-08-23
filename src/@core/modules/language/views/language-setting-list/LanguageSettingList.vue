@@ -3,7 +3,7 @@
     <page-header>
       {{ $t('language-setting.title') }}
       <template #action>
-        <add-button to="/language-setting/create" />
+        <add-button v-permission="['create language_setting']" to="/language-setting/create" />
       </template>
     </page-header>
     <q-card>
@@ -23,7 +23,7 @@
           <vxe-column :title="`${$t('g.common.operate')}`" fixed="right" width="80">
             <template #default="{ row }">
               <div class="row">
-                <edit-icon-button class="q-mr-xs q-mb-xs" :to="`/language-setting/edit/${row.id}`" />
+                <edit-icon-button v-permission="['update language_setting']" class="q-mr-xs q-mb-xs" :to="`/language-setting/edit/${row.id}`" />
               </div>
             </template>
           </vxe-column>

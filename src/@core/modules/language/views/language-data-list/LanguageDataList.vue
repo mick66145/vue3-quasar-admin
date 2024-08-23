@@ -14,7 +14,7 @@
           <vxe-column :title="`${$t('g.common.operate')}`" fixed="right" width="80">
             <template #default="{ row }">
               <div class="row">
-                <edit-icon-button class="q-mr-xs q-mb-xs" :to="`/language-data/edit/${row.id}`" />
+                <edit-icon-button v-permission="['update language_data']" class="q-mr-xs q-mb-xs" :to="`/language-data/edit/${row.id}`" />
               </div>
             </template>
           </vxe-column>
