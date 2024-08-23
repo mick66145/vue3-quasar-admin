@@ -3,9 +3,7 @@
     <page-header>
       {{ $t('data-access-role.title') }}
       <template #action>
-        <add-button
-          to="/data-access-role/create"
-        />
+        <add-button v-permission="['create data_access_role']" to="/data-access-role/create"/>
       </template>
     </page-header>
 
@@ -36,10 +34,12 @@
             <template #default="{ row }">
               <div class="row">
                 <edit-icon-button
+                  v-permission="['update data_access_role']"
                   class="q-mr-xs q-mb-xs"
                   :to="`/data-access-role/edit/${row.id}`"
                 />
                 <delete-icon-button
+                  v-permission="['delete data_access_role']"
                   class="q-mr-xs q-mb-xs"
                   @click="onDelete(row)"
                 />
