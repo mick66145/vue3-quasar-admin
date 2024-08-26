@@ -15,7 +15,8 @@
       "copy": "Copy",
       "upload": "Upload",
       "scanner-barcode": "ScannerBarcode",
-      "scanner-qr-code": "ScannerQRcode"
+      "scanner-qr-code": "ScannerQRcode",
+      "analytics": "Analytics"
     },
     "dialog": {
       "default-title": "Title",

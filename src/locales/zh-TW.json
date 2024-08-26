@@ -15,7 +15,8 @@
       "copy": "複製",
       "upload": "上傳",
       "scanner-barcode": "掃描Barcode",
-      "scanner-qr-code": "掃描QRcode"
+      "scanner-qr-code": "掃描QRcode",
+      "analytics": "數據分析"
     },
     "dialog": {
       "default-title": "標題",

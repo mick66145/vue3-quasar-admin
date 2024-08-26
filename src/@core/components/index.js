@@ -76,6 +76,7 @@ import UploadIconButton from './button/UploadIconButton.vue'
 import CameraIconButton from './button/CameraIconButton.vue'
 import BarcodeIconButton from './button/BarcodeIconButton.vue'
 import QrcodeIconButton from './button/QrcodeIconButton.vue'
+import AnalyticsIconButton from './button/AnalyticsIconButton.vue'
 import BaseFlatButton from './button/BaseFlatButton.vue'
 import ConfirmFlatButton from './button/ConfirmFlatButton.vue'
 import DeleteFlatButton from './button/DeleteFlatButton.vue'
@@ -202,6 +203,7 @@ export default {
     app.component('CameraIconButton', CameraIconButton)
     app.component('BarcodeIconButton', BarcodeIconButton)
     app.component('QrcodeIconButton', QrcodeIconButton)
+    app.component('AnalyticsIconButton', AnalyticsIconButton)
     app.component('BaseFlatButton', BaseFlatButton)
     app.component('ConfirmFlatButton', ConfirmFlatButton)
     app.component('DeleteFlatButton', DeleteFlatButton)
