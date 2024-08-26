@@ -1,6 +1,6 @@
 
 export const languageDataRouter = {
-  path: '/c',
+  path: '/language-data',
   meta: {
     title: 'language-data.title',
     slug: 'link',
