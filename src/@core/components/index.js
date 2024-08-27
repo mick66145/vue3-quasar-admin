@@ -109,6 +109,9 @@ import SelectTree from './tree/SelectTree.vue'
 import ChipColumn from './table-column/ChipColumn.vue'
 import LanguageSimpleDynamicForm from './simple-dynamic-form/LanguageSimpleDynamicForm.vue'
 import SimpleDynamicForm from './simple-dynamic-form/SimpleDynamicForm.vue'
+import IconListItem from './list-item/IconListItem.vue'
+import ImageListItem from './list-item/ImageListItem.vue'
+import TextListItem from './list-item/TextListItem.vue'
 import LangSelect from './LangSelect.vue'
 import ScShadow from './shadow/ScShadow.vue'
 import BasePage from './page/BasePage.vue'
@@ -236,6 +239,9 @@ export default {
     app.component('ChipColumn', ChipColumn)
     app.component('SimpleDynamicForm', SimpleDynamicForm)
     app.component('LanguageSimpleDynamicForm', LanguageSimpleDynamicForm)
+    app.component('IconListItem', IconListItem)
+    app.component('ImageListItem', ImageListItem)
+    app.component('TextListItem', TextListItem)
     app.component('LangSelect', LangSelect)
     app.component('ScShadow', ScShadow)
     app.component('BasePage', BasePage)

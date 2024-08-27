@@ -1,7 +1,7 @@
 <template>
   <q-card class="border-primary cursor-pointer" :class="active && 'active'" flat bordered>
     <q-item class="px-7 q-my-lg">
-      <q-item-section avatar v-if="icon">
+      <q-item-section avatar>
         <q-icon
           :name="icon"
           :color="active ? 'white' : 'primary'"
@@ -9,8 +9,8 @@
         />
       </q-item-section>
       <q-item-section>
-        <q-item-label class="text-base" :class="!icon && 'text-center'">{{title}}</q-item-label>
-        <q-item-label v-if="subtitle" caption lines="1" :class="!icon && 'text-center'">{{ subtitle }}</q-item-label>
+        <q-item-label v-if="title" class="text-base">{{title}}</q-item-label>
+        <q-item-label v-if="subtitle" caption lines="1">{{ subtitle }}</q-item-label>
       </q-item-section>
 
       <q-item-section v-if="$slots.side" side>
