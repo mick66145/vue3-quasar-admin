@@ -3,7 +3,7 @@
     <q-item class="px-7 q-my-lg">
       <q-item-section avatar>
         <q-item-section thumbnail>
-          <base-image :ratio="16/9" width="100px" :src="preview(image)" />
+          <base-image :ratio="16/9" width="100px" fit="contain" :src="preview(image)" />
         </q-item-section>
       </q-item-section>
       <q-item-section>
