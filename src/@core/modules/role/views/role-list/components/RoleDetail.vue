@@ -4,7 +4,7 @@
       {{ $t('role.detail.title') }}
     </page-header>
     <base-tabs class="q-mb-md" v-model="currentCard">
-      <q-tab name="permissionInfo" :label="`${$t('role.detail.card.permission-info.title')}`"/>
+      <q-tab name="permissionInfo" :label="`${$t('role.detail.card.permission-info.title')}`" />
       <q-tab name="permissionSetting" :label="`${$t('role.detail.card.permission-setting.title')}`" />
     </base-tabs>
     <base-form ref="form">
@@ -37,7 +37,12 @@
                 <div v-for="menuPermissionItem in menuPermissionList" :key="menuPermissionItem" class="col-12">
                   <q-card class="shadow-0 permissions-card" bordered>
                     <q-card-section class="bg-gray-100">
-                      <div class="text-h6">{{ menuPermissionItem.name }}</div>
+                      <div class="row items-center">
+                        <div v-for="permissionItem in menuPermissionItem.permissions" :key="permissionItem">
+                          <input-checkbox v-model="permissionItem.is_active" :val="permissionItem" />
+                        </div>
+                        <div class="!ml-2 text-h6">{{ menuPermissionItem.name }}</div>
+                      </div>
                     </q-card-section>
                     <q-card-section vertical class="p-0">
                       <div v-for="(childItem, index) in menuPermissionItem.childs" :key="childItem">
