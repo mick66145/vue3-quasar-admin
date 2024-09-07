@@ -87,7 +87,9 @@
       "disable": "禁用",
       "i18n-key": "語系鍵值",
       "data-key": "資料鍵值",
-      "placeholder": "Placeholder"
+      "placeholder": "Placeholder",
+      "sex": "性別",
+      "serial-number": "編號"
     },
     "validation": {
       "required": "{attribute}必填",

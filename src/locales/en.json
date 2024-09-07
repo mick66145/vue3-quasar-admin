@@ -87,7 +87,9 @@
       "required": "Required",
       "is-show": "IsShow",
       "readonly": "Readonly",
-      "disable": "Disable"
+      "disable": "Disable",
+      "sex": "Sex",
+      "serial-number": "SerialNumber"
     },
     "validation": {
       "required": "{attribute} Is Required",
