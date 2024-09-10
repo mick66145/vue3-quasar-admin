@@ -131,8 +131,8 @@
     "company-job": "CompanyJob",
     "user-manage": "UserManage",
     "role": "Role",
-    "system-log": "SystemLog",
-    "system-information-manage": "SystemInfoManage",
+    "system-log-manage": "SystemLogManage",
+    "system-info-manage": "SystemInfoManage",
     "basic-setting": "BasicSetting",
     "full-site-setting": "FullSiteSetting",
     "language-manage": "LanguageManage"

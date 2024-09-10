@@ -129,8 +129,8 @@
     "company-job": "職稱維護",
     "user-manage": "人員管理",
     "role": "權限維護",
-    "system-log": "系統紀錄",
-    "system-information-manage": "系統資訊管理",
+    "system-log-manage": "系統紀錄",
+    "system-info-manage": "系統資訊管理",
     "basic-setting": "基礎設定",
     "full-site-setting": "全站設定",
     "language-manage": "多語系管理"

@@ -14,6 +14,7 @@ const userManageRouter = {
     title: 'meun.user-manage',
     icon: 'fas fa-solid fa-users',
     slug: 'dropdown',
+    permissions: ['view user_manage'],
   },
   children: [
     companyRouter,

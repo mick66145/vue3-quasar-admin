@@ -8,9 +8,10 @@ const systemLogManageRouter = {
   group: ['/operate-log', '/mail-log'],
   groupName: 'first',
   meta: {
-    title: 'meun.system-log',
+    title: 'meun.system-log-manage',
     icon: 'fa-solid fa-circle-info',
     slug: 'dropdown',
+    permissions: ['view system_log_manage'],
   },
   children: [
     operateLogRouter,
