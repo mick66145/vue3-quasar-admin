@@ -17,7 +17,7 @@
               <div class="row q-col-gutter-md">
                 <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
                   <base-form-item :label="`${$t('data-access-role.form.name')} *`">
-                    <input-text v-model="formData.name" class="full-width" :label="`${$t('data-access-role.form.name')}`"
+                    <input-text v-model="formData.name" class="full-width" name="name" :label="`${$t('data-access-role.form.name')}`"
                       :placeholder="$t('g.common.input', { field: $t('data-access-role.form.name') })" required />
                   </base-form-item>
                 </div>
@@ -36,6 +36,7 @@ import { defineComponent, ref, toRefs, onMounted } from 'vue-demi'
 import { useRoute } from 'vue-router'
 import { DataAccessRoleResource } from '@core/modules/data-access-role/api'
 import { DataAccessRoleViewModel } from '@core/modules/data-access-role/models'
+import useForm from '@/hooks/useForm'
 import useCRUD from '@/hooks/useCRUD'
 import useGoBack from '@/hooks/useGoBack'
 
@@ -80,8 +81,14 @@ export default defineComponent({
     }
 
     // use
+    const { form, validationError, getErrorTab } = useForm({
+      errorTabs: { dataAccessRoleInfo: ['name']},
+      handleError : (validationRef) => {
+        currentBlock.value = getErrorTab(validationRef)
+      }
+    })
     const { goBack } = useGoBack()
-    const { form, callReadFetch, callCreateFetch, callUpdateFetch } = useCRUD({
+    const { callReadFetch, callCreateFetch, callUpdateFetch } = useCRUD({
       readFetch: readFetch,
       createFetch: createFetch,
       updateFetch: updateFetch,
@@ -91,6 +98,7 @@ export default defineComponent({
       form,
       formData,
       currentBlock,
+      validationError,
       onSubmit,
     }
   },

@@ -3,13 +3,13 @@
     <page-header showPrev showCancel showConfirm @confirm="onSubmit">
       {{ $t('role.detail.title') }}
     </page-header>
-    <base-tabs class="q-mb-md" v-model="currentCard">
+    <base-tabs class="q-mb-md" v-model="currentBlock">
       <q-tab name="permissionInfo" :label="`${$t('role.detail.card.permission-info.title')}`" />
       <q-tab name="permissionSetting" :label="`${$t('role.detail.card.permission-setting.title')}`" />
     </base-tabs>
-    <base-form ref="form">
+    <base-form ref="form" @validationError="validationError">
       <div class="row q-col-gutter-md">
-        <div class="col-12" v-show="currentCard === 'permissionInfo'">
+        <div class="col-12" v-show="currentBlock === 'permissionInfo'">
           <q-card>
             <card-header>
               {{ $t('role.detail.card.permission-info.title') }}
@@ -18,7 +18,7 @@
               <div class="row q-col-gutter-md">
                 <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
                   <base-form-item :label="`${$t('role.form.name')} *`">
-                    <input-text v-model="formData.name" class="full-width" :label="`${$t('role.form.name')}`"
+                    <input-text v-model="formData.name" class="full-width" name="name" :label="`${$t('role.form.name')}`"
                       :placeholder="$t('g.common.input', { field: $t('role.form.name') })" required />
                   </base-form-item>
                 </div>
@@ -26,7 +26,7 @@
             </card-body>
           </q-card>
         </div>
-        <div class="col-12" v-show="currentCard === 'permissionSetting'">
+        <div class="col-12" v-show="currentBlock === 'permissionSetting'">
           <q-card>
             <card-header>
               {{ $t('role.detail.card.permission-setting.title') }}
@@ -83,6 +83,7 @@ import { MenuPermissionResource } from '@core/modules/permission/api'
 import { RoleResource } from '@core/modules/role/api'
 import { RoleViewModel } from '@core/modules/role/models'
 import { breadthFirstSearch } from '@/utils/tree'
+import useForm from '@/hooks/useForm'
 import useCRUD from '@/hooks/useCRUD'
 import useGoBack from '@/hooks/useGoBack'
 import _ from 'lodash-es'
@@ -97,7 +98,7 @@ export default defineComponent({
   setup(props) {
     // data
     const { mode } = toRefs(props)
-    const currentCard = ref('permissionInfo')
+    const currentBlock = ref('permissionInfo')
     const route = useRoute()
     const formData = ref(RoleViewModel())
     const allSelectd = ref(false)
@@ -153,8 +154,14 @@ export default defineComponent({
     }
 
     // use
+    const { form, validationError, getErrorTab } = useForm({
+      errorTabs: { permissionInfo: ['name']},
+      handleError : (validationRef) => {
+        currentBlock.value = getErrorTab(validationRef)
+      }
+    })
     const { goBack } = useGoBack()
-    const { form, callReadFetch, callCreateFetch, callUpdateFetch } = useCRUD({
+    const { callReadFetch, callCreateFetch, callUpdateFetch } = useCRUD({
       readFetch: readFetch,
       createFetch: createFetch,
       updateFetch: updateFetch,
@@ -167,9 +174,10 @@ export default defineComponent({
     return {
       form,
       formData,
-      currentCard,
+      currentBlock,
       allSelectd,
       menuPermissionList,
+      validationError,
       onSubmit,
       onSelectAll,
       refreshAllSelectd,

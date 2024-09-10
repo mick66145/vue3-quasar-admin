@@ -3,14 +3,14 @@
     <page-header showPrev showCancel showConfirm @confirm="onSubmit">
       {{ $t('company.detail.title') }}
     </page-header>
-    <base-tabs class="q-mb-md" v-model="currentCard">
+    <base-tabs class="q-mb-md" v-model="currentBlock">
       <q-tab name="companyInfo" :label="`${$t('company.detail.card.company-info.title')}`" />
       <q-tab name="customerServiceInfo" :label="`${$t('company.detail.card.customer-service-info.title')}`" />
       <q-tab name="contactInfo" :label="`${$t('company.detail.card.contact-info.title')}`" />
     </base-tabs>
-    <base-form ref="form">
+    <base-form ref="form" @validationError="validationError">
       <div class="row q-col-gutter-md">
-        <div class="col-12" v-show="currentCard === 'companyInfo'">
+        <div class="col-12" v-show="currentBlock === 'companyInfo'">
           <q-card class="h-full">
             <card-header>
               {{ $t('company.detail.card.company-info.title') }}
@@ -19,7 +19,7 @@
               <div class="row q-col-gutter-md">
                 <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
                   <base-form-item :label="`${$t('company.form.name')} *`">
-                    <input-text v-model="formData.name" required class="full-width"
+                    <input-text v-model="formData.name" required class="full-width" name="name"
                       :label="`${$t('company.form.name')}`"
                       :placeholder="$t('g.common.input', { field: $t('company.form.name') })" />
                   </base-form-item>
@@ -55,7 +55,7 @@
             </card-body>
           </q-card>
         </div>
-        <div class="col-12" v-show="currentCard === 'customerServiceInfo'">
+        <div class="col-12" v-show="currentBlock === 'customerServiceInfo'">
           <q-card class="h-full">
             <card-header>
               {{ $t('company.detail.card.customer-service-info.title') }}
@@ -80,7 +80,7 @@
             </card-body>
           </q-card>
         </div>
-        <div class="col-12" v-show="currentCard === 'contactInfo'">
+        <div class="col-12" v-show="currentBlock === 'contactInfo'">
           <q-card>
             <card-header>
               {{ $t('company.detail.card.contact-info.title') }}
@@ -139,6 +139,7 @@ import { defineComponent, ref, onMounted, toRefs } from 'vue-demi'
 import { useRoute } from 'vue-router'
 import { CompanyResource } from '@core/modules/company/api'
 import { CompanyViewModel } from '@core/modules/company/models'
+import useForm from '@/hooks/useForm'
 import useCRUD from '@/hooks/useCRUD'
 import useGoBack from '@/hooks/useGoBack'
 
@@ -151,7 +152,7 @@ export default defineComponent({
   setup(props) {
     // data
     const { mode } = toRefs(props)
-    const currentCard = ref('companyInfo')
+    const currentBlock = ref('companyInfo')
     const route = useRoute()
     const formData = ref(CompanyViewModel())
     const fallBack = { name: 'CompanyList' }
@@ -185,6 +186,12 @@ export default defineComponent({
     }
 
     // use
+    const { validationError, getErrorTab } = useForm({
+      errorTabs: {companyInfo: ['name']},
+      handleError : (validationRef) => {
+        currentBlock.value = getErrorTab(validationRef)
+      }
+    })
     const { goBack } = useGoBack({ fallBack })
     const { form, callReadFetch, callCreateFetch, callUpdateFetch } = useCRUD({
       readFetch: readFetch,
@@ -195,7 +202,8 @@ export default defineComponent({
     return {
       form,
       formData,
-      currentCard,
+      currentBlock,
+      validationError,
       onSubmit,
     }
   },
