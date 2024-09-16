@@ -68,6 +68,7 @@
       "locale": "Locale",
       "sourceip": "SourceIp",
       "state": "State",
+      "date-range": "DateRange",
       "image": "Image",
       "company": "Company",
       "role": "Role",

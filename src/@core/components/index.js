@@ -108,6 +108,8 @@ import FileUploader from './uploader/FileUploader.vue'
 import BaseTooltip from './tooltip/BaseTooltip.vue'
 import SelectTree from './tree/SelectTree.vue'
 import ChipColumn from './table-column/ChipColumn.vue'
+import ImageColumn from './table-column/ImageColumn.vue'
+import ImageMultipleColumn from './table-column/ImageMultipleColumn.vue'
 import LanguageSimpleDynamicForm from './simple-dynamic-form/LanguageSimpleDynamicForm.vue'
 import SimpleDynamicForm from './simple-dynamic-form/SimpleDynamicForm.vue'
 import IconListItem from './list-item/IconListItem.vue'
@@ -239,6 +241,8 @@ export default {
     app.component('BaseTooltip', BaseTooltip)
     app.component('SelectTree', SelectTree)
     app.component('ChipColumn', ChipColumn)
+    app.component('ImageColumn', ImageColumn)
+    app.component('ImageMultipleColumn', ImageMultipleColumn)
     app.component('SimpleDynamicForm', SimpleDynamicForm)
     app.component('LanguageSimpleDynamicForm', LanguageSimpleDynamicForm)
     app.component('IconListItem', IconListItem)
