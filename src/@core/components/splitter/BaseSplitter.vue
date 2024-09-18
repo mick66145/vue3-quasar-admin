@@ -1,5 +1,5 @@
 <template>
-  <q-splitter v-model="splitterModel">
+  <q-splitter v-model="splitterModel" :horizontal="horizontal">
     <template v-if="$slots.default" #default>
       <slot name="default" />
     </template>
@@ -18,7 +18,7 @@ import useScreen from '@/hooks/useScreen'
 
 export default defineComponent({
   props: {
-    modelValue: { type: String },
+    horizontal: { type: Boolean, default: false },
     desktopSize: { type: Number, default: 10 },
     tabletSize: { type: Number, default: 15 },
     mobileSize: { type: Number, default: 20 },
@@ -30,7 +30,7 @@ export default defineComponent({
 
     // computed
     const splitterModel = computed(() => {
-      return deviceType.value ==='mobile' ? mobileSize.value : (deviceType.value ==='tablet' ? tabletSize.value : desktopSize.value)
+      return deviceType.value === 'mobile' ? mobileSize.value : (deviceType.value === 'tablet' ? tabletSize.value : desktopSize.value)
     })
 
     return {
