@@ -91,6 +91,7 @@ import BaseLink from './link/BaseLink.vue'
 import BaseButtonGroup from './button-group/BaseButtonGroup.vue'
 import BaseTabs from './tabs/BaseTabs.vue'
 import LanguageTabs from './tabs/LanguageTabs.vue'
+import VerticalTabs from './tabs/VerticalTabs.vue'
 import BaseDialog from './dialog/BaseDialog.vue'
 import ImagePreviewDialog from './dialog/ImagePreviewDialog.vue'
 import LightboxDialog from './dialog/LightboxDialog.vue'
@@ -115,6 +116,8 @@ import SimpleDynamicForm from './simple-dynamic-form/SimpleDynamicForm.vue'
 import IconListItem from './list-item/IconListItem.vue'
 import ImageListItem from './list-item/ImageListItem.vue'
 import TextListItem from './list-item/TextListItem.vue'
+import BaseSplitter from './splitter/BaseSplitter.vue'
+import BaseTabPanels from './tab-panels/BaseTabPanels.vue'
 import LangSelect from './LangSelect.vue'
 import ScShadow from './shadow/ScShadow.vue'
 import BasePage from './page/BasePage.vue'
@@ -224,6 +227,7 @@ export default {
     app.component('BaseButtonGroup', BaseButtonGroup)
     app.component('BaseTabs', BaseTabs)
     app.component('LanguageTabs', LanguageTabs)
+    app.component('VerticalTabs', VerticalTabs)
     app.component('BaseDialog', BaseDialog)
     app.component('ImagePreviewDialog', ImagePreviewDialog)
     app.component('MessageDialog', MessageDialog)
@@ -248,6 +252,8 @@ export default {
     app.component('IconListItem', IconListItem)
     app.component('ImageListItem', ImageListItem)
     app.component('TextListItem', TextListItem)
+    app.component('BaseSplitter', BaseSplitter)
+    app.component('BaseTabPanels', BaseTabPanels)
     app.component('LangSelect', LangSelect)
     app.component('ScShadow', ScShadow)
     app.component('BasePage', BasePage)
