@@ -20,7 +20,8 @@
     },
     "dialog": {
       "default-title": "標題",
-      "delete-title": "刪除"
+      "delete-title": "刪除",
+      "delete-message": "確認刪除{item}?"
     },
     "pagination": {
       "item-count": "共 {total} 項",

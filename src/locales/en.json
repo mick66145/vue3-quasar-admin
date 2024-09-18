@@ -20,7 +20,8 @@
     },
     "dialog": {
       "default-title": "Title",
-      "delete-title": "Delete"
+      "delete-title": "Delete",
+      "delete-message": "Confirm Delete {item} ?"
     },
     "pagination": {
       "item-count": "Total {total} Items",
