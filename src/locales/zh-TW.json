@@ -114,6 +114,11 @@
       "day-is-same-or-after": "必需比${min}晚",
       "day-is-same-or-before": "必需比${max}早",
       "default-error-message": "欄位未填寫正確請檢查"
+    },
+    "card": {
+      "basic-info": {
+        "title": "基礎資訊"
+      }
     }
   },
   "login": {

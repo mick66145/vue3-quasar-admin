@@ -116,6 +116,11 @@
       "day-is-same-or-after": "Must be later than ${min}",
       "day-is-same-or-before": "Must be earlier than ${max}",
       "default-error-message": "Please check the fields; they are not filled out correctly"
+    },
+    "card": {
+      "basic-info": {
+        "title": "BasicInfo"
+      }
     }
   },
   "login": {

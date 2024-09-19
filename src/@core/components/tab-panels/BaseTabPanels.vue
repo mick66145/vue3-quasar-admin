@@ -1,6 +1,6 @@
 <template>
-  <q-tab-panels class="bg-grey-1" v-model="observeValue" :animated="animated" :swipeable="swipeable" :vertical="vertical"
-    :transition-prev="transitionPrev" :transition-next="transitionNext">
+  <q-tab-panels class="bg-grey-1" v-model="observeValue" :animated="animated" :swipeable="swipeable"
+    :vertical="vertical" :transition-prev="transitionPrev" :transition-next="transitionNext">
     <template v-if="$slots.default" #default>
       <slot name="default" />
     </template>
@@ -31,4 +31,9 @@ export default defineComponent({
 </script>
 
 <style lang="postcss" scoped>
+:deep() {
+  .q-panel {
+    @apply overflow-hidden;
+  }
+}
 </style>
