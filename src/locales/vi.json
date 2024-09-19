@@ -1,0 +1,367 @@
+{
+  "g": {
+    "btn": {
+      "edit": "Edit",
+      "add": "Add",
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "save": "Save",
+      "confirm": "Confirm",
+      "go-back": "GoBack",
+      "reset-password": "ResetPassword",
+      "reset": "Reset",
+      "view": "View",
+      "dowload": "Dowload",
+      "copy": "Copy",
+      "upload": "Upload",
+      "scanner-barcode": "ScannerBarcode",
+      "scanner-qr-code": "ScannerQRcode",
+      "analytics": "Analytics"
+    },
+    "dialog": {
+      "default-title": "Title",
+      "delete-title": "Delete",
+      "delete-message": "Confirm Delete {item} ?"
+    },
+    "pagination": {
+      "item-count": "Total {total} Items",
+      "go-to": "Go To",
+      "page": "Page"
+    },
+    "system": {
+      "system-name": "DashBoard Base"
+    },
+    "prefix": {
+      "edit": "Edit",
+      "add": "Add",
+      "view": "View"
+    },
+    "common": {
+      "input": "Please Enter {field}",
+      "select": "Please Select {field}",
+      "operate": "Operate",
+      "enable": "Enable",
+      "un-enable": "UnEnable",
+      "account": "Account",
+      "password": "Password",
+      "old-password": "OldPassword",
+      "new-password": "NewPassword",
+      "confirm-password": "ConfirmPassword",
+      "email": "Email",
+      "phone": "Phone",
+      "remark": "Remark",
+      "sequence": "Sequence",
+      "is-enable": "Enabled/UnEnabled",
+      "created-at": "CreatedAt",
+      "uniform-number": "UniformNumber",
+      "fax": "Fax",
+      "address": "Address",
+      "extension-number": "ExtensionNumber",
+      "tel": "Tel",
+      "keyword": "Keyword",
+      "credit-card": "CreditCard",
+      "credit-card-expired-date": "CreditCardExpiredDate",
+      "identification-number": "IdentificationNumber",
+      "area": "Area",
+      "city": "City",
+      "birthday": "Birthday",
+      "barcode": "Barcode",
+      "locale": "Locale",
+      "sourceip": "SourceIp",
+      "state": "State",
+      "date-range": "DateRange",
+      "image": "Image",
+      "company": "Company",
+      "role": "Role",
+      "company-job": "CompanyJob",
+      "data-access-role": "DataAccessRole",
+      "value": "Value",
+      "usage-type": "UsageType",
+      "field-label": "FieldLabel",
+      "layout-xs": "Layout Xs",
+      "layout-sm": "Layout Sm",
+      "layout-md": "Layout Md",
+      "layout-lg": "Layout Lg",
+      "layout-xl": "Layout Xl",
+      "data-key": "DataKey",
+      "i18n-key": "I18nKey",
+      "placeholder": "Placeholder",
+      "required": "Required",
+      "is-show": "IsShow",
+      "readonly": "Readonly",
+      "disable": "Disable",
+      "sex": "Sex",
+      "serial-number": "SerialNumber"
+    },
+    "validation": {
+      "required": "{attribute} Is Required",
+      "email": "Please enter a valid email address",
+      "min-value": "{attribute} must be at least {min}",
+      "max-value": "{attribute} must not exceed {max}",
+      "min-length": "The length must not be less than {min}",
+      "max-length": "The length must not exceed {max}",
+      "min-size": "The size does not meet the minimum upload size",
+      "max-size": "The size exceeds the allowable upload limit",
+      "same-as": "must match {field}",
+      "alpha": "This field may only contain letters and spaces",
+      "credit-card": "Please enter a valid credit card number",
+      "credit-card-expired-date": "Please enter a valid credit card expiration date",
+      "identification-number": "Please enter a valid identification number format",
+      "gui-number": "Please enter a valid GUI Number format",
+      "tel": "Please enter numbers, hyphens, parentheses, and plus signs",
+      "file-format": "Invalid file format",
+      "image-format": "Invalid file format",
+      "password": "Must be between 8 and 255 characters long and include numbers, letters, and special characters",
+      "url": "Invalid URL. Please ensure the URL format is correct",
+      "day-is-same-or-after": "Must be later than ${min}",
+      "day-is-same-or-before": "Must be earlier than ${max}",
+      "default-error-message": "Please check the fields; they are not filled out correctly"
+    }
+  },
+  "login": {
+    "title": "Log in",
+    "btn": {
+      "login": "Login",
+      "forget-password": "ForgetPassword"
+    }
+  },
+  "meun": {
+    "dashboard": "Dashboard",
+    "company": "Company",
+    "profile": "Profile",
+    "logout": "Logout",
+    "company-job": "CompanyJob",
+    "user-manage": "UserManage",
+    "role": "Role",
+    "system-log-manage": "SystemLogManage",
+    "system-info-manage": "SystemInfoManage",
+    "basic-setting": "BasicSetting",
+    "full-site-setting": "FullSiteSetting",
+    "language-manage": "LanguageManage"
+  },
+  "company-job": {
+    "title": "CompanyJob",
+    "form": {
+      "name": "CompanyJobName"
+    },
+    "dialog": {
+      "delete": {
+        "message": "Confirm Delet CompanyJob?"
+      }
+    },
+    "detail": {
+      "title": "CompanyJobDetail"
+    }
+  },
+  "user": {
+    "title": "User",
+    "form": {
+      "name": "UserName",
+      "company": "Company",
+      "company-job": "CompanyJob",
+      "role": "Role"
+    },
+    "detail": {
+      "card": {
+        "account-info": {
+          "title": "AccountInfo"
+        }
+      },
+      "title": "UserDetail"
+    },
+    "dialog": {
+      "delete": {
+        "message": "Confirm Delet User?"
+      },
+      "reset-password": {
+        "title": "Reset Password",
+        "message": "Confirm Reset Password?"
+      },
+      "reset-password-success": {
+        "title": "Reset Password Success",
+        "message": "Change Password To"
+      }
+    }
+  },
+  "role": {
+    "title": "Role",
+    "form": {
+      "name": "RoleName"
+    },
+    "detail": {
+      "card": {
+        "permission-info": {
+          "title": "PermissionInfo"
+        },
+        "permission-setting": {
+          "title": "PermissionSetting"
+        }
+      },
+      "title": "RoleDetail"
+    },
+    "dialog": {
+      "delete": {
+        "message": "Confirm Delet Role?"
+      }
+    }
+  },
+  "system-log": {
+    "title": "SystemLog"
+  },
+  "entry": {
+    "register": {
+      "title": "Register",
+      "btn": {
+        "register": "Register"
+      }
+    },
+    "login": {
+      "title": "LogIn",
+      "btn": {
+        "forget-password": "ForgetPassword",
+        "login": "Login"
+      },
+      "loginForm": {
+        "account": "Account",
+        "password": "Password"
+      }
+    }
+  },
+  "mail-log": {
+    "title": "MailLog",
+    "form": {
+      "send-date": "SendDate"
+    },
+    "detail": {
+      "title": "MailLogDetail"
+    }
+  },
+  "mailinfo": {
+    "title": "Mailinfo",
+    "form": {
+      "subject": "Subject",
+      "fromname": "FromName",
+      "repeatname": "RepeatName",
+      "repeatmail": "RepeatMail",
+      "tomail": "ToMail",
+      "cc": "Cc",
+      "bcc": "Bcc",
+      "name": "MailinfoName"
+    },
+    "detail": {
+      "card": {
+        "mail-info": {
+          "title": "MailInfo"
+        },
+        "mail-content": {
+          "title": "MailContent"
+        }
+      },
+      "title": "MailinfoDetail"
+    }
+  },
+  "company": {
+    "title": "Company",
+    "detail": {
+      "card": {
+        "company-info": {
+          "title": "CompanyInfo"
+        },
+        "customer-service-info": {
+          "title": "CustomerServiceInfo"
+        },
+        "contact-info": {
+          "title": "ContactInfo"
+        }
+      },
+      "title": "CompanyDetail"
+    },
+    "form": {
+      "name": "CompanyName",
+      "invoice": "Invoice",
+      "leader": "Leader",
+      "established": "Established",
+      "customer-service-hours": "Customer Service Hours",
+      "customer-service-hotline": "Customer Service Hotline"
+    },
+    "dialog": {
+      "delete": {
+        "message": "Confirm Delet Company?"
+      }
+    }
+  },
+  "operate-log": {
+    "title": "OperateLog",
+    "form": {
+      "description": "Description"
+    }
+  },
+  "browser-history-report": {
+    "title": "BrowserHistoryReport"
+  },
+  "language-setting": {
+    "form": {
+      "name": "LanguageName"
+    },
+    "detail": {
+      "card": {
+        "language-setting": {
+          "title": "LanguageSetting"
+        }
+      },
+      "title": "LanguageSettingDetail"
+    },
+    "title": "LanguageSetting"
+  },
+  "profile": {
+    "card": {
+      "account-info": {
+        "title": "AccountInfo"
+      },
+      "change-password": {
+        "title": "ChangePassword"
+      }
+    }
+  },
+  "barcode": {
+    "detail": {
+      "title": "BarcodeDetail"
+    }
+  },
+  "data-access-role": {
+    "detail": {
+      "title": "DataAccessRoleDetail",
+      "card": {
+        "data-access-role-info": {
+          "title": "DataAccessRoleInfo"
+        }
+      }
+    },
+    "dialog": {
+      "delete": {
+        "message": "Confirm Delet Data Access Role?"
+      }
+    },
+    "form": {
+      "name": "DataAccessRoleName"
+    },
+    "title": "DataAccessRole"
+  },
+  "language-data": {
+    "title": "LanguageData",
+    "detail": {
+      "title": "LanguageDataDetail",
+      "card": {
+        "language-data-info": {
+          "title": "LanguageDataInfo"
+        },
+        "field-width-setting": {
+          "title": "FieldWidthSetting"
+        },
+        "field-setting": {
+          "title": "FieldSetting"
+        }
+      }
+    }
+  }
+}

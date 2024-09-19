@@ -2,19 +2,18 @@ import { createI18n } from 'vue-i18n'
 import VxeUI from 'vxe-pc-ui'
 import Cookies from 'js-cookie'
 import messages from '@intlify/unplugin-vue-i18n/messages'
-import quasarEnLocale from 'quasar/lang/en-US'
-import quasarZhTwLocale from 'quasar/lang/zh-TW'
 
 // locale value 要 kebab case
 export const locales = {
-  en: 'en',
-  tw: 'zh-TW',
+  'en': 'en',
+  'zh-TW': 'zh-TW',
+  'zh-CN': 'zh-CN',
+  'vi': 'vi',
+  'th': 'th',
+  'id': 'id',
 }
 
-messages.en = { ...messages.en, ...quasarEnLocale }
-messages['zh-TW'] = { ...messages['zh-TW'], ...quasarZhTwLocale }
-
-export function getLanguage () {
+export function getLanguage() {
   const chooseLanguage = Cookies.get('language')
   if (chooseLanguage) {
     VxeUI.setLanguage(chooseLanguage)
@@ -27,7 +26,7 @@ export function getLanguage () {
 export const i18n = createI18n({
   allowComposition: true,
   locale: getLanguage(),
-  fallbackLocale: locales.tw,
+  fallbackLocale: locales['zh-TW'],
   messages,
   silentTranslationWarn: true,
   silentFallbackWarn: true,
@@ -37,3 +36,30 @@ export default function (app) {
   app.use(i18n)
   app.config.globalProperties.$isLocale = (locale) => locale === i18n.global.locale
 }
+
+async function loadLocales(messages) {
+  const quasarLocales = import.meta.glob('/node_modules/quasar/lang/*.js');
+  const importQuasarLocale = async (localeCode) => {
+    const localeMapping = {
+      'en': 'en-US',
+      'zh-TW': 'zh-TW',
+      'zh-CN': 'zh-CN',
+      'vi': 'vi',
+      'th': 'th',
+      'id': 'id'
+    };
+    if (localeMapping[localeCode]) {
+      const localeModule = await quasarLocales[`/node_modules/quasar/lang/${localeMapping[localeCode]}.js`]()
+      return localeModule.default;
+    }
+  }
+  const localePromises = Object.keys(locales).map(async localeCode => {
+    const quasarLocale = await importQuasarLocale(localeCode);
+    messages[localeCode] = { ...messages[localeCode], ...quasarLocale };
+  });
+  await Promise.all(localePromises);
+}
+
+loadLocales(messages).then(() => {
+  console.log('Locales loaded:', messages);
+});
