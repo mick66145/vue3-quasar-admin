@@ -118,6 +118,12 @@
     "card": {
       "basic-info": {
         "title": "基礎資訊"
+      },
+      "image-info": {
+        "title": "圖片資訊"
+      },
+      "file-info": {
+        "title": "檔案資訊"
       }
     }
   },

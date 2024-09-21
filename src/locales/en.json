@@ -120,6 +120,12 @@
     "card": {
       "basic-info": {
         "title": "BasicInfo"
+      },
+      "image-info": {
+        "title": "ImageInfo"
+      },
+      "file-info": {
+        "title": "FileInfo"
       }
     }
   },
