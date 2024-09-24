@@ -53,6 +53,7 @@
       "sequence": "Sequence",
       "is-enable": "Enabled/UnEnabled",
       "created-at": "CreatedAt",
+      "updated-at": "UpdatedAt",
       "uniform-number": "UniformNumber",
       "fax": "Fax",
       "address": "Address",
@@ -70,6 +71,7 @@
       "sourceip": "SourceIp",
       "state": "State",
       "date-range": "DateRange",
+      "time-range": "TimeRange",
       "image": "Image",
       "company": "Company",
       "role": "Role",
@@ -91,7 +93,15 @@
       "readonly": "Readonly",
       "disable": "Disable",
       "sex": "Sex",
-      "serial-number": "SerialNumber"
+      "serial-number": "SerialNumber",
+      "publish-date": "PublishDate",
+      "closed-date": "ClosedDate",
+      "start-date": "StartDate",
+      "end-date": "EndDate",
+      "place": "Place",
+      "start-time": "StartTime",
+      "end-time": "EndTime",
+      "max-count": "MaxCount"
     },
     "validation": {
       "required": "{attribute} Is Required",
