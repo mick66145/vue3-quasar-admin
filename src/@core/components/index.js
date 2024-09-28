@@ -54,6 +54,8 @@ import InputRadioOtherOptionGroup from './form/InputRadioOtherOptionGroup.vue'
 import InputEsign from './form/InputEsign.vue'
 import InputNumberRange from './form/InputNumberRange.vue'
 import InputTimeRange from './form/InputTimeRange.vue'
+import InputPrioritySelect from './form/InputPrioritySelect.vue'
+import InputFrequencySelect from './form/InputFrequencySelect.vue'
 import BaseButton from './button/BaseButton.vue'
 import AddButton from './button/AddButton.vue'
 import DeleteButton from './button/DeleteButton.vue'
@@ -195,6 +197,8 @@ export default {
     app.component('InputEsign', InputEsign)
     app.component('InputNumberRange', InputNumberRange)
     app.component('InputTimeRange', InputTimeRange)
+    app.component('InputPrioritySelect', InputPrioritySelect)
+    app.component('InputFrequencySelect', InputFrequencySelect)
     app.component('BaseButton', BaseButton)
     app.component('AddButton', AddButton)
     app.component('DeleteButton', DeleteButton)
