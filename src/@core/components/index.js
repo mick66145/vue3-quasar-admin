@@ -89,6 +89,8 @@ import SelectedChip from './chip/SelectedChip.vue'
 import SelectedChipOption from './chip/SelectedChipOption.vue'
 import BaseImage from './image/BaseImage.vue'
 import BaseLink from './link/BaseLink.vue'
+import FileLink from './link/FileLink.vue'
+import ImageLink from './link/ImageLink.vue'
 import BaseButtonGroup from './button-group/BaseButtonGroup.vue'
 import BaseTabs from './tabs/BaseTabs.vue'
 import LanguageTabs from './tabs/LanguageTabs.vue'
@@ -228,6 +230,8 @@ export default {
     app.component('SelectedChipOption', SelectedChipOption)
     app.component('BaseImage', BaseImage)
     app.component('BaseLink', BaseLink)
+    app.component('FileLink', FileLink)
+    app.component('ImageLink', ImageLink)
     app.component('BaseButtonGroup', BaseButtonGroup)
     app.component('BaseTabs', BaseTabs)
     app.component('LanguageTabs', LanguageTabs)
