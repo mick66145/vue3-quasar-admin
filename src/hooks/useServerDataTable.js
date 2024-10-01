@@ -45,6 +45,10 @@ export default function useServerDataTable ({
     setCallback()
   }
 
+  const onRefresh = () => {
+    setCallback()
+  }
+
   const setCallback = async () => {
     if (callback && callback instanceof Function) {
       const callObj = await callback()
@@ -94,5 +98,6 @@ export default function useServerDataTable ({
     onChangePageSize,
     onChangeFilter,
     onReset,
+    onRefresh,
   }
 }
