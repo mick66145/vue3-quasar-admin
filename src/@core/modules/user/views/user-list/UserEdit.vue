@@ -3,8 +3,8 @@
 </template>
 
 <script>
+import UserDetail from './components/user-detail/UserDetail.vue'
 import { defineComponent } from 'vue-demi'
-import UserDetail from './components/UserDetail.vue'
 
 export default defineComponent({
   components: {
