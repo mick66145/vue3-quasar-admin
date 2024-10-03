@@ -3,8 +3,8 @@
 </template>
 
 <script>
+import DataAccessRoleDetail from './components/data-access-role-detail/DataAccessRoleDetail.vue'
 import { defineComponent } from 'vue-demi'
-import DataAccessRoleDetail from './components/DataAccessRoleDetail.vue'
 
 export default defineComponent({
   components: {
