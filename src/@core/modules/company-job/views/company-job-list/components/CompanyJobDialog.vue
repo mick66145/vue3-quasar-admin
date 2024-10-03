@@ -4,8 +4,13 @@
       <div class="row">
         <div class="col-12">
           <base-form-item :label="`${$t('company-job.form.name')} *`">
-            <input-text v-model="data.state.name" class="full-width" :label="`${$t('company-job.form.name')}`"
-              :placeholder="$t('g.common.input', { field: $t('company-job.form.name') })" required />
+            <input-text
+              v-model="data.state.name"
+              class="full-width"
+              :label="`${$t('company-job.form.name')}`"
+              :placeholder="$t('g.common.input', { field: $t('company-job.form.name') })"
+              required
+            />
           </base-form-item>
         </div>
       </div>
@@ -23,7 +28,7 @@ const companyJobResource = CompanyJobResource({})
 
 export default defineComponent({
   emits: ['confirm'],
-  setup(props, { emit }) {
+  setup (props, { emit }) {
     // methods
     const readFetch = (id, query) => companyJobResource.get({ id, query })
     const createFetch = (payload) => companyJobResource.post({ payload })

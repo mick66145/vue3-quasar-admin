@@ -82,13 +82,13 @@ export default defineComponent({
     const tableFields = reactive([
       { title: 'company-job.form.name', field: 'name', min_width: '130' },
     ])
-    
+
     // methods
-    const fetchData = (query) => companyJobResource.list({query})
-    const delFetch = (id) => companyJobResource.destroy({id})
+    const fetchData = (query) => companyJobResource.list({ query })
+    const delFetch = (id) => companyJobResource.destroy({ id })
     const refreshFetch = () => getDataList({ ...search })
     const onDelete = async (row) => {
-      const res = await messageDelete({ message: i18n.global.t('company-job.dialog.delete.message')})
+      const res = await messageDelete({ message: i18n.global.t('company-job.dialog.delete.message') })
       if (!res) return
       const [delRes] = await callDeleteFetch(row.id)
       if (delRes) {
@@ -99,8 +99,8 @@ export default defineComponent({
     const showDialog = ({ id, mode, callRead }) => {
       dialog.value.showDialog({ id, mode, callRead })
     }
-    
-    const { dataTable, search, data, total, onChangePage, onChangeFilter, onChangeSort, onReset,onRefresh } = useVxeServerDataTable({
+
+    const { dataTable, search, data, total, onChangePage, onChangeFilter, onChangeSort, onReset, onRefresh } = useVxeServerDataTable({
       searchParames: filter,
       sortParames: [{
         field: 'id',
@@ -129,7 +129,7 @@ export default defineComponent({
       onReset,
       onRefresh,
       onDelete,
-      showDialog
+      showDialog,
     }
   },
 })

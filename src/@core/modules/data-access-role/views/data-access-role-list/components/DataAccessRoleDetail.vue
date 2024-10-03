@@ -3,12 +3,12 @@
     <page-header showPrev showCancel showConfirm @confirm="onSubmit">
       {{ $t('data-access-role.detail.title') }}
     </page-header>
-    <base-tabs class="q-mb-md" v-model="currentBlock">
-      <q-tab name="dataAccessRoleInfo" :label="`${$t('data-access-role.detail.card.data-access-role-info.title')}`"/>
+    <base-tabs v-model="currentBlock" class="q-mb-md">
+      <q-tab name="dataAccessRoleInfo" :label="`${$t('data-access-role.detail.card.data-access-role-info.title')}`" />
     </base-tabs>
     <base-form ref="form">
       <div class="row q-col-gutter-md">
-        <div class="col-12" v-show="currentBlock === 'dataAccessRoleInfo'">
+        <div v-show="currentBlock === 'dataAccessRoleInfo'" class="col-12">
           <q-card>
             <card-header>
               {{ $t('data-access-role.detail.card.data-access-role-info.title') }}
@@ -17,8 +17,14 @@
               <div class="row q-col-gutter-md">
                 <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
                   <base-form-item :label="`${$t('data-access-role.form.name')} *`">
-                    <input-text v-model="formData.name" class="full-width" name="name" :label="`${$t('data-access-role.form.name')}`"
-                      :placeholder="$t('g.common.input', { field: $t('data-access-role.form.name') })" required />
+                    <input-text
+                      v-model="formData.name"
+                      class="full-width"
+                      name="name"
+                      :label="`${$t('data-access-role.form.name')}`"
+                      :placeholder="$t('g.common.input', { field: $t('data-access-role.form.name') })"
+                      required
+                    />
                   </base-form-item>
                 </div>
               </div>
@@ -46,7 +52,7 @@ export default defineComponent({
   props: {
     mode: { type: String, requred: true },
   },
-  setup(props) {
+  setup (props) {
     // data
     const { mode } = toRefs(props)
     const route = useRoute()
@@ -82,10 +88,10 @@ export default defineComponent({
 
     // use
     const { form, validationError, getErrorTab } = useForm({
-      errorTabs: { dataAccessRoleInfo: ['name']},
-      handleError : (validationRef) => {
+      errorTabs: { dataAccessRoleInfo: ['name'] },
+      handleError: (validationRef) => {
         currentBlock.value = getErrorTab(validationRef)
-      }
+      },
     })
     const { goBack } = useGoBack()
     const { callReadFetch, callCreateFetch, callUpdateFetch } = useCRUD({

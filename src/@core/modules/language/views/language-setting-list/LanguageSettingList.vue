@@ -8,16 +8,35 @@
     </page-header>
     <q-card>
       <card-body>
-        <language-setting-list-search-block v-model="search" class="q-mb-sm" @changeFilter="onChangeFilter"
-          @reset="onReset" />
-        <vxe-server-table ref="dataTable" :data="data" :total="total" :current="search.page" @sort-change="onChangeSort"
-          @update:current="onChangePage">
-          <vxe-column v-for="{ field, title, min_width } in tableFields" :key="field" :field="field"
-            :title="`${$t(title)}`" :min-width="min_width" />
+        <language-setting-list-search-block
+          v-model="search"
+          class="q-mb-sm"
+          @changeFilter="onChangeFilter"
+          @reset="onReset"
+        />
+        <vxe-server-table
+          ref="dataTable"
+          :data="data"
+          :total="total"
+          :current="search.page"
+          @sort-change="onChangeSort"
+          @update:current="onChangePage"
+        >
+          <vxe-column
+            v-for="{ field, title, min_width } in tableFields"
+            :key="field"
+            :field="field"
+            :title="`${$t(title)}`"
+            :min-width="min_width"
+          />
           <vxe-column :title="`${$t('g.common.is-enable')}`" width="155">
             <template #default="{ row }">
-              <input-toggle v-model="row.is_enable" :label="row.is_enable ? $t('g.common.enable') : $t('g.common.un-enable')"
-              :left-label="row.is_enable" @update:modelValue="onDisplay(row)" />
+              <input-toggle
+                v-model="row.is_enable"
+                :label="row.is_enable ? $t('g.common.enable') : $t('g.common.un-enable')"
+                :left-label="row.is_enable"
+                @update:modelValue="onDisplay(row)"
+              />
             </template>
           </vxe-column>
           <vxe-column :title="`${$t('g.common.operate')}`" fixed="right" width="80">
@@ -46,7 +65,7 @@ export default defineComponent({
   components: {
     LanguageSettingListSearchBlock,
   },
-  setup() {
+  setup () {
     // data
     const filter = reactive({
       keyword: null,
@@ -69,10 +88,10 @@ export default defineComponent({
       if (res) refreshFetch()
     }
 
-    //use
+    // use
     const { dataTable, search, data, total, onChangePage, onChangeFilter, onChangeSort, onReset } = useVxeServerDataTable({
       searchParames: filter,
-      sortParames: [{ field: 'sequence', order: 'asc', }, { field: 'id', order: 'desc', }],
+      sortParames: [{ field: 'sequence', order: 'asc' }, { field: 'id', order: 'desc' }],
       sessionStorageKey: 'dashboardLanguageSettingServerDataTable',
       callback: refreshFetch,
     })

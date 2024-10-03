@@ -84,11 +84,11 @@ export default defineComponent({
     ])
 
     // methods
-    const fetchData = (query) => companyResource.list({query})
-    const delFetch = (id) => companyResource.destroy({id})
+    const fetchData = (query) => companyResource.list({ query })
+    const delFetch = (id) => companyResource.destroy({ id })
     const refreshFetch = () => getDataList({ ...search })
     const onDelete = async (row) => {
-      const res = await messageDelete({ message: i18n.global.t('company.dialog.delete.message')})
+      const res = await messageDelete({ message: i18n.global.t('company.dialog.delete.message') })
       if (!res) return
       const [delRes] = await callDeleteFetch(row.id)
       if (delRes) {
@@ -96,11 +96,11 @@ export default defineComponent({
         onRefresh()
       }
     }
-    
+
     // use
     const { dataTable, search, data, total, onChangePage, onChangeFilter, onChangeSort, onReset, onRefresh } = useVxeServerDataTable({
       searchParames: filter,
-      sortParames: [{field: 'id',order: 'desc',}],
+      sortParames: [{ field: 'id', order: 'desc' }],
       sessionStorageKey: 'dashboardCompanyServerDataTable',
       callback: refreshFetch,
     })

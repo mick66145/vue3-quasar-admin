@@ -1,26 +1,50 @@
 <template>
   <div v-if="!item.hidden && item.children && !onlyOneChild?.noShowingChildren">
     <template v-if="onlyOneChild && !item.alwaysShow">
-      <sidebar-link :key="onlyOneChild.path" :class="{ 'mx-4': !isNest }" :to="resolvePath(onlyOneChild.path)"
-        :title="$t(onlyOneChild.meta.title)" :icon="onlyOneChild.meta.icon" @click="onclick(onlyOneChild)" />
+      <sidebar-link
+        :key="onlyOneChild.path"
+        :class="{ 'mx-4': !isNest }"
+        :to="resolvePath(onlyOneChild.path)"
+        :title="$t(onlyOneChild.meta.title)"
+        :icon="onlyOneChild.meta.icon"
+        @click="onclick(onlyOneChild)"
+      />
     </template>
 
-    <q-expansion-item v-else v-model="open" :key="item.groupName" :class="! isNest ? 'mx-4' : ''" 
-      :group="item.groupName" :header-class="headerClassActive" :expand-icon-class="expandIconClassActive"
-      :header-inset-level="!isNest ? 0 : 0.05" :content-inset-level="!isNest ? 0.25 : 0.35">
+    <q-expansion-item
+      v-else
+      :key="item.groupName"
+      v-model="open"
+      :class="! isNest ? 'mx-4' : ''"
+      :group="item.groupName"
+      :header-class="headerClassActive"
+      :expand-icon-class="expandIconClassActive"
+      :header-inset-level="!isNest ? 0 : 0.05"
+      :content-inset-level="!isNest ? 0.25 : 0.35"
+    >
       <template #header>
         <q-item v-ripple="false">
           <q-item-section avatar>
             <q-icon :name="item.meta.icon" size="18px" />
           </q-item-section>
-          <q-item-section>{{$t(item.meta.title)}}</q-item-section>
+          <q-item-section>{{ $t(item.meta.title) }}</q-item-section>
         </q-item>
       </template>
       <q-list v-for="(childItem, childIndex) in visibleChildren" :key="childIndex" class="my-1">
-        <sidebar-item v-if="childItem.children && childItem.children.length > 0" :is-nest="true" :item="childItem"
-          :base-path="resolvePath(childItem.path)" />
-        <sidebar-link v-else :key="childItem.path" :to="resolvePath(childItem.path)" :title="$t(childItem.meta.title)"
-          :icon="childItem.meta.icon" @click="onclick(childItem)" />
+        <sidebar-item
+          v-if="childItem.children && childItem.children.length > 0"
+          :is-nest="true"
+          :item="childItem"
+          :base-path="resolvePath(childItem.path)"
+        />
+        <sidebar-link
+          v-else
+          :key="childItem.path"
+          :to="resolvePath(childItem.path)"
+          :title="$t(childItem.meta.title)"
+          :icon="childItem.meta.icon"
+          @click="onclick(childItem)"
+        />
       </q-list>
     </q-expansion-item>
   </div>
@@ -44,7 +68,7 @@ export default defineComponent({
     isNest: { type: Boolean, default: false },
     basePath: { type: String },
   },
-  setup(props, { emit }) {
+  setup (props, { emit }) {
     // data
     const route = useRoute()
     const { item, activeHeaderClass, activeExpandIconClassClass, basePath } = toRefs(props)

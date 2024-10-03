@@ -29,14 +29,14 @@ const userList = [
   },
 ]
 
-const keywordColumn = ['name','email','account']
+const keywordColumn = ['name', 'email', 'account']
 const userController = new Controller('api/user')
 userController.setLastId(2)
 userController.setList(userList)
 
 export default [
   userController.show(),
-  userController.index({keywordColumn}),
+  userController.index({ keywordColumn }),
   userController.store(),
   userController.update(),
   userController.delete(),

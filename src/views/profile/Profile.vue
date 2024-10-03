@@ -3,12 +3,12 @@
     <page-header showPrev showCancel>
       {{ $t('meun.profile') }}
     </page-header>
-    <base-tabs class="q-mb-md" v-model="currentCard">
-      <q-tab name="accountInfo" :label="`${$t('profile.card.account-info.title')}`"/>
-      <q-tab name="changePassword" :label="`${$t('profile.card.change-password.title')}`"/>
+    <base-tabs v-model="currentCard" class="q-mb-md">
+      <q-tab name="accountInfo" :label="`${$t('profile.card.account-info.title')}`" />
+      <q-tab name="changePassword" :label="`${$t('profile.card.change-password.title')}`" />
     </base-tabs>
     <div class="row q-col-gutter-md">
-      <div class="col-12" v-show="currentCard === 'accountInfo'">
+      <div v-show="currentCard === 'accountInfo'" class="col-12">
         <q-card>
           <card-header>
             {{ $t('profile.card.account-info.title') }}
@@ -21,26 +21,45 @@
               <div class="row q-col-gutter-md">
                 <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
                   <base-form-item :label="`${$t('g.common.account')} *`">
-                    <input-text v-model="formData.account" class="full-width" :label="`${$t('g.common.account')}`"
-                      :placeholder="$t('g.common.input', { field: $t('g.common.account') })" required readonly />
+                    <input-text
+                      v-model="formData.account"
+                      class="full-width"
+                      :label="`${$t('g.common.account')}`"
+                      :placeholder="$t('g.common.input', { field: $t('g.common.account') })"
+                      required
+                      readonly
+                    />
                   </base-form-item>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
                   <base-form-item :label="`${$t('user.form.name')} *`">
-                    <input-text v-model="formData.name" class="full-width" :label="`${$t('user.form.name')}`"
-                    :placeholder="$t('g.common.input', { field: $t('user.form.name') })" required />
+                    <input-text
+                      v-model="formData.name"
+                      class="full-width"
+                      :label="`${$t('user.form.name')}`"
+                      :placeholder="$t('g.common.input', { field: $t('user.form.name') })"
+                      required
+                    />
                   </base-form-item>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-6">
                   <base-form-item :label="`${$t('g.common.email')}`">
-                    <input-email v-model="formData.email" class="full-width" :label="`${$t('g.common.email')}`"
-                      :placeholder="$t('g.common.input', { field: $t('g.common.email') })" />
+                    <input-email
+                      v-model="formData.email"
+                      class="full-width"
+                      :label="`${$t('g.common.email')}`"
+                      :placeholder="$t('g.common.input', { field: $t('g.common.email') })"
+                    />
                   </base-form-item>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                   <base-form-item :label="`${$t('g.common.remark')}`">
-                    <input-textarea v-model="formData.remark" class="full-width" :label="`${$t('g.common.remark')}`"
-                      :placeholder="$t('g.common.input', { field: $t('g.common.remark') })" />
+                    <input-textarea
+                      v-model="formData.remark"
+                      class="full-width"
+                      :label="`${$t('g.common.remark')}`"
+                      :placeholder="$t('g.common.input', { field: $t('g.common.remark') })"
+                    />
                   </base-form-item>
                 </div>
               </div>
@@ -48,7 +67,7 @@
           </card-body>
         </q-card>
       </div>
-      <div class="col-12" v-show="currentCard === 'changePassword'">
+      <div v-show="currentCard === 'changePassword'" class="col-12">
         <q-card>
           <card-header>
             {{ $t('profile.card.change-password.title') }}
@@ -61,18 +80,29 @@
               <div class="row q-col-gutter-md">
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-2xl-4">
                   <base-form-item :label="`${$t('g.common.old-password')} *`">
-                    <input-password v-model="changePasswordformData.old_password" class="full-width"
-                      :label="$t('g.common.old-password')" autocomplete="new-password"
-                      :placeholder="$t('g.common.input', { field: $t('g.common.old-password') })" required />
+                    <input-password
+                      v-model="changePasswordformData.old_password"
+                      class="full-width"
+                      :label="$t('g.common.old-password')"
+                      autocomplete="new-password"
+                      :placeholder="$t('g.common.input', { field: $t('g.common.old-password') })"
+                      required
+                    />
                   </base-form-item>
                 </div>
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-2xl-4">
                   <base-form-item :label="`${$t('g.common.new-password')} *`">
-                    <input-password v-model="changePasswordformData.new_password" class="full-width"
-                      :label="$t('g.common.new-password')" autocomplete="new-password"
-                      :placeholder="$t('g.common.input', { field: $t('g.common.new-password') })" required :rules="[
+                    <input-password
+                      v-model="changePasswordformData.new_password"
+                      class="full-width"
+                      :label="$t('g.common.new-password')"
+                      autocomplete="new-password"
+                      :placeholder="$t('g.common.input', { field: $t('g.common.new-password') })"
+                      required
+                      :rules="[
                         $rules.regex(/^(?=.*\d)(?=.*[a-zA-Z])(?=.*\W)(?!.* ).{8,}$/i, $t('g.validation.password'))
-                      ]">
+                      ]"
+                    >
                       <template #hint>
                         {{ $t('g.validation.password') }}
                       </template>
@@ -81,11 +111,17 @@
                 </div>
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-2xl-4">
                   <base-form-item :label="`${$t('g.common.confirm-password')} *`">
-                    <input-password v-model="changePasswordformData.confirm_password" class="full-width"
-                      :label="$t('g.common.confirm-password')" autocomplete="new-password"
-                      :placeholder="$t('g.common.input', { field: $t('g.common.confirm-password') })" required :rules="[
+                    <input-password
+                      v-model="changePasswordformData.confirm_password"
+                      class="full-width"
+                      :label="$t('g.common.confirm-password')"
+                      autocomplete="new-password"
+                      :placeholder="$t('g.common.input', { field: $t('g.common.confirm-password') })"
+                      required
+                      :rules="[
                         $rules.sameAs(changePasswordformData.new_password, $t('g.validation.same-as', { field: $t('g.common.new-password') }))
-                      ]" />
+                      ]"
+                    />
                   </base-form-item>
                 </div>
               </div>
@@ -105,7 +141,7 @@ import { useUser } from '@/stores/user'
 import useCRUD from '@/hooks/useCRUD'
 import useLogout from '@/hooks/useLogout'
 export default defineComponent({
-  setup() {
+  setup () {
     // data
     const store = useUser()
     const formData = reactive({ ...store.info })

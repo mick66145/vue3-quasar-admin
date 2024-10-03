@@ -9,10 +9,10 @@ export const CompanyJobViewModel = (item) => {
   const viewModel = (item) => {
     const companyJobObj = {
       ...CompanyJobModel(item),
-      ...CompanyJob()
-    };
-    return companyJobObj;
-  };
+      ...CompanyJob(),
+    }
+    return companyJobObj
+  }
 
-  return viewModel(item);
+  return viewModel(item)
 }

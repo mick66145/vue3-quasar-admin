@@ -1,6 +1,6 @@
 
 const Mailinfo = {
-  //api欄位
+  // api欄位
   id: null,
   name: null,
   subject: null,
@@ -10,14 +10,14 @@ const Mailinfo = {
   repeatmail: null,
   cc: null,
   bcc: null,
-  content_json: "",
+  content_json: '',
   content: null,
 }
 
 export const MailinfoModel = (item = null) => {
   const model = (item) => {
     const mailinfoObj = {
-      //api欄位
+      // api欄位
       id: item?.id || null,
       name: item?.name || null,
       subject: item?.subject || null,
@@ -28,11 +28,10 @@ export const MailinfoModel = (item = null) => {
       cc: item?.cc || null,
       bcc: item?.bcc || null,
       content: item?.content || null,
-      content_json: item?.content_json ? JSON.parse(item?.content_json) : {}
-    };
-    return mailinfoObj;
-  };
+      content_json: item?.content_json ? JSON.parse(item?.content_json) : {},
+    }
+    return mailinfoObj
+  }
 
-  return model(item || Mailinfo);
+  return model(item || Mailinfo)
 }
-

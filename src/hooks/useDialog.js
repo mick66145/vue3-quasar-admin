@@ -56,7 +56,7 @@ export default function useDialog ({
       }
     }
     if (callRead) {
-      const [res] = await callReadFetch(dataId,payload)
+      const [res] = await callReadFetch(dataId, payload)
       if (res) {
         mapKeys(res, (_, key) => {
           data.state[key] = res[key] === undefined ? (data.state[key] !== undefined ? data.state[key] : '') : res[key]
@@ -128,7 +128,7 @@ export default function useDialog ({
     readFail,
     updateFail,
     deleteFail,
-    readListFail
+    readListFail,
   })
 
   return {

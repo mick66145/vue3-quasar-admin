@@ -1,10 +1,9 @@
 import request from '@core/utils/request'
 
 export const BrowserHistoryResource = ({
-  uri = 'browser_history'
+  uri = 'browser_history',
 }) => {
-
-  const trafficOverview = ({query}) => {
+  const trafficOverview = ({ query }) => {
     return request({
       url: `/${uri}/action/traffic_overview`,
       method: 'get',
@@ -16,8 +15,8 @@ export const BrowserHistoryResource = ({
       })
   }
 
-  const browserChartReport = ({query}) => {
-    return  request({
+  const browserChartReport = ({ query }) => {
+    return request({
       url: `/${uri}/action/browser_chart_report`,
       method: 'get',
       params: query,
@@ -28,8 +27,8 @@ export const BrowserHistoryResource = ({
       })
   }
 
-  const deviceTypeChartReport = ({query}) => {
-    return  request({
+  const deviceTypeChartReport = ({ query }) => {
+    return request({
       url: `/${uri}/action/device_type_chart_report`,
       method: 'get',
       params: query,
@@ -40,8 +39,8 @@ export const BrowserHistoryResource = ({
       })
   }
 
-  const trafficChartReport = ({query}) => {
-    return  request({
+  const trafficChartReport = ({ query }) => {
+    return request({
       url: `/${uri}/action/traffic_chart_report`,
       method: 'get',
       params: query,
@@ -59,6 +58,3 @@ export const BrowserHistoryResource = ({
     trafficChartReport,
   }
 }
-
-
-

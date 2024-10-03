@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { defineComponent, ref, computed, onMounted, toRefs} from 'vue-demi'
+import { defineComponent, ref, computed, onMounted, toRefs } from 'vue-demi'
 import { useVModel } from '@vueuse/core'
 import { DataAccessRoleResource } from '@core/modules/data-access-role/api'
 import { i18n } from '@/plugins/i18n'
@@ -30,14 +30,14 @@ export default defineComponent({
     const observeValue = useVModel(props, 'modelValue', emit)
     const dataAccessRoleList = ref([])
 
-    //computed
+    // computed
     const observeLabel = computed(() => {
       return label.value ? label.value : i18n.global.t('g.common.data-access-role')
     })
     const observePlaceholder = computed(() => {
       return placeholder.value ? placeholder.value : i18n.global.t('g.common.select', { field: i18n.global.t('g.common.data-access-role') })
     })
-    
+
     // mounted
     onMounted(() => {
       if (useFirstCall.value) callReadListFetch()
@@ -45,7 +45,7 @@ export default defineComponent({
 
     // methods
     const fetchData = (query) => {
-      return dataAccessRoleResource.list({query}).then((res) => {
+      return dataAccessRoleResource.list({ query }).then((res) => {
         dataAccessRoleList.value = []
         dataAccessRoleList.value = res.list
       })

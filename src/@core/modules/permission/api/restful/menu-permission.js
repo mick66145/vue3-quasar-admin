@@ -1,10 +1,10 @@
 import useResource from '@/hooks/useResource'
 import { MenuPermission } from '@core/modules/permission/models'
 
-export const MenuPermissionResource = ({ 
-  uri = 'menu_permission'
+export const MenuPermissionResource = ({
+  uri = 'menu_permission',
 }) => {
-  const { list , get , post , patch , put , destroy , selectAll } = useResource({uri , listModel:MenuPermission, getModel:MenuPermission})
+  const { list, get, post, patch, put, destroy, selectAll } = useResource({ uri, listModel: MenuPermission, getModel: MenuPermission })
 
   return {
     list,
@@ -13,9 +13,6 @@ export const MenuPermissionResource = ({
     patch,
     put,
     destroy,
-    selectAll
+    selectAll,
   }
 }
-
-
-

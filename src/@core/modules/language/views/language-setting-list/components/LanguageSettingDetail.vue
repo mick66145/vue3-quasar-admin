@@ -3,8 +3,8 @@
     <page-header showPrev showCancel showConfirm @confirm="onSubmit">
       {{ $t('language-setting.detail.title') }}
     </page-header>
-    <base-tabs class="q-mb-md" v-model="currentCard">
-      <q-tab name="accountInfo" :label="`${$t('language-setting.detail.card.language-setting.title')}`"/>
+    <base-tabs v-model="currentCard" class="q-mb-md">
+      <q-tab name="accountInfo" :label="`${$t('language-setting.detail.card.language-setting.title')}`" />
     </base-tabs>
     <q-card>
       <card-header>
@@ -15,20 +15,34 @@
           <div class="row q-col-gutter-md">
             <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
               <base-form-item :label="`${$t('language-setting.form.name')} *`">
-                <input-text v-model="formData.name" class="full-width" :label="`${$t('language-setting.form.name')}`"
-                  :placeholder="$t('g.common.input', { field: $t('language-setting.form.name') })" required />
+                <input-text
+                  v-model="formData.name"
+                  class="full-width"
+                  :label="`${$t('language-setting.form.name')}`"
+                  :placeholder="$t('g.common.input', { field: $t('language-setting.form.name') })"
+                  required
+                />
               </base-form-item>
             </div>
             <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
               <base-form-item :label="`${$t('g.common.locale')} *`">
-                <input-text v-model="formData.locale" class="full-width" :label="`${$t('g.common.locale')}`"
-                :placeholder="$t('g.common.input', { field: $t('g.common.locale') })" required />
+                <input-text
+                  v-model="formData.locale"
+                  class="full-width"
+                  :label="`${$t('g.common.locale')}`"
+                  :placeholder="$t('g.common.input', { field: $t('g.common.locale') })"
+                  required
+                />
               </base-form-item>
             </div>
             <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
               <base-form-item :label="`${$t('g.common.sequence')}`">
-                <input-number v-model="formData.sequence" class="full-width" :label="`${$t('g.common.sequence')}`"
-                  :placeholder="$t('g.common.input', { field: $t('g.common.sequence') })" />
+                <input-number
+                  v-model="formData.sequence"
+                  class="full-width"
+                  :label="`${$t('g.common.sequence')}`"
+                  :placeholder="$t('g.common.input', { field: $t('g.common.sequence') })"
+                />
               </base-form-item>
             </div>
           </div>
@@ -53,7 +67,7 @@ export default defineComponent({
   props: {
     mode: { type: String, requred: true },
   },
-  setup(props) {
+  setup (props) {
     // data
     const { mode } = toRefs(props)
     const currentCard = ref('accountInfo')

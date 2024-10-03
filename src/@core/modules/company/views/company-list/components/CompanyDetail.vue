@@ -3,14 +3,14 @@
     <page-header showPrev showCancel showConfirm @confirm="onSubmit">
       {{ $t('company.detail.title') }}
     </page-header>
-    <base-tabs class="q-mb-md" v-model="currentBlock">
+    <base-tabs v-model="currentBlock" class="q-mb-md">
       <q-tab name="companyInfo" :label="`${$t('company.detail.card.company-info.title')}`" />
       <q-tab name="customerServiceInfo" :label="`${$t('company.detail.card.customer-service-info.title')}`" />
       <q-tab name="contactInfo" :label="`${$t('company.detail.card.contact-info.title')}`" />
     </base-tabs>
     <base-form ref="form" @validationError="validationError">
       <div class="row q-col-gutter-md">
-        <div class="col-12" v-show="currentBlock === 'companyInfo'">
+        <div v-show="currentBlock === 'companyInfo'" class="col-12">
           <q-card class="h-full">
             <card-header>
               {{ $t('company.detail.card.company-info.title') }}
@@ -19,43 +19,62 @@
               <div class="row q-col-gutter-md">
                 <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
                   <base-form-item :label="`${$t('company.form.name')} *`">
-                    <input-text v-model="formData.name" required class="full-width" name="name"
+                    <input-text
+                      v-model="formData.name"
+                      required
+                      class="full-width"
+                      name="name"
                       :label="`${$t('company.form.name')}`"
-                      :placeholder="$t('g.common.input', { field: $t('company.form.name') })" />
+                      :placeholder="$t('g.common.input', { field: $t('company.form.name') })"
+                    />
                   </base-form-item>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
                   <base-form-item :label="`${$t('company.form.invoice')}`">
-                    <input-text v-model="formData.invoice" class="full-width" :label="`${$t('company.form.invoice')}`"
-                      :placeholder="$t('g.common.input', { field: $t('company.form.invoice') })" />
+                    <input-text
+                      v-model="formData.invoice"
+                      class="full-width"
+                      :label="`${$t('company.form.invoice')}`"
+                      :placeholder="$t('g.common.input', { field: $t('company.form.invoice') })"
+                    />
                   </base-form-item>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
                   <base-form-item :label="`${$t('g.common.uniform-number')}`">
-                    <input-tw-uniform-number v-model="formData.vatnumber" class="full-width"
+                    <input-tw-uniform-number
+                      v-model="formData.vatnumber"
+                      class="full-width"
                       :label="`${$t('g.common.uniform-number')}`"
-                      :placeholder="$t('g.common.input', { field: $t('g.common.uniform-number') })" />
+                      :placeholder="$t('g.common.input', { field: $t('g.common.uniform-number') })"
+                    />
                   </base-form-item>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
                   <base-form-item :label="`${$t('company.form.leader')}`">
-                    <input-text v-model="formData.ceo" class="full-width" :label="`${$t('company.form.leader')}`"
-                      :placeholder="$t('g.common.input', { field: $t('company.form.leader') })" />
+                    <input-text
+                      v-model="formData.ceo"
+                      class="full-width"
+                      :label="`${$t('company.form.leader')}`"
+                      :placeholder="$t('g.common.input', { field: $t('company.form.leader') })"
+                    />
                   </base-form-item>
                 </div>
 
                 <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
                   <base-form-item :label="`${$t('company.form.established')}`">
-                    <input-date v-model="formData.opendate" class="full-width"
+                    <input-date
+                      v-model="formData.opendate"
+                      class="full-width"
                       :label="`${$t('company.form.established')}`"
-                      :placeholder="$t('g.common.select', { field: $t('company.form.established') })" />
+                      :placeholder="$t('g.common.select', { field: $t('company.form.established') })"
+                    />
                   </base-form-item>
                 </div>
               </div>
             </card-body>
           </q-card>
         </div>
-        <div class="col-12" v-show="currentBlock === 'customerServiceInfo'">
+        <div v-show="currentBlock === 'customerServiceInfo'" class="col-12">
           <q-card class="h-full">
             <card-header>
               {{ $t('company.detail.card.customer-service-info.title') }}
@@ -64,23 +83,29 @@
               <div class="row q-col-gutter-md">
                 <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
                   <base-form-item :label="`${$t('company.form.customer-service-hotline')}`">
-                    <input-tel v-model="formData.tel_service" class="full-width"
+                    <input-tel
+                      v-model="formData.tel_service"
+                      class="full-width"
                       :label="`${$t('company.form.customer-service-hotline')}`"
-                      :placeholder="$t('g.common.input', { field: $t('company.form.customer-service-hotline') })" />
+                      :placeholder="$t('g.common.input', { field: $t('company.form.customer-service-hotline') })"
+                    />
                   </base-form-item>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
                   <base-form-item :label="`${$t('company.form.customer-service-hours')}`">
-                    <input-text v-model="formData.service_time" class="full-width"
+                    <input-text
+                      v-model="formData.service_time"
+                      class="full-width"
                       :label="`${$t('company.form.customer-service-hours')}`"
-                      :placeholder="$t('g.common.input', { field: $t('company.form.customer-service-hours') })" />
+                      :placeholder="$t('g.common.input', { field: $t('company.form.customer-service-hours') })"
+                    />
                   </base-form-item>
                 </div>
               </div>
             </card-body>
           </q-card>
         </div>
-        <div class="col-12" v-show="currentBlock === 'contactInfo'">
+        <div v-show="currentBlock === 'contactInfo'" class="col-12">
           <q-card>
             <card-header>
               {{ $t('company.detail.card.contact-info.title') }}
@@ -89,34 +114,52 @@
               <div class="row q-col-gutter-md">
                 <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
                   <base-form-item :label="`${$t('g.common.tel')}`">
-                    <input-tel v-model="formData.tel" class="full-width" :label="`${$t('g.common.tel')}`"
-                      :placeholder="$t('g.common.input', { field: $t('g.common.tel') })" />
+                    <input-tel
+                      v-model="formData.tel"
+                      class="full-width"
+                      :label="`${$t('g.common.tel')}`"
+                      :placeholder="$t('g.common.input', { field: $t('g.common.tel') })"
+                    />
                   </base-form-item>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-
                   <base-form-item :label="`${$t('g.common.extension-number')}`">
-                    <input-text v-model="formData.tel_ext" class="full-width"
+                    <input-text
+                      v-model="formData.tel_ext"
+                      class="full-width"
                       :label="`${$t('g.common.extension-number')}`"
-                      :placeholder="$t('g.common.input', { field: $t('g.common.extension-number') })" />
+                      :placeholder="$t('g.common.input', { field: $t('g.common.extension-number') })"
+                    />
                   </base-form-item>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
                   <base-form-item :label="`${$t('g.common.fax')}`">
-                    <input-text v-model="formData.fax" class="full-width" :label="`${$t('g.common.fax')}`"
-                      :placeholder="$t('g.common.input', { field: $t('g.common.fax') })" />
+                    <input-text
+                      v-model="formData.fax"
+                      class="full-width"
+                      :label="`${$t('g.common.fax')}`"
+                      :placeholder="$t('g.common.input', { field: $t('g.common.fax') })"
+                    />
                   </base-form-item>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
                   <base-form-item :label="`${$t('g.common.phone')}`">
-                    <input-text v-model="formData.phone" class="full-width" :label="`${$t('g.common.phone')}`"
-                      :placeholder="$t('g.common.input', { field: $t('g.common.phone') })" />
+                    <input-text
+                      v-model="formData.phone"
+                      class="full-width"
+                      :label="`${$t('g.common.phone')}`"
+                      :placeholder="$t('g.common.input', { field: $t('g.common.phone') })"
+                    />
                   </base-form-item>
                 </div>
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                   <base-form-item :label="`${$t('g.common.email')}`">
-                    <input-email v-model="formData.email" class="full-width" :label="`${$t('g.common.email')}`"
-                      :placeholder="$t('g.common.input', { field: $t('g.common.email') })" />
+                    <input-email
+                      v-model="formData.email"
+                      class="full-width"
+                      :label="`${$t('g.common.email')}`"
+                      :placeholder="$t('g.common.input', { field: $t('g.common.email') })"
+                    />
                   </base-form-item>
                 </div>
                 <div class="col-12">
@@ -149,7 +192,7 @@ export default defineComponent({
   props: {
     mode: { type: String, requred: true },
   },
-  setup(props) {
+  setup (props) {
     // data
     const { mode } = toRefs(props)
     const currentBlock = ref('companyInfo')
@@ -187,10 +230,10 @@ export default defineComponent({
 
     // use
     const { validationError, getErrorTab } = useForm({
-      errorTabs: {companyInfo: ['name']},
-      handleError : (validationRef) => {
+      errorTabs: { companyInfo: ['name'] },
+      handleError: (validationRef) => {
         currentBlock.value = getErrorTab(validationRef)
-      }
+      },
     })
     const { goBack } = useGoBack({ fallBack })
     const { form, callReadFetch, callCreateFetch, callUpdateFetch } = useCRUD({

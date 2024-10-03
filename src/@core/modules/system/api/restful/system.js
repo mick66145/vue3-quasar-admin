@@ -2,9 +2,8 @@ import { OperateLogViewModel } from '@core/modules/system/models'
 import request from '@core/utils/request'
 
 export const SystemResource = ({
-  uri = 'system'
+  uri = 'system',
 }) => {
-
   const recordLoglist = (query) => {
     return request({
       url: `/${uri}/record_log`,
@@ -42,8 +41,6 @@ export const SystemResource = ({
 
   return {
     recordLoglist,
-    viewCount
+    viewCount,
   }
 }
-
-

@@ -60,12 +60,12 @@ export default defineComponent({
     ])
 
     // methods
-    const fetchData = (query) => systemResource.recordLoglist({query})
+    const fetchData = (query) => systemResource.recordLoglist({ query })
     const refreshFetch = () => getDataList({ ...search })
 
     const { dataTable, search, data, total, onChangePage, onChangeFilter, onChangeSort, onReset } = useVxeServerDataTable({
       searchParames: filter,
-      sortParames: [{ field: 'id', order: 'desc',}],
+      sortParames: [{ field: 'id', order: 'desc' }],
       sessionStorageKey: 'dashboardOperateLogServerDataTable',
       callback: refreshFetch,
     })

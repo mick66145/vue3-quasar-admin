@@ -1,6 +1,6 @@
 
 /* Router Modules */
-import { mailinfoRouter} from '@core/modules/mailinfo/router'
+import { mailinfoRouter } from '@core/modules/mailinfo/router'
 
 const systemInfoManageRouter = {
   path: '/',

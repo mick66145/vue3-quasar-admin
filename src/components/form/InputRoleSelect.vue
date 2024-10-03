@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { defineComponent, ref, computed, onMounted, toRefs} from 'vue-demi'
+import { defineComponent, ref, computed, onMounted, toRefs } from 'vue-demi'
 import { useVModel } from '@vueuse/core'
 import { RoleResource } from '@core/modules/role/api'
 import { i18n } from '@/plugins/i18n'
@@ -30,14 +30,14 @@ export default defineComponent({
     const observeValue = useVModel(props, 'modelValue', emit)
     const roleList = ref([])
 
-    //computed
+    // computed
     const observeLabel = computed(() => {
       return label.value ? label.value : i18n.global.t('g.common.role')
     })
     const observePlaceholder = computed(() => {
       return placeholder.value ? placeholder.value : i18n.global.t('g.common.select', { field: i18n.global.t('g.common.role') })
     })
-    
+
     // mounted
     onMounted(() => {
       if (useFirstCall.value) callReadListFetch()
@@ -45,7 +45,7 @@ export default defineComponent({
 
     // methods
     const fetchData = (query) => {
-      return roleResource.list({query}).then((res) => {
+      return roleResource.list({ query }).then((res) => {
         roleList.value = []
         roleList.value = res.list
       })

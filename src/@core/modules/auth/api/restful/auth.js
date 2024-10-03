@@ -1,9 +1,8 @@
 import request from '@core/utils/request'
 
-export const AuthResource = ({ 
-  uri = 'auth'
+export const AuthResource = ({
+  uri = 'auth',
 }) => {
-
   const login = (params) => {
     return request({
       url: `/${uri}/login`,

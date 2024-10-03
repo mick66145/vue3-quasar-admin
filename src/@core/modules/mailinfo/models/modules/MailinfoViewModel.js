@@ -9,10 +9,10 @@ export const MailinfoViewModel = (item) => {
   const viewModel = (item) => {
     const mailinfoObj = {
       ...MailinfoModel(item),
-      ...Mailinfo()
-    };
-    return mailinfoObj;
-  };
+      ...Mailinfo(),
+    }
+    return mailinfoObj
+  }
 
-  return viewModel(item);
+  return viewModel(item)
 }

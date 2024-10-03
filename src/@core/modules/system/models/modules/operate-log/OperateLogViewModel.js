@@ -9,10 +9,10 @@ export const OperateLogViewModel = (item) => {
   const viewModel = (item) => {
     const operateLogObj = {
       ...OperateLogModel(item),
-      ...OperateLog()
-    };
-    return operateLogObj;
-  };
+      ...OperateLog(),
+    }
+    return operateLogObj
+  }
 
-  return viewModel(item);
+  return viewModel(item)
 }

@@ -16,14 +16,14 @@ const Company = {
   address: null,
   address_en: null,
   service_time: null,
-  city: "",
-  area: "",
+  city: '',
+  area: '',
 }
 
 export const CompanyModel = (item = null) => {
   const model = (item) => {
     const companyObj = {
-      //api欄位
+      // api欄位
       id: item?.id || null,
       name: item?.name || null,
       name_en: item?.name_en || null,
@@ -40,12 +40,11 @@ export const CompanyModel = (item = null) => {
       address: item?.address || null,
       address_en: item?.address_en || null,
       service_time: item?.service_time || null,
-      city: item?.city || "",
-      area: item?.area || "",
-    };
-    return companyObj;
-  };
+      city: item?.city || '',
+      area: item?.area || '',
+    }
+    return companyObj
+  }
 
-  return model(item || Company);
+  return model(item || Company)
 }
-

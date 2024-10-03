@@ -9,10 +9,10 @@ export const LanguageDataViewModel = (item) => {
   const viewModel = (item) => {
     const languageDataObj = {
       ...LanguageDataModel(item),
-      ...LanguageData()
-    };
-    return languageDataObj;
-  };
+      ...LanguageData(),
+    }
+    return languageDataObj
+  }
 
-  return viewModel(item);
+  return viewModel(item)
 }

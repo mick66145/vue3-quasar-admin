@@ -5,12 +5,27 @@
     </page-header>
     <q-card>
       <card-body>
-        <language-data-list-search-block v-model="search" class="q-mb-sm" @changeFilter="onChangeFilter"
-          @reset="onReset" />
-        <vxe-server-table ref="dataTable" :data="data" :total="total" :current="search.page" @sort-change="onChangeSort"
-          @update:current="onChangePage">
-          <vxe-column v-for="{ field, title, min_width } in tableFields" :key="field" :field="field"
-            :title="`${$t(title)}`" :min-width="min_width" />
+        <language-data-list-search-block
+          v-model="search"
+          class="q-mb-sm"
+          @changeFilter="onChangeFilter"
+          @reset="onReset"
+        />
+        <vxe-server-table
+          ref="dataTable"
+          :data="data"
+          :total="total"
+          :current="search.page"
+          @sort-change="onChangeSort"
+          @update:current="onChangePage"
+        >
+          <vxe-column
+            v-for="{ field, title, min_width } in tableFields"
+            :key="field"
+            :field="field"
+            :title="`${$t(title)}`"
+            :min-width="min_width"
+          />
           <vxe-column :title="`${$t('g.common.operate')}`" fixed="right" width="80">
             <template #default="{ row }">
               <div class="row">
@@ -37,7 +52,7 @@ export default defineComponent({
   components: {
     LanguageDataListSearchBlock,
   },
-  setup() {
+  setup () {
     // data
     const filter = reactive({
       keyword: null,
@@ -63,10 +78,10 @@ export default defineComponent({
       if (res) refreshFetch()
     }
 
-    //use
+    // use
     const { dataTable, search, data, total, onChangePage, onChangeFilter, onChangeSort, onReset } = useVxeServerDataTable({
       searchParames: filter,
-      sortParames: [{ field: 'sequence', order: 'asc', }, { field: 'id', order: 'desc', }],
+      sortParames: [{ field: 'sequence', order: 'asc' }, { field: 'id', order: 'desc' }],
       sessionStorageKey: 'dashboardLanguageDataServerDataTable',
       callback: refreshFetch,
     })

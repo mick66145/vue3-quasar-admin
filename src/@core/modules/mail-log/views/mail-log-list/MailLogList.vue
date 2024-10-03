@@ -80,7 +80,7 @@ export default defineComponent({
     ])
 
     // methods
-    const fetchData = (query) => mailLogResource.list({query})
+    const fetchData = (query) => mailLogResource.list({ query })
     const refreshFetch = () => {
       const filter = { ...search }
       filter.start_date = filter.date_range?.from ? filter.date_range.from : null
@@ -93,7 +93,7 @@ export default defineComponent({
 
     const { dataTable, search, data, total, onChangePage, onChangeFilter, onChangeSort, onReset } = useVxeServerDataTable({
       searchParames: filter,
-      sortParames: [{field: 'id',order: 'desc',}],
+      sortParames: [{ field: 'id', order: 'desc' }],
       sessionStorageKey: 'dashboardMailLogServerDataTable',
       callback: refreshFetch,
     })

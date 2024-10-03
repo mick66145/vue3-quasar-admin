@@ -1,7 +1,7 @@
 import { useQuasar } from 'quasar'
 import { ref, computed, onMounted } from 'vue-demi'
 
-export default function useScreen() {
+export default function useScreen () {
   // data
   const $q = useQuasar()
   const screenHeight = ref($q.screen.height)
@@ -23,7 +23,7 @@ export default function useScreen() {
   const isScreenLarger2xl = computed(() => {
     return $q.screen.gt['2xl']
   })
-  const deviceType = computed(() => $q.screen.lt.sm ? 'mobile' : ($q.screen.lt.xl ? 'tablet' : 'desktop'));
+  const deviceType = computed(() => $q.screen.lt.sm ? 'mobile' : ($q.screen.lt.xl ? 'tablet' : 'desktop'))
 
   onMounted(() => {
     window.addEventListener('resize', () => { setScreenHeight(); setScreenWidth() })

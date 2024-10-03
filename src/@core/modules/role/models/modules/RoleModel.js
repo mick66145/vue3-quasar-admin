@@ -2,25 +2,24 @@
 import { convertDateTime } from '@/utils/data-convert'
 
 const Role = {
-  //api欄位
-  id : null,
-  created_at : null,
-  name : null,
-  permissions : [],
+  // api欄位
+  id: null,
+  created_at: null,
+  name: null,
+  permissions: [],
 }
 
 export const RoleModel = (item = null) => {
   const model = (item) => {
     const roleObj = {
-      //api欄位
+      // api欄位
       id: item?.id || null,
-      created_at : item?.created_at ? convertDateTime(item?.created_at) : convertDateTime(),
-      name : item?.name || null,
-      permissions : item?.permissions ? item?.permissions : []
-    };
-    return roleObj;
-  };
+      created_at: item?.created_at ? convertDateTime(item?.created_at) : convertDateTime(),
+      name: item?.name || null,
+      permissions: item?.permissions ? item?.permissions : [],
+    }
+    return roleObj
+  }
 
-  return model(item || Role);
+  return model(item || Role)
 }
-

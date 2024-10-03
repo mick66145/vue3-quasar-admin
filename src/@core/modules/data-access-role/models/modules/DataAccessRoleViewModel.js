@@ -10,9 +10,9 @@ export const DataAccessRoleViewModel = (item) => {
     const dataAccessRoleObj = {
       ...DataAccessRoleModel(item),
       ...DataAccessRole(),
-    };
-    return dataAccessRoleObj;
-  };
+    }
+    return dataAccessRoleObj
+  }
 
-  return viewModel(item);
+  return viewModel(item)
 }

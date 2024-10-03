@@ -81,8 +81,8 @@ export default defineComponent({
     ])
 
     // methods
-    const fetchData = (query) => roleResource.list({query})
-    const delFetch =  (id) => roleResource.destroy({id})
+    const fetchData = (query) => roleResource.list({ query })
+    const delFetch = (id) => roleResource.destroy({ id })
     const refreshFetch = () => getDataList({ ...search })
     const onDelete = async (row) => {
       const res = await messageDelete({ message: i18n.global.t('role.dialog.delete.message') })
@@ -93,10 +93,10 @@ export default defineComponent({
         onRefresh()
       }
     }
-    
+
     const { dataTable, search, data, total, onChangePage, onChangeFilter, onChangeSort, onReset, onRefresh } = useVxeServerDataTable({
       searchParames: filter,
-      sortParames: [{field: 'id',order: 'desc',}],
+      sortParames: [{ field: 'id', order: 'desc' }],
       sessionStorageKey: 'dashboardRoleServerDataTable',
       callback: refreshFetch,
     })

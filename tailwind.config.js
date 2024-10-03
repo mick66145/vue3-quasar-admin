@@ -1,8 +1,8 @@
-const colors = require('tailwindcss/colors');
+const colors = require('tailwindcss/colors')
 export default {
   content: [
-    "./index.html",
-    "./src/**/*.{html,js,ts,jsx,tsx,vue,svelte}",
+    './index.html',
+    './src/**/*.{html,js,ts,jsx,tsx,vue,svelte}',
   ],
   theme: {
     extend: {
@@ -37,4 +37,3 @@ export default {
   },
   plugins: [],
 }
-

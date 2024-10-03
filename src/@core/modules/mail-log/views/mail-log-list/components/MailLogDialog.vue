@@ -22,7 +22,7 @@ export default defineComponent({
   emits: ['confirm'],
   setup (props, { emit }) {
     // methods
-    const readFetch = (id, query) => mailLogResource.get({id, query})
+    const readFetch = (id, query) => mailLogResource.get({ id, query })
     const onConfirm = async () => {
       const [res] = await save()
       if (res) emit('confirm')

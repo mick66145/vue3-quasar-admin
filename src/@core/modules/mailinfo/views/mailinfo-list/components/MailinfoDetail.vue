@@ -3,13 +3,13 @@
     <page-header showPrev showCancel showConfirm @confirm="onSubmit">
       {{ $t('mailinfo.detail.title') }}
     </page-header>
-    <base-tabs class="q-mb-md" v-model="currentCard">
+    <base-tabs v-model="currentCard" class="q-mb-md">
       <q-tab name="mailInfo" :label="`${$t('mailinfo.detail.card.mail-info.title')}`" />
       <q-tab name="mailContent" :label="`${$t('mailinfo.detail.card.mail-content.title')}`" />
     </base-tabs>
     <base-form ref="form">
       <div class="row q-col-gutter-md">
-        <div class="col-12" v-show="currentCard === 'mailInfo'">
+        <div v-show="currentCard === 'mailInfo'" class="col-12">
           <q-card>
             <card-header>
               {{ $t('mailinfo.detail.card.mail-info.title') }}
@@ -18,55 +18,81 @@
               <div class="row q-col-gutter-md">
                 <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
                   <base-form-item :label="`${$t('mailinfo.form.subject')} *`">
-                    <input-text v-model="formData.subject" class="full-width" :label="`${$t('mailinfo.form.subject')}`"
-                      :placeholder="$t('g.common.input', { field: $t('mailinfo.form.subject') })" required />
+                    <input-text
+                      v-model="formData.subject"
+                      class="full-width"
+                      :label="`${$t('mailinfo.form.subject')}`"
+                      :placeholder="$t('g.common.input', { field: $t('mailinfo.form.subject') })"
+                      required
+                    />
                   </base-form-item>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
                   <base-form-item :label="`${$t('mailinfo.form.fromname')}`">
-                    <input-text v-model="formData.fromname" class="full-width"
+                    <input-text
+                      v-model="formData.fromname"
+                      class="full-width"
                       :label="`${$t('mailinfo.form.fromname')}`"
-                      :placeholder="$t('g.common.input', { field: $t('mailinfo.form.fromname') })" />
+                      :placeholder="$t('g.common.input', { field: $t('mailinfo.form.fromname') })"
+                    />
                   </base-form-item>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
                   <base-form-item :label="`${$t('mailinfo.form.repeatname')}`">
-                    <input-text v-model="formData.repeatname" class="full-width"
+                    <input-text
+                      v-model="formData.repeatname"
+                      class="full-width"
                       :label="`${$t('mailinfo.form.repeatname')}`"
-                      :placeholder="$t('g.common.input', { field: $t('mailinfo.form.repeatname') })" />
+                      :placeholder="$t('g.common.input', { field: $t('mailinfo.form.repeatname') })"
+                    />
                   </base-form-item>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
                   <base-form-item :label="`${$t('mailinfo.form.repeatmail')}`">
-                    <input-email v-model="formData.repeatmail" class="full-width"
+                    <input-email
+                      v-model="formData.repeatmail"
+                      class="full-width"
                       :label="`${$t('mailinfo.form.repeatmail')}`"
-                      :placeholder="$t('g.common.input', { field: $t('mailinfo.form.repeatmail') })" />
+                      :placeholder="$t('g.common.input', { field: $t('mailinfo.form.repeatmail') })"
+                    />
                   </base-form-item>
                 </div>
                 <div class="col-12">
                   <base-form-item :label="`${$t('mailinfo.form.tomail')} *`">
-                    <input-textarea v-model="formData.tomail" class="full-width"
+                    <input-textarea
+                      v-model="formData.tomail"
+                      class="full-width"
                       :label="`${$t('mailinfo.form.tomail')}`"
-                      :placeholder="$t('g.common.input', { field: $t('mailinfo.form.tomail') })" required />
+                      :placeholder="$t('g.common.input', { field: $t('mailinfo.form.tomail') })"
+                      required
+                    />
                   </base-form-item>
                 </div>
                 <div class="col-12">
                   <base-form-item :label="`${$t('mailinfo.form.cc')}`">
-                    <input-textarea v-model="formData.cc" class="full-width" :label="`${$t('mailinfo.form.cc')}`"
-                      :placeholder="$t('g.common.input', { field: $t('mailinfo.form.cc') })" />
+                    <input-textarea
+                      v-model="formData.cc"
+                      class="full-width"
+                      :label="`${$t('mailinfo.form.cc')}`"
+                      :placeholder="$t('g.common.input', { field: $t('mailinfo.form.cc') })"
+                    />
                   </base-form-item>
                 </div>
                 <div class="col-12">
                   <base-form-item :label="`${$t('mailinfo.form.bcc')}`">
-                    <input-textarea v-model="formData.bcc" class="full-width" :label="`${$t('mailinfo.form.bcc')}`"
-                    :placeholder="$t('g.common.input', { field: $t('mailinfo.form.bcc') })" />
+                    <input-textarea
+                      v-model="formData.bcc"
+                      class="full-width"
+                      :label="`${$t('mailinfo.form.bcc')}`"
+                      :placeholder="$t('g.common.input', { field: $t('mailinfo.form.bcc') })"
+                    />
                   </base-form-item>
                 </div>
               </div>
             </card-body>
           </q-card>
         </div>
-        <div class="col-12" v-show="currentCard === 'mailContent'">
+        <div v-show="currentCard === 'mailContent'" class="col-12">
           <q-card>
             <card-header>
               {{ $t('mailinfo.detail.card.mail-content.title') }}
@@ -103,7 +129,7 @@ export default defineComponent({
   props: {
     mode: { type: String, requred: true },
   },
-  setup(props) {
+  setup (props) {
     // data
     const { mode } = toRefs(props)
     const currentCard = ref('mailInfo')

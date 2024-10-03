@@ -1,10 +1,10 @@
 import useResource from '@/hooks/useResource'
 import { DataAccessRoleViewModel } from '@core/modules/data-access-role/models'
 
-export const DataAccessRoleResource = ({ 
-  uri = 'data_access_role'
+export const DataAccessRoleResource = ({
+  uri = 'data_access_role',
 }) => {
-  const { list , get , post , patch , put , destroy , selectAll } = useResource({uri , listModel:DataAccessRoleViewModel, getModel:DataAccessRoleViewModel})
+  const { list, get, post, patch, put, destroy, selectAll } = useResource({ uri, listModel: DataAccessRoleViewModel, getModel: DataAccessRoleViewModel })
 
   return {
     list,
@@ -13,8 +13,6 @@ export const DataAccessRoleResource = ({
     patch,
     put,
     destroy,
-    selectAll
+    selectAll,
   }
 }
-
-

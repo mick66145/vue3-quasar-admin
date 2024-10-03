@@ -1,8 +1,8 @@
 
 const Area = {
-  id : null,
-  name : null,
-  detail : "",
+  id: null,
+  name: null,
+  detail: '',
 }
 
 export const AreaModel = (item = null) => {
@@ -10,11 +10,10 @@ export const AreaModel = (item = null) => {
     const areaObj = {
       id: item?.id || null,
       name: item?.name || null,
-      detail: item?.detail || "",
-    };
-    return areaObj;
-  };
+      detail: item?.detail || '',
+    }
+    return areaObj
+  }
 
-  return model(item || Area);
+  return model(item || Area)
 }
-

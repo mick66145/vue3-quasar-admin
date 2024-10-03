@@ -92,9 +92,9 @@ export default defineComponent({
     ])
 
     // methods
-    const fetchData =  (query) => userResource.list({query})
-    const delFetch = (id) => userResource.destroy({id})
-    const resetPasswordFetch = (id)=> userResource.resetPassword({id})
+    const fetchData = (query) => userResource.list({ query })
+    const delFetch = (id) => userResource.destroy({ id })
+    const resetPasswordFetch = (id) => userResource.resetPassword({ id })
     const refreshFetch = () => callReadListFetch({ ...search })
     const onDelete = async (row) => {
       const res = await messageDelete({ message: i18n.global.t('user.dialog.delete.message') })
@@ -109,12 +109,12 @@ export default defineComponent({
       const res = await messageConfirm({ title: i18n.global.t('user.dialog.reset-password.title'), message: i18n.global.t('user.dialog.reset-password.message') })
       if (!res) return
       const [resetPasswordRes] = await callResetPasswordFetch(row.id)
-      if (resetPasswordRes) {await messageAlert({ title: i18n.global.t('user.dialog.reset-password-success.title'), message: `${i18n.global.t('user.dialog.reset-password-success.message')} ${resetPasswordRes.data.password}` })}
+      if (resetPasswordRes) { await messageAlert({ title: i18n.global.t('user.dialog.reset-password-success.title'), message: `${i18n.global.t('user.dialog.reset-password-success.message')} ${resetPasswordRes.data.password}` }) }
     }
-    
+
     const { dataTable, search, data, total, onChangePage, onChangeFilter, onChangeSort, onReset, onRefresh } = useVxeServerDataTable({
       searchParames: filter,
-      sortParames: [{field: 'created_at',order: 'desc',}],
+      sortParames: [{ field: 'created_at', order: 'desc' }],
       sessionStorageKey: 'dashboardUserServerDataTable',
       callback: refreshFetch,
     })

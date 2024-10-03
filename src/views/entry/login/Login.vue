@@ -9,19 +9,39 @@
       <card-body>
         <base-form ref="form" class="q-gutter-md">
           <base-form-item :label="$t('g.common.account')">
-            <input-text v-model="formData.account" :label="$t('g.common.account')" lazy-rules required
-              :placeholder="$t('g.common.input', {field: $t('g.common.account')})" />
+            <input-text
+              v-model="formData.account"
+              :label="$t('g.common.account')"
+              lazy-rules
+              required
+              :placeholder="$t('g.common.input', {field: $t('g.common.account')})"
+            />
           </base-form-item>
           <base-form-item :label="$t('g.common.password')">
-            <input-password v-model="formData.password" :label="$t('g.common.password')" lazy-rules
-              required @keyup.enter="handleLogin" :placeholder="$t('g.common.input', {field: $t('g.common.password')})" />
+            <input-password
+              v-model="formData.password"
+              :label="$t('g.common.password')"
+              lazy-rules
+              required
+              :placeholder="$t('g.common.input', {field: $t('g.common.password')})"
+              @keyup.enter="handleLogin"
+            />
           </base-form-item>
           <div>
             <base-button class="w-full q-mb-md" :label="$t('entry.login.btn.login')" @click.prevent="handleLogin" />
-            <base-button v-if="isShow.forgetPassword" class="text-white w-full q-mb-md" color="black"
-              :label="$t('entry.login.btn.forget-password')" @click.prevent="showDialog({ mode: 'create' })" />
-            <div v-if="isShow.register" class="text-center">還沒有帳號嗎? <span><router-link class="text-primary no-underline"
-                  to="/register">立即註冊</router-link></span></div>
+            <base-button
+              v-if="isShow.forgetPassword"
+              class="text-white w-full q-mb-md"
+              color="black"
+              :label="$t('entry.login.btn.forget-password')"
+              @click.prevent="showDialog({ mode: 'create' })"
+            />
+            <div v-if="isShow.register" class="text-center">
+              還沒有帳號嗎? <span><router-link
+                class="text-primary no-underline"
+                to="/register"
+              >立即註冊</router-link></span>
+            </div>
           </div>
         </base-form>
       </card-body>
@@ -41,7 +61,7 @@ export default defineComponent({
   components: {
     ForgetPasswordDialog,
   },
-  setup() {
+  setup () {
     // data
     const router = useRouter()
     const store = useUser()

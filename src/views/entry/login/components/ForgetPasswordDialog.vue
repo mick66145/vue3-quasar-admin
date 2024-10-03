@@ -4,14 +4,24 @@
       <div class="row">
         <div class="col-12">
           <q-item>
-            <input-text v-model="data.state.account" class="full-width" :label="`${$t('g.common.account')} *`"
-              :placeholder="$t('g.common.input', { field: $t('g.common.account') })" required />
+            <input-text
+              v-model="data.state.account"
+              class="full-width"
+              :label="`${$t('g.common.account')} *`"
+              :placeholder="$t('g.common.input', { field: $t('g.common.account') })"
+              required
+            />
           </q-item>
         </div>
         <div class="col-12">
           <q-item>
-            <input-email v-model="data.state.email" class="full-width" :label="`${$t('g.common.email')} *`"
-              :placeholder="$t('g.common.input', { field: $t('g.common.email') })" required />
+            <input-email
+              v-model="data.state.email"
+              class="full-width"
+              :label="`${$t('g.common.email')} *`"
+              :placeholder="$t('g.common.input', { field: $t('g.common.email') })"
+              required
+            />
           </q-item>
         </div>
       </div>
@@ -26,7 +36,7 @@ import useDialog from '@/hooks/useDialog'
 
 export default defineComponent({
   emits: ['confirm'],
-  setup(props, { emit }) {
+  setup (props, { emit }) {
     // data
     const store = useUser()
 

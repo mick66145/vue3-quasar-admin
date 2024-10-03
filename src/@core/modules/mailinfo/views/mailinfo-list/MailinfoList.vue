@@ -71,7 +71,7 @@ export default defineComponent({
       { title: 'mailinfo.form.repeatmail', field: 'repeatmail', min_width: '130' },
     ])
     // methods
-    const fetchData = (query) => mailinfoResource.list({query})
+    const fetchData = (query) => mailinfoResource.list({ query })
     const refreshFetch = () => getDataList({ ...search })
 
     // use

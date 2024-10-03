@@ -39,7 +39,7 @@ import { useUser } from '@/stores/user'
 import useLogout from '@/hooks/useLogout'
 
 export default defineComponent({
-  setup(props, { emit }) {
+  setup (props, { emit }) {
     // data
     const storeApp = useApp()
     const storeUser = useUser()

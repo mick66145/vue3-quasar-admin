@@ -9,7 +9,7 @@ export const useUser = defineStore({
     token: getToken(),
     info: '',
     permissionList: [],
-    authResource : AuthResource({})
+    authResource: AuthResource({}),
   }),
   actions: {
     async login (payload) {

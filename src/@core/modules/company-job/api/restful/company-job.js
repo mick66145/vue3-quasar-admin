@@ -1,10 +1,10 @@
 import useResource from '@/hooks/useResource'
 import { CompanyJobViewModel } from '@core/modules/company-job/models'
 
-export const CompanyJobResource = ({ 
-  uri = 'company_job'
+export const CompanyJobResource = ({
+  uri = 'company_job',
 }) => {
-  const { list , get , post , patch , put , destroy , selectAll } = useResource({uri , listModel:CompanyJobViewModel, getModel:CompanyJobViewModel})
+  const { list, get, post, patch, put, destroy, selectAll } = useResource({ uri, listModel: CompanyJobViewModel, getModel: CompanyJobViewModel })
 
   return {
     list,
@@ -13,6 +13,6 @@ export const CompanyJobResource = ({
     patch,
     put,
     destroy,
-    selectAll
+    selectAll,
   }
 }

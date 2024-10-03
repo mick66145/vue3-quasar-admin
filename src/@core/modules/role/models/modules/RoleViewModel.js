@@ -11,13 +11,13 @@ export const RoleViewModel = (item) => {
     const roleObj = {
       ...RoleModel(item),
       ...Role(),
-      permissions : item?.permissions ? [...item?.permissions].map(element => {
+      permissions: item?.permissions ? [...item?.permissions].map(element => {
         const permissionObj = BasePermission(element)
         return permissionObj
-      }) : []
-    };
-    return roleObj;
-  };
+      }) : [],
+    }
+    return roleObj
+  }
 
-  return viewModel(item);
+  return viewModel(item)
 }

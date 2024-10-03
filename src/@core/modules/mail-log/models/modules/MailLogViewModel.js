@@ -9,10 +9,10 @@ export const MailLogViewModel = (item) => {
   const viewModel = (item) => {
     const mailLogObj = {
       ...MailLogModel(item),
-      ...MailLog()
-    };
-    return mailLogObj;
-  };
+      ...MailLog(),
+    }
+    return mailLogObj
+  }
 
-  return viewModel(item);
+  return viewModel(item)
 }

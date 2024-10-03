@@ -1,8 +1,8 @@
 
 const CompanyJob = {
-  id : null,
-  name : null,
-  parent_job : "",
+  id: null,
+  name: null,
+  parent_job: '',
 }
 
 export const CompanyJobModel = (item = null) => {
@@ -10,11 +10,10 @@ export const CompanyJobModel = (item = null) => {
     const companyJobObj = {
       id: item?.id || null,
       name: item?.name || null,
-      parent_job: item?.parent_job || "",
-    };
-    return companyJobObj;
-  };
+      parent_job: item?.parent_job || '',
+    }
+    return companyJobObj
+  }
 
-  return model(item || CompanyJob);
+  return model(item || CompanyJob)
 }
-

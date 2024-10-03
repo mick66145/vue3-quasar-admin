@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import {setupGuards} from './guard'
+import { setupGuards } from './guard'
 
 /* Layout */
 import MainLayout from '@/layouts/MainLayout.vue'

@@ -15,7 +15,7 @@ const browserHistoryRouter = {
       path: 'browser-history-report',
       component: () => import('@core/modules/browser-history/views/browser-history-report/BrowserHistoryReport.vue'),
       name: 'BrowserHistoryReport',
-      meta: { title: 'browser-history-report.title', icon: 'fas fa-genderless' , permissions: ['view browser_history_report'], },
+      meta: { title: 'browser-history-report.title', icon: 'fas fa-genderless', permissions: ['view browser_history_report'] },
     },
   ],
 }

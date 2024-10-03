@@ -31,7 +31,7 @@ export default defineComponent({
     const observeValue = useVModel(props, 'modelValue', emit)
     const userList = ref([])
 
-    //computed
+    // computed
     const observeLabel = computed(() => {
       return label.value ? label.value : i18n.global.t('user.form.name')
     })
@@ -46,8 +46,8 @@ export default defineComponent({
 
     // methods
     const fetchData = () => {
-      const query = {orderby: "created_at:desc"} 
-      return userResource.list({query}).then((res) => {
+      const query = { orderby: 'created_at:desc' }
+      return userResource.list({ query }).then((res) => {
         userList.value = []
         userList.value = res.list
       })

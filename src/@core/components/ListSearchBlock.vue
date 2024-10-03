@@ -27,7 +27,7 @@ export default defineComponent({
     modelValue: { type: [Object, String] },
     showInputSearch: { type: Boolean, default: true },
     showResetButton: { type: Boolean, default: true },
-    inputSearchCol: { type: String, default: 'col-12 col-sm-5 col-md-5 col-lg-4 col-xl-3'},
+    inputSearchCol: { type: String, default: 'col-12 col-sm-5 col-md-5 col-lg-4 col-xl-3' },
     resetButtonCol: { type: String, default: 'col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-2xl-1' },
   },
   emits: ['reset', 'changeFilter'],

@@ -4,7 +4,7 @@ import { PlatformAttributeResource } from '@core/modules/platform-attribute/api'
 export const usePlatformAttribute = defineStore({
   id: 'platformAttribute',
   state: () => ({
-    platformAttributeResource : PlatformAttributeResource({}),
+    platformAttributeResource: PlatformAttributeResource({}),
     platformAttribute: '',
   }),
   actions: {

@@ -8,10 +8,10 @@ const PlatformAttributeModel = (item = null) => {
   const model = (item) => {
     return {
 
-    };
-  };
+    }
+  }
 
-  return model(item||PlatformAttribute);
+  return model(item || PlatformAttribute)
 }
 
 export default PlatformAttributeModel

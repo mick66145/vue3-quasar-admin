@@ -3,13 +3,13 @@
     <page-header showPrev showCancel showConfirm @confirm="onSubmit">
       {{ $t('role.detail.title') }}
     </page-header>
-    <base-tabs class="q-mb-md" v-model="currentBlock">
+    <base-tabs v-model="currentBlock" class="q-mb-md">
       <q-tab name="permissionInfo" :label="`${$t('role.detail.card.permission-info.title')}`" />
       <q-tab name="permissionSetting" :label="`${$t('role.detail.card.permission-setting.title')}`" />
     </base-tabs>
     <base-form ref="form" @validationError="validationError">
       <div class="row q-col-gutter-md">
-        <div class="col-12" v-show="currentBlock === 'permissionInfo'">
+        <div v-show="currentBlock === 'permissionInfo'" class="col-12">
           <q-card>
             <card-header>
               {{ $t('role.detail.card.permission-info.title') }}
@@ -18,15 +18,21 @@
               <div class="row q-col-gutter-md">
                 <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
                   <base-form-item :label="`${$t('role.form.name')} *`">
-                    <input-text v-model="formData.name" class="full-width" name="name" :label="`${$t('role.form.name')}`"
-                      :placeholder="$t('g.common.input', { field: $t('role.form.name') })" required />
+                    <input-text
+                      v-model="formData.name"
+                      class="full-width"
+                      name="name"
+                      :label="`${$t('role.form.name')}`"
+                      :placeholder="$t('g.common.input', { field: $t('role.form.name') })"
+                      required
+                    />
                   </base-form-item>
                 </div>
               </div>
             </card-body>
           </q-card>
         </div>
-        <div class="col-12" v-show="currentBlock === 'permissionSetting'">
+        <div v-show="currentBlock === 'permissionSetting'" class="col-12">
           <q-card>
             <card-header>
               {{ $t('role.detail.card.permission-setting.title') }}
@@ -51,14 +57,23 @@
                             {{ childItem.name }}
                           </span>
                           <div class="col-md-2 col-sm-3">
-                            <input-checkbox v-model="childItem.allSelectd" label="全選"
-                              @update:modelValue="childItem.onSelectAll(childItem.allSelectd); refreshAllSelectd()" />
+                            <input-checkbox
+                              v-model="childItem.allSelectd"
+                              label="全選"
+                              @update:modelValue="childItem.onSelectAll(childItem.allSelectd); refreshAllSelectd()"
+                            />
                           </div>
-                          <div v-for="permissionItem in childItem.permissions" :key="permissionItem"
-                            class="flex col-md-2 col-sm-3">
-                            <input-checkbox v-model="permissionItem.is_active" :label="permissionItem.display_name"
+                          <div
+                            v-for="permissionItem in childItem.permissions"
+                            :key="permissionItem"
+                            class="flex col-md-2 col-sm-3"
+                          >
+                            <input-checkbox
+                              v-model="permissionItem.is_active"
+                              :label="permissionItem.display_name"
                               :val="permissionItem"
-                              @update:modelValue="childItem.refreshAllSelectd(); refreshAllSelectd()" />
+                              @update:modelValue="childItem.refreshAllSelectd(); refreshAllSelectd()"
+                            />
                           </div>
                         </div>
                         <q-separator v-show="menuPermissionItem.childs.length - 1 !== index" class="w-full" />
@@ -95,7 +110,7 @@ export default defineComponent({
   props: {
     mode: { type: String, requred: true },
   },
-  setup(props) {
+  setup (props) {
     // data
     const { mode } = toRefs(props)
     const currentBlock = ref('permissionInfo')
@@ -155,10 +170,10 @@ export default defineComponent({
 
     // use
     const { form, validationError, getErrorTab } = useForm({
-      errorTabs: { permissionInfo: ['name']},
-      handleError : (validationRef) => {
+      errorTabs: { permissionInfo: ['name'] },
+      handleError: (validationRef) => {
         currentBlock.value = getErrorTab(validationRef)
-      }
+      },
     })
     const { goBack } = useGoBack()
     const { callReadFetch, callCreateFetch, callUpdateFetch } = useCRUD({

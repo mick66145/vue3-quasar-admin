@@ -1,15 +1,14 @@
 import request from '@core/utils/request'
 
-export default function useResource({
-  uri , 
+export default function useResource ({
+  uri,
   listModel = (item) => item,
   getModel = (item) => item,
   postModel = (item) => item,
   patchModel = (item) => item,
   putModel = (item) => item,
 }) {
-
-  const list = ({query})=> {
+  const list = ({ query }) => {
     return request({
       url: `/${uri}`,
       method: 'get',
@@ -35,21 +34,21 @@ export default function useResource({
       )
   }
 
-  const get = ({id, query})=> {
+  const get = ({ id, query }) => {
     const url = !id ? `/${uri}` : `/${uri}/${id}`
-    id && ( query = { ...query, id: +id })
+    id && (query = { ...query, id: +id })
     return request({
       url: url,
       method: 'get',
       params: query,
     }).then(res => res.data)
       .then(res => {
-        const model = getModel({...res.data,})
+        const model = getModel({ ...res.data })
         return model
       })
   }
 
-  const post = ({payload})=> {
+  const post = ({ payload }) => {
     return request({
       url: `/${uri}`,
       method: 'post',
@@ -58,7 +57,7 @@ export default function useResource({
       .then(res => res.data)
   }
 
-  const patch = ({id, payload}) => {
+  const patch = ({ id, payload }) => {
     payload = { ...payload, id: +id }
     return request({
       url: `/${uri}/${id}`,
@@ -68,9 +67,9 @@ export default function useResource({
       .then(res => res.data)
   }
 
-  const put =  ({id, payload}) => {
+  const put = ({ id, payload }) => {
     const url = !id ? `/${uri}` : `/${uri}/${id}`
-    id && ( payload = { ...payload, id: +id })
+    id && (payload = { ...payload, id: +id })
     return request({
       url: url,
       method: 'put',
@@ -79,7 +78,7 @@ export default function useResource({
       .then(res => res.data)
   }
 
-  const destroy = ({id, query})=> {
+  const destroy = ({ id, query }) => {
     query = { id: +id }
     return request({
       url: `/${uri}/${id}`,
@@ -88,7 +87,7 @@ export default function useResource({
     }).then(res => res.data)
   }
 
-  const selectAll = ({query}) => {
+  const selectAll = ({ query }) => {
     return request({
       url: `/${uri}/action/select_all`,
       method: 'get',

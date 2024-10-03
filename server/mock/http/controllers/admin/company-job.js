@@ -14,7 +14,7 @@ companyJobController.setList(companyJobList)
 
 export default [
   companyJobController.show(),
-  companyJobController.index({keywordColumn}),
+  companyJobController.index({ keywordColumn }),
   companyJobController.store(),
   companyJobController.update(),
   companyJobController.delete(),

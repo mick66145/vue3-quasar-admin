@@ -3,7 +3,7 @@
     <page-header>
       {{ $t('data-access-role.title') }}
       <template #action>
-        <add-button v-permission="['create data_access_role']" to="/data-access-role/create"/>
+        <add-button v-permission="['create data_access_role']" to="/data-access-role/create" />
       </template>
     </page-header>
 
@@ -78,8 +78,8 @@ export default defineComponent({
     ])
 
     // methods
-    const fetchData = (query) => dataAccessRoleResource.list({query})
-    const delFetch =  (id) => dataAccessRoleResource.destroy({id})
+    const fetchData = (query) => dataAccessRoleResource.list({ query })
+    const delFetch = (id) => dataAccessRoleResource.destroy({ id })
     const refreshFetch = () => getDataList({ ...search })
     const onDelete = async (row) => {
       const res = await messageDelete({ message: i18n.global.t('data-access-role-list.dialog.delete.message') })
@@ -90,10 +90,10 @@ export default defineComponent({
         onRefresh()
       }
     }
-    
+
     const { dataTable, search, data, total, onChangePage, onChangeFilter, onChangeSort, onReset, onRefresh } = useVxeServerDataTable({
       searchParames: filter,
-      sortParames: [{field: 'id',order: 'desc',}],
+      sortParames: [{ field: 'id', order: 'desc' }],
       sessionStorageKey: 'dashboardDataAccessRoleServerDataTable',
       callback: refreshFetch,
     })

@@ -14,7 +14,7 @@ companyController.setList(companyList)
 
 export default [
   companyController.show(),
-  companyController.index({keywordColumn}),
+  companyController.index({ keywordColumn }),
   companyController.store(),
   companyController.update(),
   companyController.delete(),

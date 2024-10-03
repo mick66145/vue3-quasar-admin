@@ -1,10 +1,10 @@
 import useResource from '@/hooks/useResource'
 import { MailinfoViewModel } from '@core/modules/mailinfo/models'
 
-export const MailinfoResource = ({ 
-  uri = 'mailinfo'
+export const MailinfoResource = ({
+  uri = 'mailinfo',
 }) => {
-  const { list , get , post , patch , put , destroy , selectAll } = useResource({uri , listModel:MailinfoViewModel, getModel:MailinfoViewModel})
+  const { list, get, post, patch, put, destroy, selectAll } = useResource({ uri, listModel: MailinfoViewModel, getModel: MailinfoViewModel })
 
   return {
     list,
@@ -13,8 +13,6 @@ export const MailinfoResource = ({
     patch,
     put,
     destroy,
-    selectAll
+    selectAll,
   }
 }
-
-

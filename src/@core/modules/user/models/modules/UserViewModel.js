@@ -9,10 +9,10 @@ export const UserViewModel = (item) => {
   const viewModel = (item) => {
     const userObj = {
       ...UserModel(item),
-      ...User()
-    };
-    return userObj;
-  };
+      ...User(),
+    }
+    return userObj
+  }
 
-  return viewModel(item);
+  return viewModel(item)
 }
