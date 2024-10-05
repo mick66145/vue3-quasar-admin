@@ -89,9 +89,11 @@ export default defineComponent({
       allSelectd.value = menuPermissionList.value.every(element => element.everyAllSelectd())
     }
     const setPermissions = async (permissions) => {
-      await callMenuPermissionListFetch()
       menuPermissionList.value.forEach(element => { element.setPermission(permissions) })
       refreshAllSelectd()
+    }
+    const getPermissions = async () => {
+      await callMenuPermissionListFetch()
     }
     const getActivePermissions = () => {
       const permissions = []
@@ -117,10 +119,18 @@ export default defineComponent({
       onSelectAll,
       refreshAllSelectd,
       setPermissions,
+      getPermissions,
       getActivePermissions,
     }
   },
 })
 </script>
 
-<style lang="postcss" scoped></style>
+<style lang="postcss" scoped>
+.permissions-card {
+  @apply mb-4;
+  .permissions-title {
+    @apply m-0 pl-3 self-center;
+  }
+}
+</style>

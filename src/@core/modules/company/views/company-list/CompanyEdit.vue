@@ -4,7 +4,7 @@
 
 <script>
 import { defineComponent } from 'vue-demi'
-import CompanyDetail from './components/CompanyDetail.vue'
+import CompanyDetail from './components/company-detail/CompanyDetail.vue'
 
 export default defineComponent({
   components: {
