@@ -209,11 +209,11 @@
     },
     "detail": {
       "card": {
-        "permission-info": {
-          "title": "權限資訊"
-        },
         "permission-setting": {
           "title": "權限設定"
+        },
+        "role-info": {
+          "title": "權限資訊"
         }
       },
       "title": "權限詳情"

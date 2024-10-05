@@ -4,7 +4,7 @@
 
 <script>
 import { defineComponent } from 'vue-demi'
-import RoleDetail from './components/RoleDetail.vue'
+import RoleDetail from './components/role-detail/RoleDetail.vue'
 
 export default defineComponent({
   components: {

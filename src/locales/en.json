@@ -211,11 +211,11 @@
     },
     "detail": {
       "card": {
-        "permission-info": {
-          "title": "PermissionInfo"
-        },
         "permission-setting": {
           "title": "PermissionSetting"
+        },
+        "role-info": {
+          "title": "RoleInfo"
         }
       },
       "title": "RoleDetail"
