@@ -4,7 +4,7 @@
 
 <script>
 import { defineComponent } from 'vue-demi'
-import MailinfoDetail from './components/MailinfoDetail.vue'
+import MailinfoDetail from './components/mail-info-detail/MailinfoDetail.vue'
 
 export default defineComponent({
   components: {

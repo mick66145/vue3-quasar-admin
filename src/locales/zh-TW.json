@@ -134,6 +134,9 @@
       },
       "file-info": {
         "title": "檔案資訊"
+      },
+      "content-info": {
+        "title": "內容資訊"
       }
     }
   },

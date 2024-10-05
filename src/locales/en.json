@@ -136,6 +136,9 @@
       },
       "file-info": {
         "title": "FileInfo"
+      },
+      "content-info": {
+        "title": "ContentInfo"
       }
     }
   },
