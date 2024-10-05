@@ -4,7 +4,7 @@
 
 <script>
 import { defineComponent } from 'vue-demi'
-import LanguageSettingDetail from './components/LanguageSettingDetail.vue'
+import LanguageSettingDetail from './components/language-setting-detail/LanguageSettingDetail.vue'
 
 export default defineComponent({
   components: {

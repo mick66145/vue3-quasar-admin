@@ -6,74 +6,61 @@
           <template #before>
             <vertical-tabs v-model="currentBlock">
               <q-tab name="basicInfo" :label="`${$t('g.card.basic-info.title')}`" />
-              <q-tab name="permissionSetting" :label="`${$t('role.detail.card.permission-setting.title')}`" />
             </vertical-tabs>
           </template>
           <template #after>
-            <basic-info-block v-show="currentBlock === 'basicInfo'" :role-form-data="formData" />
-            <permission-setting-block v-show="currentBlock === 'permissionSetting'" ref="permissionSettingBlock" :permissions="permissions" />
+            <basic-info-block v-show="currentBlock === 'basicInfo'" :language-setting-form-data="formData" />
           </template>
         </responsive-splitter>
       </base-form>
     </div>
-    <fixed-footer go-back-route="/role" @confirm="onSubmit" />
+    <fixed-footer go-back-route="/language-setting" @confirm="onSubmit" />
   </div>
 </template>
 
 <script>
 import BasicInfoBlock from './components/BasicInfoBlock.vue'
-import PermissionSettingBlock from './components/PermissionSettingBlock.vue'
 import { defineComponent, ref, toRefs, onMounted } from 'vue-demi'
 import { useRoute } from 'vue-router'
-import { RoleResource } from '@core/modules/role/api'
-import { RoleViewModel } from '@core/modules/role/models'
+import { LanguageSettingResource } from '@core/modules/language/api'
+import { LanguageSettingViewModel } from '@core/modules/language/models'
 import useForm from '@/hooks/useForm'
 import useCRUD from '@/hooks/useCRUD'
 import useGoBack from '@/hooks/useGoBack'
-import _ from 'lodash-es'
 
-const roleResource = RoleResource({})
+const languageSettingResource = LanguageSettingResource({})
 
 export default defineComponent({
   components: {
     BasicInfoBlock,
-    PermissionSettingBlock,
   },
   props: {
     mode: { type: String, requred: true },
   },
   setup (props) {
-    // ref
-    const permissionSettingBlock = ref()
-
     // data
     const { mode } = toRefs(props)
     const currentBlock = ref('basicInfo')
     const route = useRoute()
-    const formData = ref(RoleViewModel())
-    const permissions = ref([])
+    const formData = ref(LanguageSettingViewModel())
     const id = route.params.id || null
 
     // mounted
     onMounted(async () => {
       if (id) {
         const [res] = await callReadFetch(id)
-        const _permissions = _(res.permissions).map('id').value()
         formData.value = res
-        permissions.value = _permissions
       }
     })
 
     // methods
-    const readFetch = (id, query) => roleResource.get({ id, query })
-    const createFetch = (payload) => roleResource.post({ payload })
-    const updateFetch = (id, payload) => roleResource.patch({ id, payload })
+    const readFetch = (id, query) => languageSettingResource.get({ id, query })
+    const createFetch = (payload) => languageSettingResource.post({ payload })
+    const updateFetch = (id, payload) => languageSettingResource.patch({ id, payload })
     const onSubmit = async () => {
       form.value.validate().then(async (success) => {
         if (success) {
           const payload = { ...formData.value }
-          payload.permissions = []
-          payload.permissions = permissionSettingBlock.value.getActivePermissions()
           const urlObj = {
             create: () => callCreateFetch({ ...payload }),
             edit: () => callUpdateFetch(id, { ...payload }),
@@ -86,7 +73,7 @@ export default defineComponent({
 
     // use
     const { form, validationError, getErrorTab } = useForm({
-      errorTabs: { permissionInfo: ['name'] },
+      errorTabs: { basicInfo: ['name'] },
       handleError: (validationRef) => {
         currentBlock.value = getErrorTab(validationRef)
       },
@@ -100,10 +87,8 @@ export default defineComponent({
 
     return {
       form,
-      permissionSettingBlock,
       currentBlock,
       formData,
-      permissions,
       validationError,
       onSubmit,
     }
