@@ -159,7 +159,8 @@
     "system-info-manage": "系統資訊管理",
     "basic-setting": "基礎設定",
     "full-site-setting": "全站設定",
-    "language-manage": "多語系管理"
+    "language-manage": "多語系管理",
+    "report-manage": "報表管理"
   },
   "company-job": {
     "title": "職稱維護",

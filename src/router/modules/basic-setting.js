@@ -1,12 +1,9 @@
-/* Layout */
-import MainLayout from '@/layouts/MainLayout.vue'
 
 const basicSettingRouter = {
   path: '/',
   group: [
   ],
   groupName: 'first',
-  component: MainLayout,
   meta: {
     title: 'meun.basic-setting',
     slug: 'dropdown',

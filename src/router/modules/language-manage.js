@@ -1,14 +1,9 @@
-
-/* Layout */
-import MainLayout from '@/layouts/MainLayout.vue'
-
 import { languageSettingRouter, languageDataRouter } from '@core/modules/language/router'
 
 const languageManageRouter = {
   path: '/',
   group: ['/language-setting', '/language-data'],
   groupName: 'first',
-  component: MainLayout,
   meta: {
     title: 'meun.language-manage',
     slug: 'dropdown',

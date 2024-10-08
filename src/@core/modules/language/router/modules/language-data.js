@@ -1,3 +1,5 @@
+/* Layout */
+import MainLayout from '@/layouts/MainLayout.vue'
 
 export const languageDataRouter = {
   path: '/language-data',
@@ -7,6 +9,7 @@ export const languageDataRouter = {
     permissions: ['view language_data'],
   },
   redirect: { name: 'LanguageDataList' },
+  component: MainLayout,
   children: [
     {
       path: '',

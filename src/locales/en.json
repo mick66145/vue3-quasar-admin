@@ -161,7 +161,8 @@
     "system-info-manage": "SystemInfoManage",
     "basic-setting": "BasicSetting",
     "full-site-setting": "FullSiteSetting",
-    "language-manage": "LanguageManage"
+    "language-manage": "LanguageManage",
+    "report-manage": "ReportManage"
   },
   "company-job": {
     "title": "CompanyJob",

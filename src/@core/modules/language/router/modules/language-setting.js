@@ -1,3 +1,5 @@
+/* Layout */
+import MainLayout from '@/layouts/MainLayout.vue'
 
 export const languageSettingRouter = {
   path: '/language-setting',
@@ -7,6 +9,7 @@ export const languageSettingRouter = {
     permissions: ['view language_setting'],
   },
   redirect: { name: 'LanguageSettingList' },
+  component: MainLayout,
   children: [
     {
       path: '',
