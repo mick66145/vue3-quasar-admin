@@ -1,6 +1,6 @@
 <template>
   <base-page class="flex flex-center">
-    <q-card class="shadow-0 xs:w-4/5 md:w-3/5 xl:w-2/5">
+    <q-card class="shadow-1 xs:w-4/5 md:w-3/5 xl:w-2/5">
       <q-card-section>
         <div class="text-center">
           <div class="col text-h5 ellipsis">{{ $t('g.system.system-name') }}</div>

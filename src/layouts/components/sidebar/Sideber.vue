@@ -3,7 +3,7 @@
     v-model="sidebarOpened"
     show-if-above
     bordered
-    class="bg-grey-9 text-white"
+    :class="`${bgColor} ${textColor}`"
   >
     <q-item-label
       header
@@ -35,6 +35,10 @@ export default defineComponent({
   components: {
     SidebarItem,
   },
+  props: {
+    bgColor: { type: String, default: 'bg-grey-9' },
+    textColor: { type: String, default: 'text-white' },
+  },
   emits: ['toggle'],
   setup (props, { emit }) {
     // data
@@ -63,11 +67,4 @@ export default defineComponent({
 </script>
 
 <style lang="postcss" scoped>
-:deep(.q-drawer) {
-  @apply my-4 ml-4;
-  @apply rounded-lg !w-[260px];
-  .q-drawer__content {
-    @apply rounded-lg;
-  }
-}
 </style>

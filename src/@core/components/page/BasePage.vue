@@ -1,5 +1,5 @@
 <template>
-  <q-page class="lt-sm:pb-16">
+  <q-page class="py-4">
     <template v-if="$slots.default" #default>
       <slot name="default" />
     </template>

@@ -1,5 +1,9 @@
 <template>
-  <q-footer class="" reveal elevated />
+  <q-footer class="bg-dark text-white" reveal elevated>
+    <div class="text-center row items-center justify-center q-pa-md">
+      © 2024 Ming All Rights Reserved.
+    </div>
+  </q-footer>
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <q-header class="bg-white text-grey q-mt-md q-mr-md z-[2000] shadow-1">
+  <q-header class="bg-white text-grey z-[2000] shadow-1">
     <q-toolbar>
       <q-btn
         flat

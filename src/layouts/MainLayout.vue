@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf" class="bg-grey-1">
-    <app-header />
+    <app-header class="m-4" />
     <sidebar />
     <q-page-container class="px-4">
       <router-view v-slot="{ Component,route }">
@@ -12,19 +12,17 @@
         <back-top />
       </router-view>
     </q-page-container>
-    <app-footer />
   </q-layout>
 </template>
 
 <script>
-import { AppHeader, AppFooter, Sidebar, BackTop } from './components'
+import { AppHeader, Sidebar, BackTop } from './components'
 import { defineComponent } from 'vue-demi'
 
 export default defineComponent({
   name: 'MainLayout',
   components: {
     AppHeader,
-    AppFooter,
     Sidebar,
     BackTop,
   },
@@ -35,4 +33,11 @@ export default defineComponent({
 </script>
 
 <style lang="postcss" scoped>
+:deep(.q-drawer) {
+  @apply my-4 ml-4;
+  @apply rounded-lg !w-[260px];
+  .q-drawer__content {
+    @apply rounded-lg;
+  }
+}
 </style>
