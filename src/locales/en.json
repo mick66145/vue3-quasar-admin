@@ -101,7 +101,11 @@
       "place": "Place",
       "start-time": "StartTime",
       "end-time": "EndTime",
-      "max-count": "MaxCount"
+      "max-count": "MaxCount",
+      "frontend-menu": "FrontendMenu",
+      "link": "Link",
+      "type": "Type",
+      "open-blank": "OpenBlank"
     },
     "validation": {
       "required": "{attribute} Is Required",
@@ -162,7 +166,8 @@
     "basic-setting": "BasicSetting",
     "full-site-setting": "FullSiteSetting",
     "language-manage": "LanguageManage",
-    "report-manage": "ReportManage"
+    "report-manage": "ReportManage",
+    "cms-manage": "CmsManage"
   },
   "company-job": {
     "title": "CompanyJob",
@@ -387,6 +392,13 @@
           "title": "FieldSetting"
         }
       }
+    }
+  },
+  "frontend-menu": {
+    "title": "FrontendMenu",
+    "form": {
+      "name": "FrontendMenuName",
+      "parent": "Parent"
     }
   }
 }

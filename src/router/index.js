@@ -7,6 +7,7 @@ import EntryLayout from '@/layouts/EntryLayout.vue'
 
 /* Router Modules */
 import systemInfoManageRouter from './modules/system-info-manage'
+import cmsManageRouter from './modules/cms-manage'
 import userManageRouter from './modules/user-manage'
 import reportManageRouter from './modules/report-manage'
 import languageManageRouter from './modules/language-manage'
@@ -95,6 +96,7 @@ export const constantRoutes = [
 
 export const asyncRoutes = [
   systemInfoManageRouter,
+  cmsManageRouter,
   userManageRouter,
   reportManageRouter,
   languageManageRouter,

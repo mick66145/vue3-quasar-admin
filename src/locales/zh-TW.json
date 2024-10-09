@@ -101,7 +101,11 @@
       "place": "地點",
       "start-time": "開始時間",
       "end-time": "結束時間",
-      "max-count": "上限數量"
+      "max-count": "上限數量",
+      "frontend-menu": "前台選單",
+      "link": "連結",
+      "type": "類型",
+      "open-blank": "另開視窗"
     },
     "validation": {
       "required": "{attribute}必填",
@@ -160,7 +164,8 @@
     "basic-setting": "基礎設定",
     "full-site-setting": "全站設定",
     "language-manage": "多語系管理",
-    "report-manage": "報表管理"
+    "report-manage": "報表管理",
+    "cms-manage": "網站內容管理"
   },
   "company-job": {
     "title": "職稱維護",
@@ -385,6 +390,13 @@
           "title": "欄位設定"
         }
       }
+    }
+  },
+  "frontend-menu": {
+    "title": "前台選單",
+    "form": {
+      "name": "選單名稱",
+      "parent": "父層選單"
     }
   }
 }

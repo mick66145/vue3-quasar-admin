@@ -13,7 +13,7 @@ export const LanguageSettingModel = (item = null) => {
       id: item?.id || null,
       name: item?.name || null,
       locale: item?.locale || 'zh-TW',
-      is_enable: item?.is_enable || true,
+      is_enable: item?.is_enable === undefined ? true : item?.is_enable,
       sequence: item?.sequence || 0,
     }
     return languageSettingObj

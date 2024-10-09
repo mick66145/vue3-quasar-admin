@@ -21,7 +21,7 @@ export const UserModel = (item = null) => {
       account: item?.account || null,
       password: item?.password || null,
       email: item?.email || null,
-      is_enable: item?.is_enable || null,
+      is_enable: item?.is_enable === undefined ? true : item?.is_enable,
       remark: item?.remark || null,
       role: item?.role || '',
       company_job: item?.company_job || '',
