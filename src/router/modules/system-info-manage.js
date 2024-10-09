@@ -1,10 +1,11 @@
 
 /* Router Modules */
 import { mailinfoRouter } from '@core/modules/mailinfo/router'
+import { companyRouter } from '@core/modules/company/router'
 
 const systemInfoManageRouter = {
   path: '/',
-  group: ['/mailinfo'],
+  group: ['/mailinfo', '/company'],
   groupName: 'first',
   meta: {
     title: 'meun.system-info-manage',
@@ -14,6 +15,7 @@ const systemInfoManageRouter = {
   },
   children: [
     mailinfoRouter,
+    companyRouter,
   ],
 }
 
