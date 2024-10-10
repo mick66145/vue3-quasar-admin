@@ -10,45 +10,7 @@
             <input-checkbox v-model="allSelectd" label="全選" @update:modelValue="onSelectAll" />
             <div class="row q-col-gutter-md">
               <div v-for="menuPermissionItem in menuPermissionList" :key="menuPermissionItem" class="col-12">
-                <q-card class="shadow-0 permissions-card" bordered>
-                  <q-card-section class="bg-gray-100">
-                    <div class="row items-center">
-                      <div v-for="permissionItem in menuPermissionItem.permissions" :key="permissionItem">
-                        <input-checkbox v-model="permissionItem.is_active" :val="permissionItem" />
-                      </div>
-                      <div class="!ml-2 text-h6">{{ menuPermissionItem.name }}</div>
-                    </div>
-                  </q-card-section>
-                  <q-card-section vertical class="p-0">
-                    <div v-for="(childItem, index) in menuPermissionItem.childs" :key="childItem">
-                      <div class="p-2 row items-center">
-                        <span class="h-full col-md-2 col-sm-3 permissions-title ">
-                          {{ childItem.name }}
-                        </span>
-                        <div class="col-md-2 col-sm-3">
-                          <input-checkbox
-                            v-model="childItem.allSelectd"
-                            label="全選"
-                            @update:modelValue="childItem.onSelectAll(childItem.allSelectd); refreshAllSelectd()"
-                          />
-                        </div>
-                        <div
-                          v-for="permissionItem in childItem.permissions"
-                          :key="permissionItem"
-                          class="flex col-md-2 col-sm-3"
-                        >
-                          <input-checkbox
-                            v-model="permissionItem.is_active"
-                            :label="permissionItem.display_name"
-                            :val="permissionItem"
-                            @update:modelValue="childItem.refreshAllSelectd(); refreshAllSelectd()"
-                          />
-                        </div>
-                      </div>
-                      <q-separator v-show="menuPermissionItem.childs.length - 1 !== index" class="w-full" />
-                    </div>
-                  </q-card-section>
-                </q-card>
+                <permission-card :permission-item="menuPermissionItem" />
               </div>
             </div>
           </card-body>
@@ -59,6 +21,7 @@
 </template>
 
 <script>
+import { PermissionCard } from '@core/modules/permission/components'
 import { defineComponent, ref, watch } from 'vue-demi'
 import { MenuPermissionResource } from '@core/modules/permission/api'
 import { breadthFirstSearch } from '@/utils/tree'
@@ -67,6 +30,9 @@ import useCRUD from '@/hooks/useCRUD'
 const menuPermissionResource = MenuPermissionResource({})
 
 export default defineComponent({
+  components: {
+    PermissionCard,
+  },
   props: {
     permissions: { type: Array, default () { return [] } },
   },
