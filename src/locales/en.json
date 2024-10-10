@@ -167,7 +167,10 @@
     "full-site-setting": "FullSiteSetting",
     "language-manage": "LanguageManage",
     "report-manage": "ReportManage",
-    "cms-manage": "CmsManage"
+    "cms-manage": "CmsManage",
+    "role-permission-manage": "RolePermissionManage",
+    "role-manage": "RoleManage",
+    "member-role-manage": "MemberRoleManage"
   },
   "company-job": {
     "title": "CompanyJob",
@@ -399,6 +402,20 @@
     "form": {
       "name": "FrontendMenuName",
       "parent": "Parent"
+    }
+  },
+  "member-role": {
+    "title": "MemberRole",
+    "detail": {
+      "title": "MemberRoleDetail",
+      "card": {
+        "member-role-info": {
+          "title": "MemberRoleInfo"
+        }
+      }
+    },
+    "form": {
+      "name": "MemberRoleName"
     }
   }
 }

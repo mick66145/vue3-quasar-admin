@@ -74,7 +74,7 @@
       "time-range": "時間區間",
       "image": "圖片",
       "company": "公司",
-      "role": "權限群組",
+      "role": "人員角色",
       "company-job": "職稱",
       "data-access-role": "資料權限群組",
       "value": "值",
@@ -158,14 +158,17 @@
     "logout": "登出",
     "company-job": "職稱維護",
     "user-manage": "人員管理",
-    "role": "權限維護",
+    "role": "人員角色維護",
     "system-log-manage": "系統紀錄",
     "system-info-manage": "系統資訊管理",
     "basic-setting": "基礎設定",
     "full-site-setting": "全站設定",
     "language-manage": "多語系管理",
     "report-manage": "報表管理",
-    "cms-manage": "網站內容管理"
+    "cms-manage": "網站內容管理",
+    "role-permission-manage": "角色權限管理",
+    "role-manage": "人員角色管理",
+    "member-role-manage": "會員角色管理"
   },
   "company-job": {
     "title": "職稱維護",
@@ -182,24 +185,24 @@
     }
   },
   "user": {
-    "title": "帳號維護",
+    "title": "人員帳號維護",
     "form": {
       "name": "人員名稱",
       "company": "所屬公司",
       "company-job": "職稱",
-      "role": "權限群組"
+      "role": "人員角色群組"
     },
     "detail": {
       "card": {
         "account-info": {
-          "title": "帳號資訊"
+          "title": "人員帳號資訊"
         }
       },
-      "title": "帳號詳情"
+      "title": "人員帳號詳情"
     },
     "dialog": {
       "delete": {
-        "message": "確認刪除帳號？"
+        "message": "確認刪除人員帳號？"
       },
       "reset-password": {
         "message": "確認重置密碼？",
@@ -212,9 +215,9 @@
     }
   },
   "role": {
-    "title": "權限維護",
+    "title": "人員角色維護",
     "form": {
-      "name": "權限群組名稱"
+      "name": "人員角色名稱"
     },
     "detail": {
       "card": {
@@ -222,14 +225,14 @@
           "title": "權限設定"
         },
         "role-info": {
-          "title": "權限資訊"
+          "title": "人員角色資訊"
         }
       },
-      "title": "權限詳情"
+      "title": "人員角色詳情"
     },
     "dialog": {
       "delete": {
-        "message": "確認刪除權限群組？"
+        "message": "確認刪除人員角色？"
       }
     }
   },
@@ -397,6 +400,20 @@
     "form": {
       "name": "選單名稱",
       "parent": "父層選單"
+    }
+  },
+  "member-role": {
+    "title": "會員角色維護",
+    "detail": {
+      "title": "會員角色詳情",
+      "card": {
+        "member-role-info": {
+          "title": "會員角色資訊"
+        }
+      }
+    },
+    "form": {
+      "name": "會員角色名稱"
     }
   }
 }
