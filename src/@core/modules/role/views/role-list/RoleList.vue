@@ -74,6 +74,7 @@ export default defineComponent({
     // data
     const filter = reactive({
       keyword: null,
+      guard_name: 'api',
     })
     const tableFields = reactive([
       { title: 'g.common.created-at', field: 'created_at', min_width: '130' },

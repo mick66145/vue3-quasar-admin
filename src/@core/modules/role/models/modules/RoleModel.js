@@ -6,6 +6,7 @@ const Role = {
   id: null,
   created_at: null,
   name: null,
+  guard_name: 'api',
   permissions: [],
 }
 
@@ -16,6 +17,7 @@ export const RoleModel = (item = null) => {
       id: item?.id || null,
       created_at: item?.created_at ? convertDateTime(item?.created_at) : convertDateTime(),
       name: item?.name || null,
+      guard_name: item?.guard_name || 'api',
       permissions: item?.permissions ? item?.permissions : [],
     }
     return roleObj

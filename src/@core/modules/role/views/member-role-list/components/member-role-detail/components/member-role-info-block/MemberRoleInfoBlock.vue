@@ -73,6 +73,7 @@ export default defineComponent({
       form.value.validate().then(async (success) => {
         if (success) {
           const payload = { ...formData.value }
+          payload.guard_name = 'client_api'
           payload.permissions = []
           payload.permissions = permissionSettingBlock.value.getActivePermissions()
           const urlObj = {
