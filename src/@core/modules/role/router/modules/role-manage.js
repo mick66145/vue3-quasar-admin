@@ -12,6 +12,7 @@ export const roleManageRouter = {
     title: 'meun.role-manage',
     slug: 'dropdown',
     icon: 'menu_open',
+    permissions: ['view role_manage'],
   },
   redirect: { name: 'RoleList' },
   children: [

@@ -13,6 +13,7 @@ const rolePermissionManageRouter = {
     title: 'meun.role-permission-manage',
     icon: 'menu_open',
     slug: 'dropdown',
+    permissions: ['view role_permission_manage'],
   },
   children: [
     roleManageRouter,

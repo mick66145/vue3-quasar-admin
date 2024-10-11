@@ -12,6 +12,7 @@ export const memberRoleManageRouter = {
     title: 'meun.member-role-manage',
     slug: 'dropdown',
     icon: 'menu_open',
+    permissions: ['view member_role_manage'],
   },
   redirect: { name: 'MemberRoleList' },
   children: [
