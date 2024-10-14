@@ -1,10 +1,21 @@
 <template>
   <base-dialog v-model="isShowDialog" :title="$t('verify-code.detail.title')" @confirm="onConfirm" @hide="onHide">
-    <base-form ref="form" label-position="left">
-      <div class="row q-col-gutter-md">
+    <base-form ref="form">
+      <div class="row q-col-gutter-md text-wrap">
+        <div class="col-12">
+          <base-form-item :label="`${$t('g.common.captcha')}`">
+            {{ data.state.token }}
+          </base-form-item>
+        </div>
+        <div class="col-12 ">
+          <base-form-item :label="`${$t('g.common.token')}`">
+            {{ data.state.jwt_token }}
+          </base-form-item>
+        </div>
         <div class="col-12">
           <base-form-item :label="`${$t('g.common.type')} *`">
             <input-select
+              v-if="mode!=='view'"
               v-model="data.state.type"
               class="full-width"
               :label="`${$t('g.common.type')}`"
@@ -13,8 +24,30 @@
               option-label="label"
               option-value="value"
               :options="verifyCodeTypeList"
+              :readonly="mode==='view'"
               required
             />
+            <sapn v-else>{{ data.state.type_text }}</sapn>
+          </base-form-item>
+        </div>
+        <div class="col-12">
+          <base-form-item :label="`${$t('g.common.account')}`">
+            {{ data.state.account }}
+          </base-form-item>
+        </div>
+        <div class="col-12">
+          <base-form-item :label="`${$t('g.common.phone')}`">
+            {{ data.state.phone }}
+          </base-form-item>
+        </div>
+        <div class="col-12">
+          <base-form-item :label="`${$t('g.common.email')}`">
+            {{ data.state.email }}
+          </base-form-item>
+        </div>
+        <div class="col-12">
+          <base-form-item :label="`${$t('g.common.sourceip')}`">
+            {{ data.state.ip }}
           </base-form-item>
         </div>
       </div>
@@ -49,7 +82,7 @@ export default defineComponent({
     }
 
     // use
-    const { form, data, isShowDialog, showDialog, save } = useDialog({
+    const { form, data, isShowDialog, mode, showDialog, save } = useDialog({
       formData: VerifyCodeViewModel(),
       readFetch: readFetch,
       createFetch: createFetch,
@@ -59,6 +92,7 @@ export default defineComponent({
       form,
       data,
       isShowDialog,
+      mode,
       verifyCodeTypeList,
       showDialog,
       onConfirm,
