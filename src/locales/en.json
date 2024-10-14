@@ -105,7 +105,9 @@
       "frontend-menu": "FrontendMenu",
       "link": "Link",
       "type": "Type",
-      "open-blank": "OpenBlank"
+      "open-blank": "OpenBlank",
+      "captcha": "Captcha",
+      "token": "Token"
     },
     "validation": {
       "required": "{attribute} Is Required",
@@ -170,7 +172,8 @@
     "cms-manage": "CmsManage",
     "role-permission-manage": "RolePermissionManage",
     "role-manage": "RoleManage",
-    "member-role-manage": "MemberRoleManage"
+    "member-role-manage": "MemberRoleManage",
+    "security-manage": "SecurityManage"
   },
   "company-job": {
     "title": "CompanyJob",
@@ -416,6 +419,12 @@
     },
     "form": {
       "name": "MemberRoleName"
+    }
+  },
+  "verify-code": {
+    "title": "VerifyCode",
+    "detail": {
+      "title": "VerifyCodeDetail"
     }
   }
 }

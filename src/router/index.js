@@ -12,6 +12,7 @@ import userManageRouter from './modules/user-manage'
 import rolePermissionManageRouter from './modules/role-permission-manage'
 import reportManageRouter from './modules/report-manage'
 import languageManageRouter from './modules/language-manage'
+import securityManageRouter from './modules/security-manage'
 import basicSettingRouter from './modules/basic-setting'
 import fullSiteSettingRouter from './modules/full-site-setting'
 import systemLogManageRouter from './modules/system-log-manage'
@@ -102,6 +103,7 @@ export const asyncRoutes = [
   rolePermissionManageRouter,
   reportManageRouter,
   languageManageRouter,
+  securityManageRouter,
   fullSiteSettingRouter,
   basicSettingRouter,
   systemLogManageRouter,

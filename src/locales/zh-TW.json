@@ -105,7 +105,9 @@
       "frontend-menu": "前台選單",
       "link": "連結",
       "type": "類型",
-      "open-blank": "另開視窗"
+      "open-blank": "另開視窗",
+      "captcha": "驗證碼",
+      "token": "Token"
     },
     "validation": {
       "required": "{attribute}必填",
@@ -168,7 +170,8 @@
     "cms-manage": "網站內容管理",
     "role-permission-manage": "角色權限管理",
     "role-manage": "人員角色管理",
-    "member-role-manage": "會員角色管理"
+    "member-role-manage": "會員角色管理",
+    "security-manage": "安全管理"
   },
   "company-job": {
     "title": "職稱維護",
@@ -414,6 +417,12 @@
     },
     "form": {
       "name": "會員角色名稱"
+    }
+  },
+  "verify-code": {
+    "title": "驗證碼維護",
+    "detail": {
+      "title": "驗證碼詳情"
     }
   }
 }
