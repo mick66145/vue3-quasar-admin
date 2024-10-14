@@ -1,7 +1,7 @@
 <template>
   <div class="q-form-item" :class="{'block':false}">
     <label class="q-form-item__label" :style="labelStyle">{{ label }}</label>
-    <div class="w-full q-form-item__content">
+    <div class="w-full q-form-item__content break-words">
       <template v-if="$slots.default">
         <slot name="default" />
       </template>
