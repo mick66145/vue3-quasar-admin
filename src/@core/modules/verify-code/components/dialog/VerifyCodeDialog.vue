@@ -2,12 +2,12 @@
   <base-dialog v-model="isShowDialog" :title="$t('verify-code.detail.title')" @confirm="onConfirm" @hide="onHide">
     <base-form ref="form">
       <div class="row q-col-gutter-md text-wrap">
-        <div class="col-12">
+        <div v-if="mode==='view'" class="col-12">
           <base-form-item :label="`${$t('g.common.captcha')}`">
             {{ data.state.token }}
           </base-form-item>
         </div>
-        <div class="col-12 ">
+        <div v-if="mode==='view'" class="col-12">
           <base-form-item :label="`${$t('g.common.token')}`">
             {{ data.state.jwt_token }}
           </base-form-item>
@@ -27,25 +27,25 @@
               :readonly="mode==='view'"
               required
             />
-            <sapn v-else>{{ data.state.type_text }}</sapn>
+            <p v-else>{{ data.state.type_text }}</p>
           </base-form-item>
         </div>
-        <div class="col-12">
+        <div v-if="mode==='view'" class="col-12">
           <base-form-item :label="`${$t('g.common.account')}`">
             {{ data.state.account }}
           </base-form-item>
         </div>
-        <div class="col-12">
+        <div v-if="mode==='view'" class="col-12">
           <base-form-item :label="`${$t('g.common.phone')}`">
             {{ data.state.phone }}
           </base-form-item>
         </div>
-        <div class="col-12">
+        <div v-if="mode==='view'" class="col-12">
           <base-form-item :label="`${$t('g.common.email')}`">
             {{ data.state.email }}
           </base-form-item>
         </div>
-        <div class="col-12">
+        <div v-if="mode==='view'" class="col-12">
           <base-form-item :label="`${$t('g.common.sourceip')}`">
             {{ data.state.ip }}
           </base-form-item>
