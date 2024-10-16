@@ -33,7 +33,7 @@ import { defineComponent } from 'vue-demi'
 
 export default defineComponent({
   props: {
-    permissionItem: { type: Array, default () { return [] } },
+    permissionItem: { type: Object, default: () => ({}) },
   },
   setup () {
     return {
