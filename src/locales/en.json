@@ -426,5 +426,27 @@
     "detail": {
       "title": "VerifyCodeDetail"
     }
+  },
+  "member-role-auth": {
+    "title": "MemberRoleAuth",
+    "detail": {
+      "title": "MemberRoleAuthDetail",
+      "card": {
+        "member-role-auth-info": {
+          "title": "MemberRoleAuthInfo"
+        }
+      }
+    }
+  },
+  "role-auth": {
+    "title": "RoleAuth",
+    "detail": {
+      "title": "RoleAuthDetail",
+      "card": {
+        "role-auth-info": {
+          "title": "RoleAuthInfo"
+        }
+      }
+    }
   }
 }

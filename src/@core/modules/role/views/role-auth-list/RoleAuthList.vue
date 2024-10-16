@@ -1,18 +1,12 @@
 <template>
   <base-page>
     <page-header>
-      {{ $t('role.title') }}
-      <template #action>
-        <add-button
-          v-permission="['create role']"
-          to="/role/create"
-        />
-      </template>
+      {{ $t('role-auth.title') }}
     </page-header>
 
     <q-card>
       <card-body>
-        <role-list-search-block
+        <role-auth-list-search-block
           v-model="search"
           class="q-mb-sm"
           @changeFilter="onChangeFilter"
@@ -33,18 +27,12 @@
             :title="`${$t(title)}`"
             :min-width="min_width"
           />
-          <vxe-column :title="`${$t('g.common.operate')}`" fixed="right" width="115">
+          <vxe-column :title="`${$t('g.common.operate')}`" fixed="right" width="80">
             <template #default="{ row }">
               <div class="row">
                 <edit-icon-button
-                  v-permission="['update role']"
                   class="q-mr-xs q-mb-xs"
-                  :to="'/role/edit/' + row.id"
-                />
-                <delete-icon-button
-                  v-permission="['delete role']"
-                  class="q-mr-xs q-mb-xs"
-                  @click="onDelete(row)"
+                  :to="'/role-auth/edit/' + row.id"
                 />
               </div>
             </template>
@@ -56,19 +44,17 @@
 </template>
 
 <script>
-import RoleListSearchBlock from './components/RoleListSearchBlock.vue'
+import RoleAuthListSearchBlock from './components/RoleAuthListSearchBlock.vue'
 import { defineComponent, reactive } from 'vue-demi'
 import { RoleResource } from '@core/modules/role/api'
-import { i18n } from '@/plugins/i18n'
 import useCRUD from '@/hooks/useCRUD'
 import useVxeServerDataTable from '@/hooks/useVxeServerDataTable'
-import useMessageDialog from '@/hooks/useMessageDialog'
 
 const roleResource = RoleResource({})
 
 export default defineComponent({
   components: {
-    RoleListSearchBlock,
+    RoleAuthListSearchBlock,
   },
   setup () {
     // data
@@ -83,27 +69,15 @@ export default defineComponent({
 
     // methods
     const fetchData = (query) => roleResource.list({ query })
-    const delFetch = (id) => roleResource.destroy({ id })
     const refreshFetch = () => getDataList({ ...search })
-    const onDelete = async (row) => {
-      const res = await messageDelete({ message: i18n.global.t('role.dialog.delete.message') })
-      if (!res) return
-      const [delRes] = await callDeleteFetch(row.id)
-      if (delRes) {
-        search.page = 1
-        onRefresh()
-      }
-    }
 
-    const { dataTable, search, data, total, onChangePage, onChangeFilter, onChangeSort, onReset, onRefresh } = useVxeServerDataTable({
+    const { dataTable, search, data, total, onChangePage, onChangeFilter, onChangeSort, onReset } = useVxeServerDataTable({
       searchParames: filter,
       sortParames: [{ field: 'id', order: 'desc' }],
-      sessionStorageKey: 'dashboardRoleServerDataTable',
+      sessionStorageKey: 'dashboardRoleAuthServerDataTable',
       callback: refreshFetch,
     })
-    const { messageDelete } = useMessageDialog()
-    const { callDeleteFetch, callReadListFetch: getDataList } = useCRUD({
-      deleteFetch: delFetch,
+    const { callReadListFetch: getDataList } = useCRUD({
       readListFetch: fetchData,
     })
 
@@ -117,7 +91,6 @@ export default defineComponent({
       onChangeFilter,
       onChangeSort,
       onReset,
-      onDelete,
     }
   },
 })

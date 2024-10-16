@@ -20,9 +20,9 @@
             :title="`${$t(title)}`"
             :min-width="min_width"
           />
-          <vxe-column :title="`${$t('g.common.operate')}`" fixed="right" min-width="80">
+          <vxe-column :title="`${$t('g.common.operate')}`" fixed="right" width="80">
             <template #default="{ row }">
-              <div class="flex-center row">
+              <div class="row">
                 <base-icon-button icon="add_circle" label="加入" @click="onAdd(row)" />
               </div>
             </template>
@@ -54,7 +54,6 @@ export default defineComponent({
       { title: 'user.form.name', field: 'name', min_width: '130' },
       { title: 'g.common.email', field: 'email', min_width: '130' },
       { title: 'user.form.company', field: 'company.name', min_width: '130' },
-      { title: 'user.form.role', field: 'role.name', min_width: '130' },
     ])
 
     // methods

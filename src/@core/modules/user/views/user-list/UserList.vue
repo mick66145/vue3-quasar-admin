@@ -35,7 +35,7 @@
           />
           <vxe-column :title="`${$t('g.common.operate')}`" fixed="right" :width="$q.screen.lt.sm ? 115 : 171">
             <template #default="{ row }">
-              <div class="flex-center row">
+              <div class="row">
                 <edit-icon-button
                   v-permission="['update user']"
                   class="q-mr-xs q-mb-xs"

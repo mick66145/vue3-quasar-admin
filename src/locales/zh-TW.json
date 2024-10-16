@@ -424,5 +424,27 @@
     "detail": {
       "title": "驗證碼詳情"
     }
+  },
+  "member-role-auth": {
+    "title": "會員授權維護",
+    "detail": {
+      "title": "會員授權詳情",
+      "card": {
+        "member-role-auth-info": {
+          "title": "會員授權資訊"
+        }
+      }
+    }
+  },
+  "role-auth": {
+    "title": "人員授權維護",
+    "detail": {
+      "title": "人員授權詳情",
+      "card": {
+        "role-auth-info": {
+          "title": "人員授權資訊"
+        }
+      }
+    }
   }
 }

@@ -6,6 +6,7 @@ const rolePermissionManageRouter = {
   path: '/',
   group: [
     '/role',
+    '/role-auth',
     '/member-role',
     '/member-role-auth',
   ],

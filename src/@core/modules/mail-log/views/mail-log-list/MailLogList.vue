@@ -29,7 +29,7 @@
           />
           <vxe-column :title="`${$t('g.common.operate')}`" fixed="right" width="80">
             <template #default="{ row }">
-              <div class="flex-center row">
+              <div class="row">
                 <view-icon-button
                   v-permission="['view mail_log']"
                   class="q-mr-xs q-mb-xs"

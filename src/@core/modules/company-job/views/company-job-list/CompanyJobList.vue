@@ -35,7 +35,7 @@
           />
           <vxe-column :title="`${$t('g.common.operate')}`" fixed="right" width="115">
             <template #default="{ row }">
-              <div class="flex-center row">
+              <div class="row">
                 <edit-icon-button
                   v-permission="['update company_job']"
                   class="q-mr-xs q-mb-xs"
