@@ -21,8 +21,8 @@
 <script>
 import BasicInfoBlock from './components/BasicInfoBlock.vue'
 import { defineComponent, ref, toRefs, onMounted } from 'vue-demi'
-import { RoleAuthResource } from '@core/modules/role/api'
-import { RoleAuthViewModel } from '@core/modules/role/models'
+import { MemberRoleAuthResource } from '@core/modules/role/api'
+import { MemberRoleAuthViewModel } from '@core/modules/role/models'
 import { useRoute } from 'vue-router'
 import useCRUD from '@/hooks/useCRUD'
 import useGoBack from '@/hooks/useGoBack'
@@ -39,23 +39,23 @@ export default defineComponent({
     const route = useRoute()
     const { mode } = toRefs(props)
     const currentBlock = ref('basicInfo')
-    const formData = ref(RoleAuthViewModel())
+    const formData = ref(MemberRoleAuthViewModel())
     const roleId = route.params.roleId || null
-    const roleAuthResource = RoleAuthResource({
+    const memberRoleAuthResource = MemberRoleAuthResource({
       params: { roleId },
     })
 
     // mounted
     onMounted(async () => {
       if (roleId) {
-        const [roleAuthRes] = await callRoleAuthFetch(null)
-        if (roleAuthRes) { formData.value = roleAuthRes }
+        const [memberRoleAuthRes] = await callMemberRoleAuthFetch(null)
+        if (memberRoleAuthRes) { formData.value = memberRoleAuthRes }
       }
     })
 
     // methods
-    const readRoleAuthFetch = (id, query) => roleAuthResource.get({ id, query })
-    const updateFetch = (id, payload) => roleAuthResource.put({ id, payload })
+    const readMemberRoleAuthFetch = (id, query) => memberRoleAuthResource.get({ id, query })
+    const updateFetch = (id, payload) => memberRoleAuthResource.put({ id, payload })
     const onSubmit = async () => {
       form.value.validate().then(async (success) => {
         if (success) {
@@ -71,8 +71,8 @@ export default defineComponent({
 
     // use
     const { goBack } = useGoBack()
-    const { form, callReadFetch: callRoleAuthFetch, callUpdateFetch } = useCRUD({
-      readFetch: readRoleAuthFetch,
+    const { form, callReadFetch: callMemberRoleAuthFetch, callUpdateFetch } = useCRUD({
+      readFetch: readMemberRoleAuthFetch,
       updateFetch: updateFetch,
     })
 

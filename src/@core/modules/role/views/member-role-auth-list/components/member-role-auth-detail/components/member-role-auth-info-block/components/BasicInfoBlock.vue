@@ -10,7 +10,7 @@
             </template>
           </card-header>
           <card-body class="q-pt-none">
-            <vxe-client-table ref="dataTable" :data="sourceData.users">
+            <vxe-client-table ref="dataTable" :data="sourceData.members">
               <vxe-column
                 v-for="{ field, title, min_width } in tableFields"
                 :key="field"
@@ -80,7 +80,7 @@ export default defineComponent({
       setSourceData()
     }
     const setSourceData = () => {
-      sourceData.value.users = dataTable.value.getFullData()
+      sourceData.value.members = dataTable.value.getFullData()
     }
 
     // use
