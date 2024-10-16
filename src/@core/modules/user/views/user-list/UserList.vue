@@ -97,7 +97,7 @@ export default defineComponent({
     const resetPasswordFetch = (id) => userResource.resetPassword({ id })
     const refreshFetch = () => callReadListFetch({ ...search })
     const onDelete = async (row) => {
-      const res = await messageDelete({ message: i18n.global.t('user.dialog.delete.message') })
+      const res = await messageDelete({ message: i18n.global.t('g.dialog.delete-message', { item: i18n.global.t('g.common.user') }) })
       if (!res) return
       const [delRes] = await callDeleteFetch(row.id)
       if (delRes) {

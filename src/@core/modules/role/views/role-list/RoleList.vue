@@ -86,7 +86,7 @@ export default defineComponent({
     const delFetch = (id) => roleResource.destroy({ id })
     const refreshFetch = () => getDataList({ ...search })
     const onDelete = async (row) => {
-      const res = await messageDelete({ message: i18n.global.t('role.dialog.delete.message') })
+      const res = await messageDelete({ message: i18n.global.t('g.dialog.delete-message', { item: i18n.global.t('g.common.role') }) })
       if (!res) return
       const [delRes] = await callDeleteFetch(row.id)
       if (delRes) {

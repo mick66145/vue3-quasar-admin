@@ -30,12 +30,12 @@
         </q-card>
       </div>
     </div>
-    <user-dialog ref="dialog" @add="onAddUser" />
+    <member-account-dialog ref="dialog" @add="onAddMemberAccount" />
   </div>
 </template>
 
 <script>
-import { UserDialog } from '@core/modules/user/components'
+// import { MemberAccountDialog } from '@core/modules/member/components'
 import { defineComponent, ref, reactive } from 'vue-demi'
 import { useVModel } from '@vueuse/core'
 import { i18n } from '@/plugins/i18n'
@@ -43,7 +43,7 @@ import useMessageDialog from '@/hooks/useMessageDialog'
 
 export default defineComponent({
   components: {
-    UserDialog,
+    // MemberAccountDialog,
   },
   props: {
     roleAuthFormData: { type: [String, Object], requred: true },
@@ -56,10 +56,13 @@ export default defineComponent({
     // data
     const sourceData = useVModel(props, 'roleAuthFormData', emit)
     const tableFields = reactive([
-      { title: 'g.common.account', field: 'account', min_width: '130' },
-      { title: 'user.form.name', field: 'name', min_width: '130' },
-      { title: 'g.common.email', field: 'email', min_width: '130' },
-      { title: 'user.form.company', field: 'company.name', min_width: '130' },
+      { title: 'g.common.serial-number', field: 'member.serial_number', min_width: '140' },
+      { title: 'g.common.name', field: 'member.name', min_width: '130' },
+      { title: 'g.common.birthday', field: 'member.birthday', min_width: '130' },
+      { title: 'g.common.email', field: 'member.email', min_width: '200' },
+      { title: 'g.common.tel', field: 'member.tel', min_width: '130' },
+      { title: 'g.common.phone', field: 'member.phone', min_width: '130' },
+      { title: 'g.common.address', field: 'member.address_text', min_width: '200' },
     ])
 
     // methods
@@ -72,7 +75,7 @@ export default defineComponent({
       dataTable.value.remove(row)
       setSourceData()
     }
-    const onAddUser = (value) => {
+    const onAddMemberAccount = (value) => {
       dataTable.value.insertAtLast(value)
       setSourceData()
     }
@@ -90,7 +93,7 @@ export default defineComponent({
       sourceData,
       onAdd,
       onDelete,
-      onAddUser,
+      onAddMemberAccount,
     }
   },
 })

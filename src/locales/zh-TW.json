@@ -107,7 +107,12 @@
       "type": "類型",
       "open-blank": "另開視窗",
       "captcha": "驗證碼",
-      "token": "Token"
+      "token": "Token",
+      "role-auth": "人員授權",
+      "member-role": "會員角色",
+      "member-role-auth": "會員授權",
+      "name": "名稱",
+      "user": "人員"
     },
     "validation": {
       "required": "{attribute}必填",
@@ -178,11 +183,6 @@
     "form": {
       "name": "職稱"
     },
-    "dialog": {
-      "delete": {
-        "message": "確認刪除職稱？"
-      }
-    },
     "detail": {
       "title": "職稱詳情"
     }
@@ -204,9 +204,6 @@
       "title": "人員帳號詳情"
     },
     "dialog": {
-      "delete": {
-        "message": "確認刪除人員帳號？"
-      },
       "reset-password": {
         "message": "確認重置密碼？",
         "title": "重置密碼"
@@ -232,11 +229,6 @@
         }
       },
       "title": "人員角色詳情"
-    },
-    "dialog": {
-      "delete": {
-        "message": "確認刪除人員角色？"
-      }
     }
   },
   "system-log": {
@@ -317,11 +309,6 @@
       "established": "成立時間",
       "customer-service-hours": "客服時間",
       "customer-service-hotline": "客服電話"
-    },
-    "dialog": {
-      "delete": {
-        "message": "確認刪除公司？"
-      }
     }
   },
   "operate-log": {
@@ -369,11 +356,6 @@
         "data-access-role-info": {
           "title": "資料權限群組資訊"
         }
-      }
-    },
-    "dialog": {
-      "delete": {
-        "message": "確認刪除資料權限群組？"
       }
     },
     "form": {

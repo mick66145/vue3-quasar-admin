@@ -107,7 +107,12 @@
       "type": "Type",
       "open-blank": "OpenBlank",
       "captcha": "Captcha",
-      "token": "Token"
+      "token": "Token",
+      "role-auth": "RoleAuth",
+      "member-role": "MemberRole",
+      "member-role-auth": "MemberRoleAuth",
+      "name": "Name",
+      "user": "User"
     },
     "validation": {
       "required": "{attribute} Is Required",
@@ -180,11 +185,6 @@
     "form": {
       "name": "CompanyJobName"
     },
-    "dialog": {
-      "delete": {
-        "message": "Confirm Delet CompanyJob?"
-      }
-    },
     "detail": {
       "title": "CompanyJobDetail"
     }
@@ -206,9 +206,6 @@
       "title": "UserDetail"
     },
     "dialog": {
-      "delete": {
-        "message": "Confirm Delet User?"
-      },
       "reset-password": {
         "title": "Reset Password",
         "message": "Confirm Reset Password?"
@@ -234,11 +231,6 @@
         }
       },
       "title": "RoleDetail"
-    },
-    "dialog": {
-      "delete": {
-        "message": "Confirm Delet Role?"
-      }
     }
   },
   "system-log": {
@@ -319,11 +311,6 @@
       "established": "Established",
       "customer-service-hours": "Customer Service Hours",
       "customer-service-hotline": "Customer Service Hotline"
-    },
-    "dialog": {
-      "delete": {
-        "message": "Confirm Delet Company?"
-      }
     }
   },
   "operate-log": {
@@ -371,11 +358,6 @@
         "data-access-role-info": {
           "title": "DataAccessRoleInfo"
         }
-      }
-    },
-    "dialog": {
-      "delete": {
-        "message": "Confirm Delet Data Access Role?"
       }
     },
     "form": {
