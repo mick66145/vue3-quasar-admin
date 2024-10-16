@@ -1,11 +1,12 @@
 
 /* Router Modules */
-import { memberRoleRouter } from '@core/modules/role/router'
+import { memberRoleRouter, memberRoleAuthRouter } from '@core/modules/role/router'
 
 export const memberRoleManageRouter = {
   path: '/member-role-manage',
   group: [
     '/member-role',
+    '/member-role-auth',
   ],
   groupName: 'second',
   meta: {
@@ -17,5 +18,6 @@ export const memberRoleManageRouter = {
   redirect: { name: 'MemberRoleList' },
   children: [
     memberRoleRouter,
+    memberRoleAuthRouter,
   ],
 }

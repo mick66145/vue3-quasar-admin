@@ -7,6 +7,7 @@ const rolePermissionManageRouter = {
   group: [
     '/role',
     '/member-role',
+    '/member-role-auth',
   ],
   groupName: 'first',
   meta: {
