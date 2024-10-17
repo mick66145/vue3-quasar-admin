@@ -1,6 +1,6 @@
 <template>
   <div class="row py-2 justify-center">
-    <div class="col-12">
+    <div class="col-24">
       <navigation-bar @today="onToday" @prev="onPrev" @next="onNext" />
       <div class="flex-nowrap flex justify-center items-center">
         <div class="text-xl">{{ formattedMonth }}</div>
@@ -28,7 +28,7 @@
       </div> -->
     </div>
     <!--  -->
-    <div class="col-11">
+    <div class="col-12">
       <calendar-month
         ref="calendar"
         v-model="selectedDate"

@@ -1,12 +1,12 @@
 <template>
   <div class="row">
-    <label v-if="showLabel" class="col-12">{{ inputLabel }}</label>
-    <div class="col-12">
+    <label v-if="showLabel" class="col-24">{{ inputLabel }}</label>
+    <div class="col-24">
       <div class="row">
-        <div v-if="showMinValue" class="col-5">
+        <div v-if="showMinValue" class="col-10">
           <input-number v-model="observeValue.min_value" />
         </div>
-        <div class="col-2">
+        <div class="col-4">
           <div class="flex-center row q-field__marginal">
             <span class="text-20px">
               <span v-show="showMinValue">{{ minSymbol }}</span>
@@ -15,8 +15,8 @@
             </span>
           </div>
         </div>
-        <div class="col-5">
-          <input-number v-if="showMaxValue" v-model="observeValue.max_value" class="col-5">
+        <div class="col-10">
+          <input-number v-if="showMaxValue" v-model="observeValue.max_value" class="col-10">
             <template #after>
               <slot name="max-value-after" />
             </template>

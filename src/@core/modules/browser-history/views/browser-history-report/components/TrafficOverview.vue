@@ -3,7 +3,7 @@
     <div
       v-for="(trafficOverviewItem, trafficOverviewIndex) in trafficOverview"
       :key="trafficOverviewIndex"
-      class="col-xs-6 col-md-3"
+      class="col-xs-12 col-md-6"
     >
       <card-social
         :title="trafficOverviewItem.key"

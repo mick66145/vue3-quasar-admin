@@ -8,7 +8,7 @@
       <q-tab name="changePassword" :label="`${$t('profile.card.change-password.title')}`" />
     </base-tabs>
     <div class="row q-col-gutter-md">
-      <div v-show="currentCard === 'accountInfo'" class="col-12">
+      <div v-show="currentCard === 'accountInfo'" class="col-24">
         <q-card>
           <card-header>
             {{ $t('profile.card.account-info.title') }}
@@ -19,7 +19,7 @@
           <card-body class="q-pt-none">
             <base-form ref="infoForm">
               <div class="row q-col-gutter-md">
-                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                <div class="col-24 col-sm-12 col-md-8 col-lg-8 col-xl-6">
                   <base-form-item :label="`${$t('g.common.account')} *`">
                     <input-text
                       v-model="formData.account"
@@ -31,7 +31,7 @@
                     />
                   </base-form-item>
                 </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                <div class="col-24 col-sm-12 col-md-8 col-lg-8 col-xl-6">
                   <base-form-item :label="`${$t('user.form.name')} *`">
                     <input-text
                       v-model="formData.name"
@@ -42,7 +42,7 @@
                     />
                   </base-form-item>
                 </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-6">
+                <div class="col-24 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                   <base-form-item :label="`${$t('g.common.email')}`">
                     <input-email
                       v-model="formData.email"
@@ -52,7 +52,7 @@
                     />
                   </base-form-item>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="col-24">
                   <base-form-item :label="`${$t('g.common.remark')}`">
                     <input-textarea
                       v-model="formData.remark"
@@ -67,7 +67,7 @@
           </card-body>
         </q-card>
       </div>
-      <div v-show="currentCard === 'changePassword'" class="col-12">
+      <div v-show="currentCard === 'changePassword'" class="col-24">
         <q-card>
           <card-header>
             {{ $t('profile.card.change-password.title') }}
@@ -78,7 +78,7 @@
           <card-body class="q-pt-none">
             <base-form ref="changePasswordForm">
               <div class="row q-col-gutter-md">
-                <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-2xl-4">
+                <div class="col-24 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-2xl-4">
                   <base-form-item :label="`${$t('g.common.old-password')} *`">
                     <input-password
                       v-model="changePasswordformData.old_password"
@@ -90,7 +90,7 @@
                     />
                   </base-form-item>
                 </div>
-                <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-2xl-4">
+                <div class="col-24 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-2xl-4">
                   <base-form-item :label="`${$t('g.common.new-password')} *`">
                     <input-password
                       v-model="changePasswordformData.new_password"
@@ -109,7 +109,7 @@
                     </input-password>
                   </base-form-item>
                 </div>
-                <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-2xl-4">
+                <div class="col-24 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-2xl-4">
                   <base-form-item :label="`${$t('g.common.confirm-password')} *`">
                     <input-password
                       v-model="changePasswordformData.confirm_password"

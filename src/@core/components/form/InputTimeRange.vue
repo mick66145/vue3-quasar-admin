@@ -1,9 +1,9 @@
 <template>
   <div class="row q-col-gutter-md">
-    <div class="col-6">
+    <div class="col-12">
       <input-time v-model="observeValue.start_time" class="w-full" :required="required" :readonly="readonly" :disable="disable" />
     </div>
-    <div class="col-6">
+    <div class="col-12">
       <input-time
         v-model="observeValue.end_time"
         class="w-full"

@@ -4,7 +4,7 @@
       <div
         v-for="(fileItem, fileIndex) in observeValue"
         :key="fileIndex"
-        class="col-md-3 col-sm-4 col-xs-12"
+        class="col-md-6 col-sm-8 col-24"
       >
         <image-item
           v-if="preview(fileItem)"
@@ -20,7 +20,7 @@
       </div>
     </DndProvider>
 
-    <div class="col-md-3 col-sm-4 col-xs-12">
+    <div class="col-md-6 col-sm-8 col-24">
       <image-multiple-uploader
         ref="imageUpload"
         class="full-width"

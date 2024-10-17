@@ -15,7 +15,7 @@
         <base-dialog v-model="showDialog" title="上傳圖片 : " @show="onOpen" @confirm="onConfirm" @cancel="onCancelCopper">
           <base-form ref="form">
             <div class="row">
-              <div class="col-xs-12 col-sm-12 col-md-12">
+              <div class="col-24">
                 <q-item>
                   <q-item-section>
                     <image-uploader
@@ -28,7 +28,7 @@
                 </q-item>
               </div>
 
-              <div class="col-xs-12 col-sm-12 col-md-12">
+              <div class="col-24">
                 <q-item>
                   <input-text
                     v-model="state.title"
@@ -39,7 +39,7 @@
                 </q-item>
               </div>
 
-              <div class="col-xs-12 col-sm-12 col-md-12">
+              <div class="col-24">
                 <q-item>
                   <input-text
                     v-model="state.alt"

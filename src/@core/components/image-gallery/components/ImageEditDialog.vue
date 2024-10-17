@@ -2,7 +2,7 @@
   <base-dialog v-model="isShowDialog" title="編輯圖片 : " @confirm="onConfirm">
     <base-form ref="form">
       <div class="row">
-        <div class="col-12">
+        <div class="col-24">
           <input-text
             v-model="data.title"
             class="full-width"

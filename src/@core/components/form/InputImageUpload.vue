@@ -8,7 +8,7 @@
       <div class="mt-1rem input-image">
         <q-form ref="form">
           <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-24">
               <image-uploader
                 ref="imageUpload"
                 class="full-width"

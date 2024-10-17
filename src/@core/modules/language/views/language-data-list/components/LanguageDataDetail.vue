@@ -10,14 +10,14 @@
     </base-tabs>
     <base-form ref="form">
       <div class="row q-col-gutter-md">
-        <div v-show="currentBlock === 'languageDataInfo'" class="col-12">
+        <div v-show="currentBlock === 'languageDataInfo'" class="col-24">
           <q-card>
             <card-header>
               {{ $t('language-data.detail.card.language-data-info.title') }}
             </card-header>
             <card-body class="q-pt-none">
               <div class="row q-col-gutter-md">
-                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                <div class="col-24 col-sm-12 col-md-8 col-lg-8 col-xl-6">
                   <base-form-item :label="`${$t('g.common.field-label')} *`">
                     <input-text
                       v-model="formData.label"
@@ -28,7 +28,7 @@
                     />
                   </base-form-item>
                 </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                <div class="col-24 col-sm-12 col-md-8 col-lg-8 col-xl-6">
                   <base-form-item :label="`${$t('g.common.data-key')} *`">
                     <input-text
                       v-model="formData.data_key"
@@ -39,7 +39,7 @@
                     />
                   </base-form-item>
                 </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                <div class="col-24 col-sm-12 col-md-8 col-lg-8 col-xl-6">
                   <base-form-item :label="`${$t('g.common.i18n-key')} *`">
                     <input-text
                       v-model="formData.i18n_key"
@@ -50,7 +50,7 @@
                     />
                   </base-form-item>
                 </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                <div class="col-24 col-sm-12 col-md-8 col-lg-8 col-xl-6">
                   <base-form-item :label="`${$t('g.common.placeholder')}`">
                     <input-text
                       v-model="formData.placeholder"
@@ -60,7 +60,7 @@
                     />
                   </base-form-item>
                 </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                <div class="col-24 col-sm-12 col-md-8 col-lg-8 col-xl-6">
                   <base-form-item :label="`${$t('g.common.locale')} *`">
                     <input-text
                       v-model="formData.locale"
@@ -71,7 +71,7 @@
                     />
                   </base-form-item>
                 </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                <div class="col-24 col-sm-12 col-md-8 col-lg-8 col-xl-6">
                   <base-form-item :label="`${$t('g.common.sequence')}`">
                     <input-number
                       v-model="formData.sequence"
@@ -81,7 +81,7 @@
                     />
                   </base-form-item>
                 </div>
-                <div class="col-12">
+                <div class="col-24">
                   <base-form-item :label="`${$t('g.common.value')}`">
                     <component
                       :is="formData.component"
@@ -95,14 +95,14 @@
             </card-body>
           </q-card>
         </div>
-        <div v-show="currentBlock === 'fieldeSetting'" class="col-12">
+        <div v-show="currentBlock === 'fieldeSetting'" class="col-24">
           <q-card>
             <card-header>
               {{ $t('language-data.detail.card.field-setting.title') }}
             </card-header>
             <card-body class="q-pt-none">
               <div class="row q-col-gutter-xs">
-                <div class="col-12">
+                <div class="col-24">
                   <input-checkbox
                     v-model="formData.required"
                     class="full-width"
@@ -110,7 +110,7 @@
                     :placeholder="$t('g.common.input', { field: $t('g.common.required') })"
                   />
                 </div>
-                <div class="col-12">
+                <div class="col-24">
                   <input-checkbox
                     v-model="formData.disable"
                     class="full-width"
@@ -118,7 +118,7 @@
                     :placeholder="$t('g.common.input', { field: $t('g.common.disable') })"
                   />
                 </div>
-                <div class="col-12">
+                <div class="col-24">
                   <input-checkbox
                     v-model="formData.readonly"
                     class="full-width"
@@ -126,7 +126,7 @@
                     :placeholder="$t('g.common.input', { field: $t('g.common.readonly') })"
                   />
                 </div>
-                <div class="col-12">
+                <div class="col-24">
                   <input-checkbox
                     v-model="formData.is_show"
                     class="full-width"
@@ -138,14 +138,14 @@
             </card-body>
           </q-card>
         </div>
-        <div v-show="currentBlock === 'fieldWidthSetting'" class="col-12">
+        <div v-show="currentBlock === 'fieldWidthSetting'" class="col-24">
           <q-card>
             <card-header>
               {{ $t('language-data.detail.card.field-width-setting.title') }}
             </card-header>
             <card-body class="q-pt-none">
               <div class="row q-col-gutter-md">
-                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                <div class="col-24 col-sm-12 col-md-8 col-lg-8 col-xl-6">
                   <base-form-item :label="`${$t('g.common.layout-xs')}`">
                     <input-number
                       v-model="formData.layout.xs"
@@ -155,7 +155,7 @@
                     />
                   </base-form-item>
                 </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                <div class="col-24 col-sm-12 col-md-8 col-lg-8 col-xl-6">
                   <base-form-item :label="`${$t('g.common.layout-sm')}`">
                     <input-number
                       v-model="formData.layout.sm"
@@ -165,7 +165,7 @@
                     />
                   </base-form-item>
                 </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                <div class="col-24 col-sm-12 col-md-8 col-lg-8 col-xl-6">
                   <base-form-item :label="`${$t('g.common.layout-md')}`">
                     <input-number
                       v-model="formData.layout.md"
@@ -175,7 +175,7 @@
                     />
                   </base-form-item>
                 </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                <div class="col-24 col-sm-12 col-md-8 col-lg-8 col-xl-6">
                   <base-form-item :label="`${$t('g.common.layout-lg')}`">
                     <input-number
                       v-model="formData.layout.lg"
@@ -185,7 +185,7 @@
                     />
                   </base-form-item>
                 </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                <div class="col-24 col-sm-12 col-md-8 col-lg-8 col-xl-6">
                   <base-form-item :label="`${$t('g.common.layout-xl')}`">
                     <input-number
                       v-model="formData.layout.xl"

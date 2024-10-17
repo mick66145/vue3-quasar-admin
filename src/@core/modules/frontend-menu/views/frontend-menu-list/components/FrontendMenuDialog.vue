@@ -2,7 +2,7 @@
   <base-dialog v-model="isShowDialog" title="前台選單詳情 : " @confirm="onConfirm" @hide="onHide">
     <base-form ref="form" label-position="left">
       <div class="row q-col-gutter-md">
-        <div class="col-12">
+        <div class="col-24">
           <base-form-item :label="`${$t('frontend-menu.form.name')} *`">
             <input-text
               v-model="data.state.name"
@@ -13,7 +13,7 @@
             />
           </base-form-item>
         </div>
-        <div class="col-12">
+        <div class="col-24">
           <base-form-item :label="`${$t('frontend-menu.form.parent')}`">
             <input-frontend-menu-select
               v-model="data.state.parent"
@@ -23,7 +23,7 @@
             />
           </base-form-item>
         </div>
-        <div class="col-12">
+        <div class="col-24">
           <base-form-item :label="`${$t('g.common.type')} *`">
             <input-select
               v-model="data.state.type"
@@ -38,7 +38,7 @@
             />
           </base-form-item>
         </div>
-        <div v-if="data.state.type==='link' || data.state.type==='internal_link'" class="col-12">
+        <div v-if="data.state.type==='link' || data.state.type==='internal_link'" class="col-24">
           <base-form-item :label="`${$t('g.common.link')}`">
             <input-text
               v-model="data.state.link"
@@ -48,7 +48,7 @@
             />
           </base-form-item>
         </div>
-        <div class="col-12">
+        <div class="col-24">
           <base-form-item :label="`${$t('g.common.sequence')}`">
             <input-number
               v-model="data.state.sequence"
@@ -58,12 +58,12 @@
             />
           </base-form-item>
         </div>
-        <div v-if="data.state.type==='link'" class="col-12">
+        <div v-if="data.state.type==='link'" class="col-24">
           <base-form-item :label="`${$t('g.common.open-blank')}`">
             <input-checkbox v-model="data.state.is_link_blank" />
           </base-form-item>
         </div>
-        <div class="col-12">
+        <div class="col-24">
           <base-form-item :label="`${$t('g.common.enable')}`">
             <input-checkbox v-model="data.state.is_enable" />
           </base-form-item>

@@ -2,7 +2,7 @@
   <base-dialog v-model="isShowDialog" :title="`${$t('barcode.detail.title')}`" @confirm="onConfirm" @hide="onHide">
     <base-form ref="form" label-position="left">
       <div class="row q-col-gutter-x-md q-col-gutter-y-xs">
-        <div class="col-12">
+        <div class="col-24">
           <stream-barcode-reader @decode="onDecode" />
           <base-form-item :label="`${$t('g.common.barcode')} *`">
             <input-text

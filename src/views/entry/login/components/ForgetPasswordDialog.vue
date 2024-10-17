@@ -2,7 +2,7 @@
   <base-dialog v-model="isShowDialog" title="忘記密碼" confirm-button-text="送出" @confirm="onConfirm" @hide="onHide">
     <base-form ref="form">
       <div class="row">
-        <div class="col-12">
+        <div class="col-24">
           <q-item>
             <input-text
               v-model="data.state.account"
@@ -13,7 +13,7 @@
             />
           </q-item>
         </div>
-        <div class="col-12">
+        <div class="col-24">
           <q-item>
             <input-email
               v-model="data.state.email"

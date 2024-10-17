@@ -4,7 +4,7 @@
     @changeFilter="onChangeFilter"
     @reset="onReset"
   >
-    <div class="col-md-3 col-sm-6 col-xs-12">
+    <div class="col-md-6 col-sm-12 col-24">
       <input-date-range
         v-model="sourceData.date_range"
         class="full-width"

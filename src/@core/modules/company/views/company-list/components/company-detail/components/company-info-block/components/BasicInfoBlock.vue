@@ -1,14 +1,14 @@
 <template>
   <div class="p-2">
     <div class="row q-col-gutter-md">
-      <div class="col-12">
+      <div class="col-24">
         <q-card>
           <card-header>
             {{ $t('g.card.basic-info.title') }}
           </card-header>
           <card-body class="q-pt-none">
             <div class="row q-col-gutter-md">
-              <div class="col-12">
+              <div class="col-24">
                 <base-form-item :label="`${$t('company.form.name')} *`">
                   <input-text
                     v-model="sourceData.name"
@@ -20,7 +20,7 @@
                   />
                 </base-form-item>
               </div>
-              <div class="col-12">
+              <div class="col-24">
                 <base-form-item :label="`${$t('company.form.invoice')}`">
                   <input-text
                     v-model="sourceData.invoice"
@@ -30,7 +30,7 @@
                   />
                 </base-form-item>
               </div>
-              <div class="col-12">
+              <div class="col-24">
                 <base-form-item :label="`${$t('g.common.uniform-number')}`">
                   <input-tw-uniform-number
                     v-model="sourceData.vatnumber"
@@ -40,7 +40,7 @@
                   />
                 </base-form-item>
               </div>
-              <div class="col-12">
+              <div class="col-24">
                 <base-form-item :label="`${$t('company.form.leader')}`">
                   <input-text
                     v-model="sourceData.ceo"
@@ -51,7 +51,7 @@
                 </base-form-item>
               </div>
 
-              <div class="col-12">
+              <div class="col-24">
                 <base-form-item :label="`${$t('company.form.established')}`">
                   <input-date
                     v-model="sourceData.opendate"

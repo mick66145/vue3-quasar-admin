@@ -1,12 +1,12 @@
 
 <template>
   <q-item>
-    <div class="col-5">
+    <div class="col-10">
       <q-item-section>
         <q-skeleton class="w-full" height="100px" />
       </q-item-section>
     </div>
-    <div class="row col-7">
+    <div class="row col-14">
       <div class="ml-2 w-full row">
         <q-item-section>
           <q-item-label>

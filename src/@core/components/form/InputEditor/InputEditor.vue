@@ -9,7 +9,7 @@
     >
       <base-form ref="form">
         <div class="row q-col-gutter-y-md">
-          <div class="col-12">
+          <div class="col-24">
             <div class="h-[275px] w-full" :style="cropperWrapStyle">
               <image-cropper
                 v-if="useCropper"
@@ -19,7 +19,7 @@
               <base-image v-else class="w-full" :src="tempCropper" />
             </div>
           </div>
-          <div class="col-12">
+          <div class="col-24">
             <input-text
               v-model="state.title"
               class="full-width"
@@ -27,7 +27,7 @@
               placeholder="請輸入圖片標題"
             />
           </div>
-          <div class="col-12">
+          <div class="col-24">
             <input-text
               v-model="state.alt"
               class="full-width"

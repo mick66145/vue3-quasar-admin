@@ -1,14 +1,14 @@
 <template>
   <div class="p-2">
     <div class="row q-col-gutter-md">
-      <div class="col-12">
+      <div class="col-24">
         <q-card>
           <card-header>
             {{ $t('g.card.basic-info.title') }}
           </card-header>
           <card-body class="q-pt-none">
             <div class="row q-col-gutter-md">
-              <div class="col-12">
+              <div class="col-24">
                 <base-form-item :label="`${$t('g.common.account')} *`">
                   <input-text
                     v-model="sourceData.account"
@@ -20,7 +20,7 @@
                   />
                 </base-form-item>
               </div>
-              <div v-if="mode === 'create'" class="col-12">
+              <div v-if="mode === 'create'" class="col-24">
                 <base-form-item :label="`${$t('g.common.password')}  *`">
                   <input-password
                     v-model="sourceData.password"
@@ -39,7 +39,7 @@
                   </input-password>
                 </base-form-item>
               </div>
-              <div class="col-12">
+              <div class="col-24">
                 <base-form-item :label="`${$t('user.form.name')} *`">
                   <input-text
                     v-model="sourceData.name"
@@ -50,7 +50,7 @@
                   />
                 </base-form-item>
               </div>
-              <div class="col-12">
+              <div class="col-24">
                 <base-form-item :label="`${$t('g.common.email')}`">
                   <input-email
                     v-model="sourceData.email"
@@ -60,27 +60,27 @@
                   />
                 </base-form-item>
               </div>
-              <div class="col-12">
+              <div class="col-24">
                 <base-form-item :label="`${$t('g.common.company')}`">
                   <input-company-select v-model="sourceData.company" class="full-width" />
                 </base-form-item>
               </div>
-              <div class="col-12">
+              <div class="col-24">
                 <base-form-item :label="`${$t('g.common.company-job')}`">
                   <input-company-job-select v-model="sourceData.company_job" class="full-width" />
                 </base-form-item>
               </div>
-              <div class="col-12">
+              <div class="col-24">
                 <base-form-item :label="`${$t('g.common.role')} *`">
                   <input-role-select v-model="sourceData.role" class="full-width" required />
                 </base-form-item>
               </div>
-              <div class="col-12">
+              <div class="col-24">
                 <base-form-item :label="`${$t('g.common.data-access-role')}`">
                   <input-data-access-role-select v-model="sourceData.data_access_roles" class="full-width" />
                 </base-form-item>
               </div>
-              <div class="col-12">
+              <div class="col-24">
                 <base-form-item :label="`${$t('g.common.remark')}`">
                   <input-textarea
                     v-model="sourceData.remark"

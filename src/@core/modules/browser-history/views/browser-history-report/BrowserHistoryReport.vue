@@ -2,18 +2,18 @@
   <base-page>
     <page-header>{{ $t('browser-history-report.title') }}</page-header>
     <div class="row q-col-gutter-md">
-      <div class="col-12">
+      <div class="col-24">
         <div class="row q-col-gutter-md">
-          <div class="col-12">
+          <div class="col-24">
             <traffic-overview />
           </div>
-          <div class="col-12">
+          <div class="col-24">
             <traffic-line-chart />
           </div>
-          <div class="col-md-6 col-12">
+          <div class="col-md-12 col-24">
             <browser-pie-chart />
           </div>
-          <div class="col-md-6 col-12">
+          <div class="col-md-12 col-24">
             <device-type-pie-chart />
           </div>
         </div>

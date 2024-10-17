@@ -1,14 +1,14 @@
 <template>
   <div class="p-2">
     <div class="row q-col-gutter-md">
-      <div class="col-12">
+      <div class="col-24">
         <q-card>
           <card-header>
             {{ $t('g.card.basic-info.title') }}
           </card-header>
           <card-body class="q-pt-none">
             <div class="row q-col-gutter-md">
-              <div class="col-12">
+              <div class="col-24">
                 <base-form-item :label="`${$t('mailinfo.form.subject')} *`">
                   <input-text
                     v-model="sourceData.subject"
@@ -20,7 +20,7 @@
                   />
                 </base-form-item>
               </div>
-              <div class="col-12">
+              <div class="col-24">
                 <base-form-item :label="`${$t('mailinfo.form.fromname')}`">
                   <input-text
                     v-model="sourceData.fromname"
@@ -30,7 +30,7 @@
                   />
                 </base-form-item>
               </div>
-              <div class="col-12">
+              <div class="col-24">
                 <base-form-item :label="`${$t('mailinfo.form.repeatname')}`">
                   <input-text
                     v-model="sourceData.repeatname"
@@ -40,7 +40,7 @@
                   />
                 </base-form-item>
               </div>
-              <div class="col-12">
+              <div class="col-24">
                 <base-form-item :label="`${$t('mailinfo.form.repeatmail')}`">
                   <input-email
                     v-model="sourceData.repeatmail"
@@ -50,7 +50,7 @@
                   />
                 </base-form-item>
               </div>
-              <div class="col-12">
+              <div class="col-24">
                 <base-form-item :label="`${$t('mailinfo.form.tomail')} *`">
                   <input-textarea
                     v-model="sourceData.tomail"
@@ -61,7 +61,7 @@
                   />
                 </base-form-item>
               </div>
-              <div class="col-12">
+              <div class="col-24">
                 <base-form-item :label="`${$t('mailinfo.form.cc')}`">
                   <input-textarea
                     v-model="sourceData.cc"
@@ -71,7 +71,7 @@
                   />
                 </base-form-item>
               </div>
-              <div class="col-12">
+              <div class="col-24">
                 <base-form-item :label="`${$t('mailinfo.form.bcc')}`">
                   <input-textarea
                     v-model="sourceData.bcc"

@@ -1,14 +1,14 @@
 <template>
   <div class="p-2">
     <div class="row q-col-gutter-md">
-      <div class="col-12">
+      <div class="col-24">
         <q-card>
           <card-header>
             {{ $t('g.card.basic-info.title') }}
           </card-header>
           <card-body class="q-pt-none">
             <div class="row q-col-gutter-md">
-              <div class="col-12">
+              <div class="col-24">
                 <base-form-item :label="`${$t('data-access-role.form.name')} *`">
                   <input-text
                     v-model="sourceData.name"

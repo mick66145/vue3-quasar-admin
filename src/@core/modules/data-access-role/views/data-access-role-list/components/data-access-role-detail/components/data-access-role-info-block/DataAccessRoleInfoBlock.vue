@@ -1,6 +1,6 @@
 <template>
   <div class="row q-col-gutter-md">
-    <div class="col-12">
+    <div class="col-24">
       <base-form ref="form">
         <responsive-splitter>
           <template #before>

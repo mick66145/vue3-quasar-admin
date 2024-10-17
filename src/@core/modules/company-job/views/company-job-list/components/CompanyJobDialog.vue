@@ -2,7 +2,7 @@
   <base-dialog v-model="isShowDialog" :title="`${$t('company-job.detail.title')}`" @confirm="onConfirm" @hide="onHide">
     <base-form ref="form">
       <div class="row">
-        <div class="col-12">
+        <div class="col-24">
           <base-form-item :label="`${$t('company-job.form.name')} *`">
             <input-text
               v-model="data.state.name"

@@ -1,10 +1,10 @@
 <template>
   <base-dialog v-model="isShowDialog" size="lg" :show-confirm="false">
     <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12">
+      <div class="col-24">
         <input-search v-model="search.keyword" class="full-width" dense @update:modelValue="onChangeFilter" />
       </div>
-      <div class="col-xs-12 col-sm-12 col-md-12">
+      <div class="col-24">
         <vxe-server-table
           ref="dataTable"
           class="q-mb-md"

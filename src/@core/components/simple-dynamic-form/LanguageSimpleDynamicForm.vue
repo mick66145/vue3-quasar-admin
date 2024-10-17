@@ -1,9 +1,9 @@
 <template>
   <div class="row q-col-gutter-md">
-    <div class="row col-12">
+    <div class="row col-24">
       <language-tabs v-model="currentLang" @update:modelValue="onChange('languageTabs')" />
     </div>
-    <div class="col-12">
+    <div class="col-24">
       <simple-dynamic-form ref="simpleDynamicForm" :models="observeModels" :store="storeForm" />
     </div>
   </div>

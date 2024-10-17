@@ -54,8 +54,8 @@ export default defineComponent({
     showLabel: { type: Boolean, default: false },
     cityCol: { type: String },
     areaCol: { type: String },
-    postCodeCol: { type: String, default: 'col-4' },
-    addressCol: { type: String, default: 'col-12' },
+    postCodeCol: { type: String, default: 'col-8' },
+    addressCol: { type: String, default: 'col-24' },
     showCity: { type: Boolean, default: true },
     showArea: { type: Boolean, default: true },
     showAddress: { type: Boolean, default: true },
@@ -75,10 +75,10 @@ export default defineComponent({
 
     // computed
     const observeCityCol = computed(() => {
-      return cityCol.value ? cityCol.value : (postCodeType.value === 'prefix' ? 'col-6' : 'col-4')
+      return cityCol.value ? cityCol.value : (postCodeType.value === 'prefix' ? 'col-12' : 'col-8')
     })
     const observeAreaCol = computed(() => {
-      return areaCol.value ? areaCol.value : (postCodeType.value === 'prefix' ? 'col-6' : 'col-4')
+      return areaCol.value ? areaCol.value : (postCodeType.value === 'prefix' ? 'col-12' : 'col-8')
     })
 
     // methods
