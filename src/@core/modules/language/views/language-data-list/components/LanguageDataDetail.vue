@@ -1,5 +1,5 @@
 <template>
-  <base-page>
+  <padding-page>
     <page-header showPrev showCancel showConfirm @confirm="onSubmit">
       {{ $t('language-data.detail.title') }}
     </page-header>
@@ -17,7 +17,7 @@
             </card-header>
             <card-body class="q-pt-none">
               <div class="row q-col-gutter-md">
-                <div class="col-24 col-sm-12 col-md-8 col-lg-8 col-xl-6">
+                <div class="col-24">
                   <base-form-item :label="`${$t('g.common.field-label')} *`">
                     <input-text
                       v-model="formData.label"
@@ -28,7 +28,7 @@
                     />
                   </base-form-item>
                 </div>
-                <div class="col-24 col-sm-12 col-md-8 col-lg-8 col-xl-6">
+                <div class="col-24">
                   <base-form-item :label="`${$t('g.common.data-key')} *`">
                     <input-text
                       v-model="formData.data_key"
@@ -39,7 +39,7 @@
                     />
                   </base-form-item>
                 </div>
-                <div class="col-24 col-sm-12 col-md-8 col-lg-8 col-xl-6">
+                <div class="col-24">
                   <base-form-item :label="`${$t('g.common.i18n-key')} *`">
                     <input-text
                       v-model="formData.i18n_key"
@@ -50,7 +50,7 @@
                     />
                   </base-form-item>
                 </div>
-                <div class="col-24 col-sm-12 col-md-8 col-lg-8 col-xl-6">
+                <div class="col-24">
                   <base-form-item :label="`${$t('g.common.placeholder')}`">
                     <input-text
                       v-model="formData.placeholder"
@@ -60,7 +60,7 @@
                     />
                   </base-form-item>
                 </div>
-                <div class="col-24 col-sm-12 col-md-8 col-lg-8 col-xl-6">
+                <div class="col-24">
                   <base-form-item :label="`${$t('g.common.locale')} *`">
                     <input-text
                       v-model="formData.locale"
@@ -71,7 +71,7 @@
                     />
                   </base-form-item>
                 </div>
-                <div class="col-24 col-sm-12 col-md-8 col-lg-8 col-xl-6">
+                <div class="col-24">
                   <base-form-item :label="`${$t('g.common.sequence')}`">
                     <input-number
                       v-model="formData.sequence"
@@ -145,7 +145,7 @@
             </card-header>
             <card-body class="q-pt-none">
               <div class="row q-col-gutter-md">
-                <div class="col-24 col-sm-12 col-md-8 col-lg-8 col-xl-6">
+                <div class="col-24">
                   <base-form-item :label="`${$t('g.common.layout-xs')}`">
                     <input-number
                       v-model="formData.layout.xs"
@@ -155,7 +155,7 @@
                     />
                   </base-form-item>
                 </div>
-                <div class="col-24 col-sm-12 col-md-8 col-lg-8 col-xl-6">
+                <div class="col-24">
                   <base-form-item :label="`${$t('g.common.layout-sm')}`">
                     <input-number
                       v-model="formData.layout.sm"
@@ -165,7 +165,7 @@
                     />
                   </base-form-item>
                 </div>
-                <div class="col-24 col-sm-12 col-md-8 col-lg-8 col-xl-6">
+                <div class="col-24">
                   <base-form-item :label="`${$t('g.common.layout-md')}`">
                     <input-number
                       v-model="formData.layout.md"
@@ -175,7 +175,7 @@
                     />
                   </base-form-item>
                 </div>
-                <div class="col-24 col-sm-12 col-md-8 col-lg-8 col-xl-6">
+                <div class="col-24">
                   <base-form-item :label="`${$t('g.common.layout-lg')}`">
                     <input-number
                       v-model="formData.layout.lg"
@@ -185,7 +185,7 @@
                     />
                   </base-form-item>
                 </div>
-                <div class="col-24 col-sm-12 col-md-8 col-lg-8 col-xl-6">
+                <div class="col-24">
                   <base-form-item :label="`${$t('g.common.layout-xl')}`">
                     <input-number
                       v-model="formData.layout.xl"
@@ -202,7 +202,7 @@
       </div>
     </base-form>
     <fixed-footer go-back-route="/language-data" @confirm="onSubmit" />
-  </base-page>
+  </padding-page>
 </template>
 
 <script>

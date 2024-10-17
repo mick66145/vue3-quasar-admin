@@ -1,5 +1,5 @@
 <template>
-  <base-page>
+  <padding-page>
     <page-header showPrev showCancel>
       {{ $t('meun.profile') }}
     </page-header>
@@ -19,7 +19,7 @@
           <card-body class="q-pt-none">
             <base-form ref="infoForm">
               <div class="row q-col-gutter-md">
-                <div class="col-24 col-sm-12 col-md-8 col-lg-8 col-xl-6">
+                <div class="col-24">
                   <base-form-item :label="`${$t('g.common.account')} *`">
                     <input-text
                       v-model="formData.account"
@@ -31,7 +31,7 @@
                     />
                   </base-form-item>
                 </div>
-                <div class="col-24 col-sm-12 col-md-8 col-lg-8 col-xl-6">
+                <div class="col-24">
                   <base-form-item :label="`${$t('user.form.name')} *`">
                     <input-text
                       v-model="formData.name"
@@ -42,7 +42,7 @@
                     />
                   </base-form-item>
                 </div>
-                <div class="col-24 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <div class="col-24">
                   <base-form-item :label="`${$t('g.common.email')}`">
                     <input-email
                       v-model="formData.email"
@@ -78,7 +78,7 @@
           <card-body class="q-pt-none">
             <base-form ref="changePasswordForm">
               <div class="row q-col-gutter-md">
-                <div class="col-24 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-2xl-4">
+                <div class="col-24">
                   <base-form-item :label="`${$t('g.common.old-password')} *`">
                     <input-password
                       v-model="changePasswordformData.old_password"
@@ -90,7 +90,7 @@
                     />
                   </base-form-item>
                 </div>
-                <div class="col-24 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-2xl-4">
+                <div class="col-24">
                   <base-form-item :label="`${$t('g.common.new-password')} *`">
                     <input-password
                       v-model="changePasswordformData.new_password"
@@ -109,7 +109,7 @@
                     </input-password>
                   </base-form-item>
                 </div>
-                <div class="col-24 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-2xl-4">
+                <div class="col-24">
                   <base-form-item :label="`${$t('g.common.confirm-password')} *`">
                     <input-password
                       v-model="changePasswordformData.confirm_password"
@@ -130,8 +130,8 @@
         </q-card>
       </div>
     </div>
-  </base-page>
-  <fixed-footer :show-confirm="false" @confirm="onSubmit" />
+    <fixed-footer :show-confirm="false" @confirm="onSubmit" />
+  </padding-page>
 </template>
 
 <script>
