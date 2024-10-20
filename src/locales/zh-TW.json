@@ -112,7 +112,12 @@
       "member-role": "會員角色",
       "member-role-auth": "會員授權",
       "name": "名稱",
-      "user": "人員"
+      "user": "人員",
+      "history": "歷史紀錄",
+      "file": "檔案",
+      "title": "標題",
+      "summary": "描述",
+      "status": "狀態"
     },
     "validation": {
       "required": "{attribute}必填",

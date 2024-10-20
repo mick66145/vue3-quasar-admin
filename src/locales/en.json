@@ -112,7 +112,12 @@
       "member-role": "MemberRole",
       "member-role-auth": "MemberRoleAuth",
       "name": "Name",
-      "user": "User"
+      "user": "User",
+      "history": "History",
+      "file": "File",
+      "title": "Title",
+      "summary": "Summary",
+      "status": "Status"
     },
     "validation": {
       "required": "{attribute} Is Required",
