@@ -13,19 +13,16 @@ const defaultRequestInterceptors = (config) => {
     config.data = qs.stringify(config.data)
   }
   if (config.method === 'get' && config.params) {
-    let url = config.url
-    url += '?'
-    const keys = Object.keys(config.params)
-    for (const key of keys) {
-      if (config.params[key] !== undefined && config.params[key] !== null) {
-        url += `${key}=${encodeURIComponent(config.params[key])}&`
+    const params = new URLSearchParams()
+    Object.entries(config.params).forEach(([key, value]) => {
+      if (value !== undefined && value !== null) {
+        params.append(key, value)
       }
-    }
-    url = url.substring(0, url.length - 1)
+    })
+    config.url += `?${params.toString()}`
     config.params = {}
-    config.url = url
   }
-  if (storeUser.token) {
+  if (storeUser.token && !config.headers['Skip-Token']) {
     config.headers['X-Token'] = getToken()
     config.headers.Authorization = `Bearer ${getToken()}`
   }
@@ -70,7 +67,7 @@ export const handleResponse = async (response) => {
 // create an axios instance
 const service = axios.create({
   baseURL: `${Configuration('backendHost')}`, // url = base url + request url
-  // withCredentials: true, // send cookies when cross-domain requests
+  withCredentials: true, // send cookies when cross-domain requests
   timeout: 600000, // request timeout
 })
 
