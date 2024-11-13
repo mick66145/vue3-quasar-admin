@@ -1,6 +1,7 @@
 import Base from '@core/models/modules/Base'
+import useBatchUpload from '@/hooks/useBatchUpload'
 
-const BaseImage = {
+const BaseImage = () => ({
   ...Base(),
   // api欄位
   id: '',
@@ -10,7 +11,7 @@ const BaseImage = {
   name: '',
   size: '',
   url: '',
-}
+})
 
 const BaseImageModel = (item = null) => {
   const model = (item) => {
@@ -26,7 +27,30 @@ const BaseImageModel = (item = null) => {
 
     }
   }
-  return model(item || BaseImage)
+  return model(item || BaseImage())
 }
 
-export default BaseImageModel
+const BaseImageObjViewModel = (item = null) => {
+  const { batchUpload } = useBatchUpload()
+  const model = (item) => {
+    return {
+      image: item?.image || '',
+      image_obj: item?.image_obj !== undefined ? item?.image_obj : ((item?.image && Object.keys(item?.image).length !== 0) ? { ...BaseImageModel(item?.image) } : ''),
+      async uploadImage () {
+        if (this.image_obj?.raw) {
+          const [uploadRes] = await batchUpload({ imageObj: this.image_obj })
+          if (uploadRes && uploadRes.imageObj) {
+            this.image_obj.id = uploadRes.imageObj.id
+          }
+        }
+      },
+      setImage () {
+        this.image = this.image_obj
+      },
+    }
+  }
+
+  return model(item)
+}
+
+export default BaseImageObjViewModel
