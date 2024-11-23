@@ -11,10 +11,7 @@
           </template>
           <template #after>
             <basic-info-block v-show="currentBlock === 'basicInfo'" :mailinfo-form-data="formData" />
-            <content-info-block
-              v-show="currentBlock === 'contentInfo'"
-              :mailinfo-form-data="formData"
-            />
+            <content-info-block v-show="currentBlock === 'contentInfo'" :mailinfo-form-data="formData" />
           </template>
         </responsive-splitter>
       </base-form>
@@ -68,7 +65,6 @@ export default defineComponent({
       form.value.validate().then(async (success) => {
         if (success) {
           const payload = { ...formData.value }
-          payload.setContent()
           const urlObj = {
             create: () => callCreateFetch({ ...payload }),
             edit: () => callUpdateFetch(id, { ...payload }),

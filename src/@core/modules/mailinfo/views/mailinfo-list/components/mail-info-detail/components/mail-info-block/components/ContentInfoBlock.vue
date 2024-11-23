@@ -9,7 +9,7 @@
           <card-body class="q-pt-none">
             <div class="row q-col-gutter-md">
               <div class="col-24">
-                <input-editor v-model="sourceData.content_json" class="full-width" />
+                <input-editor v-model="sourceData.content" class="full-width" />
               </div>
             </div>
           </card-body>
