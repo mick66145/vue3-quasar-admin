@@ -10,7 +10,7 @@ const Mailinfo = {
   repeatmail: null,
   cc: null,
   bcc: null,
-  content_json: '',
+  content_json: null,
   content: null,
 }
 
@@ -28,7 +28,7 @@ export const MailinfoModel = (item = null) => {
       cc: item?.cc || null,
       bcc: item?.bcc || null,
       content: item?.content || null,
-      content_json: item?.content_json ? JSON.parse(item?.content_json) : {},
+      content_json: item?.content_json ? JSON.parse(item?.content_json) : null,
     }
     return mailinfoObj
   }
