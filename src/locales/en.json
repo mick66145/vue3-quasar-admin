@@ -117,7 +117,12 @@
       "file": "File",
       "title": "Title",
       "summary": "Summary",
-      "status": "Status"
+      "status": "Status",
+      "date": "Date",
+      "video": "Video",
+      "image-title": "ImageTitle",
+      "image-alt": "ImageAlt",
+      "parent-classification": "ParentClassification"
     },
     "validation": {
       "required": "{attribute} Is Required",
@@ -155,6 +160,9 @@
       },
       "content-info": {
         "title": "ContentInfo"
+      },
+      "media-info": {
+        "title": "MediaInfo"
       }
     }
   },

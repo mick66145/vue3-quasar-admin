@@ -117,7 +117,12 @@
       "file": "檔案",
       "title": "標題",
       "summary": "描述",
-      "status": "狀態"
+      "status": "狀態",
+      "date": "日期",
+      "video": "影片",
+      "image-title": "圖片標題",
+      "image-alt": "圖片描述文字",
+      "parent-classification": "父分類"
     },
     "validation": {
       "required": "{attribute}必填",
@@ -153,6 +158,9 @@
       },
       "content-info": {
         "title": "內容資訊"
+      },
+      "media-info": {
+        "title": "多媒體Info"
       }
     }
   },
