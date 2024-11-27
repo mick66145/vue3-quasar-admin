@@ -122,7 +122,9 @@
       "video": "Video",
       "image-title": "ImageTitle",
       "image-alt": "ImageAlt",
-      "parent-classification": "ParentClassification"
+      "parent-classification": "ParentClassification",
+      "classification": "Classification",
+      "tag": "Tag"
     },
     "validation": {
       "required": "{attribute} Is Required",

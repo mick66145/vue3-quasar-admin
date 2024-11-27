@@ -122,7 +122,9 @@
       "video": "影片",
       "image-title": "圖片標題",
       "image-alt": "圖片描述文字",
-      "parent-classification": "父分類"
+      "parent-classification": "父分類",
+      "classification": "分類",
+      "tag": "標籤"
     },
     "validation": {
       "required": "{attribute}必填",
