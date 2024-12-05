@@ -124,7 +124,8 @@
       "image-alt": "圖片描述文字",
       "parent-classification": "父分類",
       "classification": "分類",
-      "tag": "標籤"
+      "tag": "標籤",
+      "icon": "圖示"
     },
     "validation": {
       "required": "{attribute}必填",

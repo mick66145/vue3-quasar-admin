@@ -124,7 +124,8 @@
       "image-alt": "ImageAlt",
       "parent-classification": "ParentClassification",
       "classification": "Classification",
-      "tag": "Tag"
+      "tag": "Tag",
+      "icon": "Icon"
     },
     "validation": {
       "required": "{attribute} Is Required",
