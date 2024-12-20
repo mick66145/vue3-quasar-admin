@@ -125,7 +125,9 @@
       "parent-classification": "父分類",
       "classification": "分類",
       "tag": "標籤",
-      "icon": "圖示"
+      "icon": "圖示",
+      "price": "售價",
+      "cost": "成本"
     },
     "validation": {
       "required": "{attribute}必填",

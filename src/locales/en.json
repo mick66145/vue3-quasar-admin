@@ -125,7 +125,9 @@
       "parent-classification": "ParentClassification",
       "classification": "Classification",
       "tag": "Tag",
-      "icon": "Icon"
+      "icon": "Icon",
+      "price": "Price",
+      "cost": "Cost"
     },
     "validation": {
       "required": "{attribute} Is Required",
