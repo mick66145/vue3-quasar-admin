@@ -1,25 +1,30 @@
 <template>
-  <q-layout>
+  <q-layout view="hhh lpr fFf" class="bg-grey-1">
+    <app-header />
+    <sidebar width="260" />
     <q-page-container>
-      <router-view v-slot="{ Component,route }">
+      <router-view v-slot="{ Component,route }" class="p-4">
         <transition name="slide-fade">
           <div :key="route">
             <component :is="Component" :key="route" />
           </div>
         </transition>
+        <back-top />
       </router-view>
-      <app-footer />
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
-import { AppFooter } from './components'
+import { AppHeader, Sidebar, BackTop } from '@/layouts/components'
 import { defineComponent } from 'vue-demi'
 
 export default defineComponent({
+  name: 'MainLayout',
   components: {
-    AppFooter,
+    AppHeader,
+    Sidebar,
+    BackTop,
   },
   setup () {
     return {}
@@ -28,8 +33,4 @@ export default defineComponent({
 </script>
 
 <style lang="postcss" scoped>
-.q-layout {
-  background-image: url("@/assets/images/entry-images/bk.svg");
-  background-color: #f5f5f5;
-}
 </style>

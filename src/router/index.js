@@ -2,8 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { setupGuards } from './guard'
 
 /* Layout */
-import MainLayout from '@/layouts/MainLayout.vue'
-import EntryLayout from '@/layouts/EntryLayout.vue'
+import MainLayout from '@/layouts/main-layout/MainLayout.vue'
+import EntryLayout from '@/layouts/entry-layout/EntryLayout.vue'
 
 /* Router Modules */
 import systemInfoManageRouter from './modules/system-info-manage'

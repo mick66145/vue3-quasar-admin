@@ -1,5 +1,5 @@
 /* Layout */
-import MainLayout from '@/layouts/MainLayout.vue'
+import MainLayout from '@/layouts/main-layout/MainLayout.vue'
 
 export const mailinfoRouter = {
   path: '/mailinfo',

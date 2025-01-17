@@ -3,6 +3,7 @@
     v-model="sidebarOpened"
     show-if-above
     bordered
+    :width="width"
     :class="`${bgColor} ${textColor}`"
   >
     <q-item-label
@@ -38,6 +39,7 @@ export default defineComponent({
   props: {
     bgColor: { type: String, default: 'bg-grey-9' },
     textColor: { type: String, default: 'text-white' },
+    width: { type: [Number, String] },
   },
   emits: ['toggle'],
   setup (props, { emit }) {
