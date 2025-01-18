@@ -8,7 +8,7 @@
   >
     <q-item-label
       header
-      class="text-center text-white text-h6"
+      :class="`text-center ${textColor} text-h6`"
     >
       {{ $t('g.system.system-name') }}
     </q-item-label>
@@ -21,6 +21,8 @@
           :key="routeIndex"
           :item="routeItem"
           :base-path="routeItem.path"
+          :active-class="activeClass"
+          :text-color="textColor"
         />
       </q-list>
     </q-scroll-area>
@@ -40,6 +42,7 @@ export default defineComponent({
     bgColor: { type: String, default: 'bg-grey-9' },
     textColor: { type: String, default: 'text-white' },
     width: { type: [Number, String] },
+    activeClass: { type: String, default: 'bg-primary text-white' },
   },
   emits: ['toggle'],
   setup (props, { emit }) {

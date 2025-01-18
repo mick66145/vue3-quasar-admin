@@ -5,7 +5,7 @@
     :to="to"
     class="rounded-lg my-1 !px-3.5"
     clickable
-    active-class="bg-primary text-white"
+    :active-class="activeClass"
   >
     <q-item-section avatar>
       <q-icon :name="icon" size="1.4rem" />
@@ -23,6 +23,7 @@ export default defineComponent({
     to: { type: String, required: true },
     icon: { type: String },
     title: { type: String, default: '' },
+    activeClass: { type: String, default: 'bg-primary text-white' },
   },
   setup () {
     return {

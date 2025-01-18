@@ -7,6 +7,7 @@
         :to="resolvePath(onlyOneChild.path)"
         :title="$t(onlyOneChild.meta.title)"
         :icon="onlyOneChild.meta.icon"
+        :active-class="activeClass"
         @click="onclick(onlyOneChild)"
       />
     </template>
@@ -36,6 +37,7 @@
           :is-nest="true"
           :item="childItem"
           :base-path="resolvePath(childItem.path)"
+          :active-class="activeClass"
         />
         <sidebar-link
           v-else
@@ -43,6 +45,7 @@
           :to="resolvePath(childItem.path)"
           :title="$t(childItem.meta.title)"
           :icon="childItem.meta.icon"
+          :active-class="activeClass"
           @click="onclick(childItem)"
         />
       </q-list>
@@ -65,17 +68,19 @@ export default defineComponent({
     item: { type: Object },
     activeHeaderClass: { type: String, default: 'active-header' },
     activeExpandIconClassClass: { type: String },
+    activeClass: { type: String },
+    textColor: { type: String },
     isNest: { type: Boolean, default: false },
     basePath: { type: String },
   },
   setup (props, { emit }) {
     // data
     const route = useRoute()
-    const { item, activeHeaderClass, activeExpandIconClassClass, basePath } = toRefs(props)
+    const { item, activeHeaderClass, activeExpandIconClassClass, textColor, basePath } = toRefs(props)
     const open = ref(false)
     const active = ref(false)
-    const headerClassDefault = ref('text-white rounded-lg')
-    const expandIconClassDefault = ref('text-white')
+    const headerClassDefault = ref(`${textColor} rounded-lg`)
+    const expandIconClassDefault = ref(`${textColor}`)
     const headerClassActive = ref('')
     const expandIconClassActive = ref('')
 
