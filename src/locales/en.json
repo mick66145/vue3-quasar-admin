@@ -127,7 +127,9 @@
       "tag": "Tag",
       "icon": "Icon",
       "price": "Price",
-      "cost": "Cost"
+      "cost": "Cost",
+      "inventory-qty": "InventoryQty",
+      "safety-inventory": "SafetyInventory"
     },
     "validation": {
       "required": "{attribute} Is Required",
@@ -168,6 +170,12 @@
       },
       "media-info": {
         "title": "MediaInfo"
+      },
+      "specification-info": {
+        "title": "SpecificationInfo"
+      },
+      "contact-info": {
+        "title": "ContactInfo"
       }
     }
   },
