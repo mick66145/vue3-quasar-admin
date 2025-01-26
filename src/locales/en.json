@@ -199,6 +199,7 @@
     "basic-setting": "BasicSetting",
     "full-site-setting": "FullSiteSetting",
     "language-manage": "LanguageManage",
+    "language-content-form-manage": "LanguageContentFormManage",
     "report-manage": "ReportManage",
     "cms-manage": "CmsManage",
     "role-permission-manage": "RolePermissionManage",
@@ -455,6 +456,20 @@
           "title": "RoleAuthInfo"
         }
       }
+    }
+  },
+  "language-content-form": {
+    "title": "LanguageContentForm",
+    "detail": {
+      "title": "LanguageContentFormDetail",
+      "card": {
+        "language-content-form-info": {
+          "title": "LanguageContentFormInfo"
+        }
+      }
+    },
+    "form": {
+      "name": "LanguageContentFormName"
     }
   }
 }

@@ -197,6 +197,7 @@
     "basic-setting": "基礎設定",
     "full-site-setting": "全站設定",
     "language-manage": "多語系管理",
+    "language-content-form-manage": "多語系內容表單管理",
     "report-manage": "報表管理",
     "cms-manage": "網站內容管理",
     "role-permission-manage": "角色權限管理",
@@ -453,6 +454,20 @@
           "title": "人員授權資訊"
         }
       }
+    }
+  },
+  "language-content-form": {
+    "title": "多語系內容表單",
+    "detail": {
+      "title": "多語系內容表單詳情",
+      "card": {
+        "language-content-form-info": {
+          "title": "多語系內容表單資訊"
+        }
+      }
+    },
+    "form": {
+      "name": "多語系內容表單名稱"
     }
   }
 }
