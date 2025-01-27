@@ -80,6 +80,8 @@ export default defineComponent({
         return 'w-[30rem]'
       case 'lg':
         return 'w-[50rem] !max-w-[50rem]'
+      case 'xl':
+        return 'w-[75rem] !max-w-[75rem]'
       default:
         return 'w-full'
       }

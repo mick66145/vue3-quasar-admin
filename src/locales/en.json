@@ -129,7 +129,8 @@
       "price": "Price",
       "cost": "Cost",
       "inventory-qty": "InventoryQty",
-      "safety-inventory": "SafetyInventory"
+      "safety-inventory": "SafetyInventory",
+      "component": "Component"
     },
     "validation": {
       "required": "{attribute} Is Required",
@@ -176,6 +177,12 @@
       },
       "contact-info": {
         "title": "ContactInfo"
+      },
+      "field-width-setting": {
+        "title": "FieldWidthSetting"
+      },
+      "field-setting": {
+        "title": "FieldSetting"
       }
     }
   },
@@ -470,6 +477,17 @@
     },
     "form": {
       "name": "LanguageContentFormName"
+    }
+  },
+  "language-content-form-field": {
+    "title": "LanguageContentFormField",
+    "detail": {
+      "title": "LanguageContentFormFieldDetail",
+      "card": {
+        "language-content-form-field-info": {
+          "title": "LanguageContentFormFieldInfo"
+        }
+      }
     }
   }
 }

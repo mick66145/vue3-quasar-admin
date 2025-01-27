@@ -1,11 +1,12 @@
 
 /* Router Modules */
-import { languageContentFormRouter } from '@core/modules/language/router'
+import { languageContentFormRouter, languageContentFormFieldRouter } from '@core/modules/language/router'
 
 export const languageContentFormManageRouter = {
   path: '/language-content-form',
   group: [
     '/language-content-form',
+    '/language-content-form-field',
   ],
   groupName: 'second',
   meta: {
@@ -16,5 +17,6 @@ export const languageContentFormManageRouter = {
   redirect: { name: 'LanguageContentFormList' },
   children: [
     languageContentFormRouter,
+    languageContentFormFieldRouter,
   ],
 }

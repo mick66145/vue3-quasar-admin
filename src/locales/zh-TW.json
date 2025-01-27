@@ -129,7 +129,8 @@
       "price": "售價",
       "cost": "成本",
       "inventory-qty": "庫存數量",
-      "safety-inventory": "安全庫存"
+      "safety-inventory": "安全庫存",
+      "component": "元件"
     },
     "validation": {
       "required": "{attribute}必填",
@@ -174,6 +175,12 @@
       },
       "contact-info": {
         "title": "聯絡資訊"
+      },
+      "field-setting": {
+        "title": "欄位設定"
+      },
+      "field-width-setting": {
+        "title": "欄位寬度設定"
       }
     }
   },
@@ -457,7 +464,7 @@
     }
   },
   "language-content-form": {
-    "title": "多語系內容表單",
+    "title": "多語系內容表單維護",
     "detail": {
       "title": "多語系內容表單詳情",
       "card": {
@@ -468,6 +475,17 @@
     },
     "form": {
       "name": "多語系內容表單名稱"
+    }
+  },
+  "language-content-form-field": {
+    "title": "多語系內容表單欄位維護",
+    "detail": {
+      "title": "多語系內容表單欄位詳情",
+      "card": {
+        "language-content-form-field-info": {
+          "title": "多語系內容表單欄位資訊"
+        }
+      }
     }
   }
 }

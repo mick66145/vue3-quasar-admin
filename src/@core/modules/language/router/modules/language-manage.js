@@ -4,6 +4,7 @@ export const languageManageRouter = {
   path: '/',
   group: [
     '/language-content-form',
+    '/language-content-form-field',
     '/language-setting',
     '/language-data',
   ],
