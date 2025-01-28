@@ -1,14 +1,14 @@
 <template>
-  <q-page>
-    <template v-if="$slots.default" #default>
-      <slot name="default" />
-    </template>
-  </q-page>
+  <q-scroll-area>
+    <slot name="default" />
+  </q-scroll-area>
 </template>
 
 <script>
 import { defineComponent } from 'vue-demi'
 export default defineComponent({
+  props: {
+  },
   setup () {
     return {
     }
