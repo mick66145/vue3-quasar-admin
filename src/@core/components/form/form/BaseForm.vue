@@ -15,28 +15,31 @@
 <script>
 import { defineComponent, ref, computed, toRefs, provide } from 'vue-demi'
 import { i18n } from '@/plugins/i18n'
+import { useApp } from '@/stores/app'
 import useNotify from '@/hooks/useNotify'
 import useScreen from '@/hooks/useScreen'
 
 export default defineComponent({
   props: {
-    labelPosition: { type: String, default: 'top' },
+    labelPosition: { type: String },
     labelWidth: { type: String, default: '6rem' },
   },
   emits: ['submit', 'reset', 'validation-success'],
   setup (props, { emit }) {
-    // data
+    // ref
     const form = ref()
+
+    // data
     const { labelPosition, labelWidth } = toRefs(props)
     const { deviceType } = useScreen({})
+    const storeApp = useApp()
 
     // computed
     const formClass = computed(() => {
       const ret = {}
-
       const labelClass = deviceType.value === 'mobile'
         ? 'q-form--label-top'
-        : `q-form--label-${labelPosition.value}`
+        : `q-form--label-${labelPosition.value ? labelPosition.value : storeApp.form.labelPosition}`
       ret[labelClass] = true
 
       return ret
