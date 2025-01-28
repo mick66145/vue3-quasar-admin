@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { defineComponent, computed, getCurrentInstance, toRefs } from 'vue-demi'
+import { defineComponent, computed, toRefs, inject } from 'vue-demi'
 
 export default defineComponent({
   props: {
@@ -20,12 +20,12 @@ export default defineComponent({
   },
   setup (props) {
     // data
-    const instance = getCurrentInstance()
     const { labelWidth } = toRefs(props)
 
     // computed
-    const form = computed(() => instance.proxy.$parent.$parent)
+    const form = computed(() => inject('formProps', null))
     const labelStyle = computed(() => {
+      if (!form.value) return
       const ret = {}
       const _labelWidth = labelWidth.value || form.value.labelWidth
       if (form.value.labelPosition === 'top') return ret

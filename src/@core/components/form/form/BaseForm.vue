@@ -13,9 +13,10 @@
 </template>
 
 <script>
-import { defineComponent, ref, computed, toRefs } from 'vue-demi'
+import { defineComponent, ref, computed, toRefs, provide } from 'vue-demi'
 import { i18n } from '@/plugins/i18n'
 import useNotify from '@/hooks/useNotify'
+import useScreen from '@/hooks/useScreen'
 
 export default defineComponent({
   props: {
@@ -26,12 +27,18 @@ export default defineComponent({
   setup (props, { emit }) {
     // data
     const form = ref()
-    const { labelPosition } = toRefs(props)
+    const { labelPosition, labelWidth } = toRefs(props)
+    const { deviceType } = useScreen({})
 
     // computed
     const formClass = computed(() => {
       const ret = {}
-      ret[`q-form--label-${labelPosition.value}`] = true
+
+      const labelClass = deviceType.value === 'mobile'
+        ? 'q-form--label-top'
+        : `q-form--label-${labelPosition.value}`
+      ret[labelClass] = true
+
       return ret
     })
 
@@ -64,8 +71,14 @@ export default defineComponent({
       emit('validation-success')
     }
 
+    provide('formProps', {
+      labelPosition: labelPosition.value,
+      labelWidth: labelWidth.value,
+    })
+
     // use
     const { notifyError } = useNotify()
+
     return {
       form,
       formClass,
