@@ -1,12 +1,15 @@
 <template>
-  <component :is="currentLayout" />
+  <div>
+    <component :is="currentLayout" />
+  </div>
 </template>
 
 <script>
 import Theme1MainLayout from './components/theme/Theme1MainLayout.vue'
 import Theme2MainLayout from './components/theme/Theme2MainLayout.vue'
 import Theme3MainLayout from './components/theme/Theme3MainLayout.vue'
-import { defineComponent, ref } from 'vue-demi'
+import { defineComponent, computed } from 'vue-demi'
+import { useApp } from '@/stores/app'
 
 export default defineComponent({
   name: 'MainLayout',
@@ -17,15 +20,15 @@ export default defineComponent({
   },
   setup () {
     // ref
-    const currentLayout = ref('Theme1MainLayout')
+    const storeApp = useApp()
 
-    // methods
-    const setLayout = (layout) => {
-      currentLayout.value = layout
-    }
+    // computed
+    const currentLayout = computed(() => {
+      return storeApp.layout.mainLayoutTheme
+    })
+
     return {
       currentLayout,
-      setLayout,
     }
   },
 })

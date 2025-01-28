@@ -1,10 +1,13 @@
 <template>
-  <component :is="currentLayout" />
+  <div>
+    <component :is="currentLayout" />
+  </div>
 </template>
 
 <script>
 import Theme1EntryLayout from './components/theme/Theme1EntryLayout.vue'
-import { defineComponent, ref } from 'vue-demi'
+import { defineComponent, computed } from 'vue-demi'
+import { useApp } from '@/stores/app'
 
 export default defineComponent({
   name: 'MainLayout',
@@ -13,15 +16,15 @@ export default defineComponent({
   },
   setup () {
     // ref
-    const currentLayout = ref('Theme1EntryLayout')
+    const storeApp = useApp()
 
-    // methods
-    const setLayout = (layout) => {
-      currentLayout.value = layout
-    }
+    // computed
+    const currentLayout = computed(() => {
+      return storeApp.layout.entryLayoutTheme
+    })
+
     return {
       currentLayout,
-      setLayout,
     }
   },
 })

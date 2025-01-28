@@ -10,7 +10,11 @@ export const useApp = defineStore({
       withoutAnimation: false,
     },
     form: {
-      labelPosition: 'left',
+      labelPosition: 'top',
+    },
+    layout: {
+      mainLayoutTheme: 'Theme1MainLayout',
+      entryLayoutTheme: 'Theme1EntryLayout',
     },
     language: getLanguage(),
     isLoading: false,
@@ -34,6 +38,12 @@ export const useApp = defineStore({
       } else {
         Cookies.set('sidebarStatus', 0)
       }
+    },
+    setMainLayoutTheme (layout) {
+      this.layout.mainLayoutTheme = layout
+    },
+    setEntryLayoutTheme (layout) {
+      this.layout.entryLayoutTheme = layout
     },
   },
 
