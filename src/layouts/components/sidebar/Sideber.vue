@@ -4,11 +4,11 @@
     show-if-above
     bordered
     :width="width"
-    :class="`${bgColor} ${textColor}`"
+    :class="`${observebgColor} ${observeTextColor}`"
   >
     <q-item-label
       header
-      :class="`text-center ${textColor} text-h6`"
+      :class="`text-center ${observeTextColor} text-h6`"
     >
       {{ $t('g.system.system-name') }}
     </q-item-label>
@@ -21,8 +21,8 @@
           :key="routeIndex"
           :item="routeItem"
           :base-path="routeItem.path"
-          :active-class="activeClass"
-          :text-color="textColor"
+          :active-class="observeActiveClass"
+          :text-color="observeTextColor"
         />
       </q-list>
     </q-scroll-area>
@@ -31,7 +31,7 @@
 
 <script>
 import SidebarItem from './SidebarItem.vue'
-import { defineComponent, computed } from 'vue-demi'
+import { defineComponent, computed, toRefs } from 'vue-demi'
 import { useApp } from '@/stores/app'
 import { usePermission } from '@/stores/permission'
 export default defineComponent({
@@ -39,33 +39,46 @@ export default defineComponent({
     SidebarItem,
   },
   props: {
-    bgColor: { type: String, default: 'bg-grey-9' },
-    textColor: { type: String, default: 'text-white' },
+    bgColor: { type: String },
+    textColor: { type: String },
     width: { type: [Number, String] },
-    activeClass: { type: String, default: 'bg-primary text-white' },
+    activeClass: { type: String },
   },
   emits: ['toggle'],
   setup (props, { emit }) {
     // data
-    const store = useApp()
+    const storeApp = useApp()
     const storePermission = usePermission()
+    const { bgColor, textColor, activeClass } = toRefs(props)
 
     // computed
     const sidebarOpened = computed({
       get () {
-        return store.sidebar.opened
+        return storeApp.sidebar.opened
       },
       set () {
-        store.toggleSideBar()
+        storeApp.toggleSideBar()
       },
     })
     const routes = computed(() => {
       return storePermission.routes
     })
+    const observebgColor = computed(() => {
+      return bgColor.value ? bgColor.value : storeApp.sidebar.bgColor
+    })
+    const observeTextColor = computed(() => {
+      return textColor.value ? textColor.value : storeApp.sidebar.textColor
+    })
+    const observeActiveClass = computed(() => {
+      return activeClass.value ? activeClass.value : storeApp.sidebar.activeClass
+    })
 
     return {
       sidebarOpened,
       routes,
+      observebgColor,
+      observeTextColor,
+      observeActiveClass,
     }
   },
 })

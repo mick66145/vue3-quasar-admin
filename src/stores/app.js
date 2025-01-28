@@ -8,6 +8,9 @@ export const useApp = defineStore({
     sidebar: {
       opened: false,
       withoutAnimation: false,
+      bgColor: 'bg-grey-9',
+      textColor: 'text-white',
+      activeClass: 'bg-primary text-white',
     },
     form: {
       labelPosition: 'top',
