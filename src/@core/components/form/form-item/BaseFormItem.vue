@@ -1,5 +1,5 @@
 <template>
-  <div class="q-form-item" :class="{'block':false}">
+  <div class="q-form-item" :class="{'block':false, 'is-required':required}">
     <label class="q-form-item__label" :style="labelStyle">{{ label }}</label>
     <div class="w-full q-form-item__content break-words">
       <template v-if="$slots.default">
@@ -17,6 +17,7 @@ export default defineComponent({
     label: { type: String },
     labelWidth: { type: String },
     labelPosition: { type: String },
+    required: { type: Boolean, default: false },
   },
   setup (props) {
     // data
@@ -42,5 +43,11 @@ export default defineComponent({
 <style lang="postcss" scoped>
 .q-form-item {
   @apply flex flex-nowrap items-center;
+  &.is-required {
+    .q-form-item__label {
+      @apply before:mr-[0.25rem] before:text-red-500 before:content-['*'];
+    }
+  }
 }
+
 </style>
