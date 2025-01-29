@@ -130,7 +130,8 @@
       "cost": "成本",
       "inventory-qty": "庫存數量",
       "safety-inventory": "安全庫存",
-      "component": "元件"
+      "component": "元件",
+      "sub-title": "副標題"
     },
     "validation": {
       "required": "{attribute}必填",
@@ -181,6 +182,9 @@
       },
       "field-width-setting": {
         "title": "欄位寬度設定"
+      },
+      "advanced-info": {
+        "title": "進階資訊"
       }
     }
   },

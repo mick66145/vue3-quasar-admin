@@ -130,7 +130,8 @@
       "cost": "Cost",
       "inventory-qty": "InventoryQty",
       "safety-inventory": "SafetyInventory",
-      "component": "Component"
+      "component": "Component",
+      "sub-title": "SubTitle"
     },
     "validation": {
       "required": "{attribute} Is Required",
@@ -183,6 +184,9 @@
       },
       "field-setting": {
         "title": "FieldSetting"
+      },
+      "advanced-info": {
+        "title": "AdvancedInfo"
       }
     }
   },
