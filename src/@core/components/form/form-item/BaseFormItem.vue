@@ -43,6 +43,9 @@ export default defineComponent({
 <style lang="postcss" scoped>
 .q-form-item {
   @apply flex flex-nowrap items-center;
+  .q-form-item__label {
+    @apply pr-2;
+  }
   &.is-required {
     .q-form-item__label {
       @apply before:mr-[0.25rem] before:text-red-500 before:content-['*'];
