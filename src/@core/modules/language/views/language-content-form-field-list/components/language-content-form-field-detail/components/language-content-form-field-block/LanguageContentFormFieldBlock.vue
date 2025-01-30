@@ -9,7 +9,9 @@
             </vertical-tabs>
           </template>
           <template #after>
-            <basic-info-block v-show="currentBlock === 'basicInfo'" v-model="formData.fields" />
+            <detail-scroll-area>
+              <basic-info-block v-show="currentBlock === 'basicInfo'" v-model="formData.fields" />
+            </detail-scroll-area>
           </template>
         </responsive-splitter>
       </base-form>

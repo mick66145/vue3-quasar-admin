@@ -4,29 +4,27 @@
       <div class="col-24">
         <q-card>
           <card-header>
-            {{ $t('g.card.basic-info.title') }}
+            {{ $t('g.card.advanced-info.title') }}
           </card-header>
           <card-body class="q-pt-none">
-            <div class="row q-col-gutter-md">
+            <div class="row q-col-gutter-y-md">
               <div class="col-24">
-                <base-form-item required :label="`${$t('language-content-form.form.name')}`">
-                  <input-text
-                    v-model="sourceData.name"
+                <base-form-item :label="`${$t('g.common.enable')}`">
+                  <input-true-false-select
+                    v-model="sourceData.is_enable"
                     class="full-width"
-                    :label="`${$t('language-content-form.form.name')}`"
-                    :placeholder="$t('g.common.input', { field: $t('language-content-form.form.name') })"
-                    required
+                    :label="`${$t('g.common.enable')}`"
+                    :placeholder="$t('g.common.select', { field: $t('g.common.enable') })"
                   />
                 </base-form-item>
               </div>
               <div class="col-24">
-                <base-form-item required :label="`${$t('g.common.usage-type')}`">
-                  <input-text
-                    v-model="sourceData.usage_type"
+                <base-form-item :label="`${$t('g.common.default')}`">
+                  <input-true-false-select
+                    v-model="sourceData.is_default"
                     class="full-width"
-                    :label="`${$t('g.common.usage-type')}`"
-                    :placeholder="$t('g.common.input', { field: $t('g.common.usage-type') })"
-                    required
+                    :label="`${$t('g.common.default')}`"
+                    :placeholder="$t('g.common.select', { field: $t('g.common.default') })"
                   />
                 </base-form-item>
               </div>
@@ -53,12 +51,11 @@ import { defineComponent } from 'vue-demi'
 import { useVModel } from '@vueuse/core'
 export default defineComponent({
   props: {
-    languageContentFormFormData: { type: [String, Object], requred: true },
-    mode: { type: String, requred: true },
+    languageSettingFormData: { type: [String, Object], requred: true },
   },
   setup (props, { emit }) {
     // data
-    const sourceData = useVModel(props, 'languageContentFormFormData', emit)
+    const sourceData = useVModel(props, 'languageSettingFormData', emit)
     return {
       sourceData,
     }

@@ -3,7 +3,7 @@
     <base-form ref="form">
       <div class="row">
         <div class="col-24">
-          <base-form-item :label="`${$t('company-job.form.name')} *`">
+          <base-form-item required :label="`${$t('company-job.form.name')}`">
             <input-text
               v-model="data.state.name"
               class="full-width"

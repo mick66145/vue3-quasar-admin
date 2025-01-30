@@ -1,5 +1,5 @@
 <template>
-  <padding-page>
+  <base-page>
     <page-header showPrev showCancel>
       {{ $t('language-content-form.detail.title') }}
     </page-header>
@@ -7,7 +7,7 @@
       <q-tab name="languageContentForm" :label="`${$t('language-content-form.detail.card.language-content-form-info.title')}`" />
     </base-tabs>
     <language-content-form-block v-show="currentBlock === 'languageContentForm'" :mode="mode" />
-  </padding-page>
+  </base-page>
 </template>
 
 <script>

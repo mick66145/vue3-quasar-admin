@@ -1,5 +1,5 @@
 <template>
-  <padding-page>
+  <base-page>
     <page-header showPrev showCancel>
       {{ $t('mailinfo.detail.title') }}
     </page-header>
@@ -7,7 +7,7 @@
       <q-tab name="mailInfo" :label="`${$t('mailinfo.detail.card.mail-info.title')}`" />
     </base-tabs>
     <mail-info-block v-show="currentBlock === 'mailInfo'" :mode="mode" />
-  </padding-page>
+  </base-page>
 </template>
 
 <script>

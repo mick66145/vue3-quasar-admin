@@ -9,7 +9,7 @@
           <card-body class="q-pt-none">
             <div class="row q-col-gutter-md">
               <div class="col-24">
-                <base-form-item :label="`${$t('g.common.field-label')} *`">
+                <base-form-item required :label="`${$t('g.common.field-label')}`">
                   <input-text
                     v-model="sourceData.label"
                     class="full-width"
@@ -30,7 +30,7 @@
                 </base-form-item>
               </div>
               <div class="col-24">
-                <base-form-item :label="`${$t('g.common.data-key')} *`">
+                <base-form-item required :label="`${$t('g.common.data-key')}`">
                   <input-text
                     v-model="sourceData.data_key"
                     class="full-width"

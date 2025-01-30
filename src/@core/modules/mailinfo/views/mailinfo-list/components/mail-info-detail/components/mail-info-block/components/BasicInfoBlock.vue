@@ -9,7 +9,7 @@
           <card-body class="q-pt-none">
             <div class="row q-col-gutter-md">
               <div class="col-24">
-                <base-form-item :label="`${$t('mailinfo.form.subject')} *`">
+                <base-form-item required :label="`${$t('mailinfo.form.subject')}`">
                   <input-text
                     v-model="sourceData.subject"
                     name="subject"
@@ -51,7 +51,7 @@
                 </base-form-item>
               </div>
               <div class="col-24">
-                <base-form-item :label="`${$t('mailinfo.form.tomail')} *`">
+                <base-form-item required :label="`${$t('mailinfo.form.tomail')}`">
                   <input-textarea
                     v-model="sourceData.tomail"
                     class="full-width"

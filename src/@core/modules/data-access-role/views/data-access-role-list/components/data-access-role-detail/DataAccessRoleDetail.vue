@@ -1,5 +1,5 @@
 <template>
-  <padding-page>
+  <base-page>
     <page-header showPrev showCancel>
       {{ $t('data-access-role.detail.title') }}
     </page-header>
@@ -7,7 +7,7 @@
       <q-tab name="dataAccessRoleInfo" :label="`${$t('data-access-role.detail.card.data-access-role-info.title')}`" />
     </base-tabs>
     <data-access-role-info-block v-show="currentBlock === 'dataAccessRoleInfo'" :mode="mode" />
-  </padding-page>
+  </base-page>
 </template>
 
 <script>

@@ -9,7 +9,7 @@
           <card-body class="q-pt-none">
             <div class="row q-col-gutter-md">
               <div class="col-24">
-                <base-form-item :label="`${$t('role.form.name')} *`">
+                <base-form-item required :label="`${$t('role.form.name')}`">
                   <input-text
                     v-model="sourceData.name"
                     class="full-width"

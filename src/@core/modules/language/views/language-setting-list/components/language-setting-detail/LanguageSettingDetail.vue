@@ -1,5 +1,5 @@
 <template>
-  <padding-page>
+  <base-page>
     <page-header showPrev showCancel>
       {{ $t('language-setting.detail.title') }}
     </page-header>
@@ -7,7 +7,7 @@
       <q-tab name="languageSetting" :label="`${$t('language-setting.detail.card.language-setting.title')}`" />
     </base-tabs>
     <language-setting-block v-show="currentBlock === 'languageSetting'" :mode="mode" />
-  </padding-page>
+  </base-page>
 </template>
 
 <script>

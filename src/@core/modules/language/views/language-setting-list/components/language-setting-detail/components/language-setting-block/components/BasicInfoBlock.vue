@@ -9,7 +9,7 @@
           <card-body class="q-pt-none">
             <div class="row q-col-gutter-md">
               <div class="col-24">
-                <base-form-item :label="`${$t('language-setting.form.name')} *`">
+                <base-form-item required :label="`${$t('language-setting.form.name')}`">
                   <input-text
                     v-model="sourceData.name"
                     class="full-width"
@@ -20,23 +20,13 @@
                 </base-form-item>
               </div>
               <div class="col-24">
-                <base-form-item :label="`${$t('g.common.locale')} *`">
+                <base-form-item required :label="`${$t('g.common.locale')}`">
                   <input-text
                     v-model="sourceData.locale"
                     class="full-width"
                     :label="`${$t('g.common.locale')}`"
                     :placeholder="$t('g.common.input', { field: $t('g.common.locale') })"
                     required
-                  />
-                </base-form-item>
-              </div>
-              <div class="col-24">
-                <base-form-item :label="`${$t('g.common.sequence')}`">
-                  <input-number
-                    v-model="sourceData.sequence"
-                    class="full-width"
-                    :label="`${$t('g.common.sequence')}`"
-                    :placeholder="$t('g.common.input', { field: $t('g.common.sequence') })"
                   />
                 </base-form-item>
               </div>

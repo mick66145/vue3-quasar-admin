@@ -1,5 +1,5 @@
 <template>
-  <padding-page>
+  <base-page>
     <page-header showPrev showCancel>
       {{ $t('role.detail.title') }}
     </page-header>
@@ -7,7 +7,7 @@
       <q-tab name="roleInfo" :label="`${$t('role.detail.card.role-info.title')}`" />
     </base-tabs>
     <role-info-block v-show="currentBlock === 'roleInfo'" :mode="mode" />
-  </padding-page>
+  </base-page>
 </template>
 
 <script>

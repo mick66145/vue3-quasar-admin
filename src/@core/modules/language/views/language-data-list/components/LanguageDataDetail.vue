@@ -1,5 +1,5 @@
 <template>
-  <padding-page>
+  <base-page>
     <page-header showPrev showCancel showConfirm @confirm="onSubmit">
       {{ $t('language-data.detail.title') }}
     </page-header>
@@ -202,7 +202,7 @@
       </div>
     </base-form>
     <fixed-footer go-back-route="/language-data" @confirm="onSubmit" />
-  </padding-page>
+  </base-page>
 </template>
 
 <script>

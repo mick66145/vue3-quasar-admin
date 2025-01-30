@@ -11,9 +11,11 @@
             </vertical-tabs>
           </template>
           <template #after>
-            <basic-info-block v-show="currentBlock === 'basicInfo'" :company-form-data="formData" />
-            <customer-service-info-block v-show="currentBlock === 'customerServiceInfo'" :company-form-data="formData" />
-            <contact-info-block v-show="currentBlock === 'contactInfo'" :company-form-data="formData" />
+            <detail-scroll-area>
+              <basic-info-block v-show="currentBlock === 'basicInfo'" :company-form-data="formData" />
+              <customer-service-info-block v-show="currentBlock === 'customerServiceInfo'" :company-form-data="formData" />
+              <contact-info-block v-show="currentBlock === 'contactInfo'" :company-form-data="formData" />
+            </detail-scroll-area>
           </template>
         </responsive-splitter>
       </base-form>

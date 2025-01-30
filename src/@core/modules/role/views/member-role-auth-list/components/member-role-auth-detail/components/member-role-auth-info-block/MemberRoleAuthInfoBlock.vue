@@ -9,7 +9,9 @@
             </vertical-tabs>
           </template>
           <template #after>
-            <basic-info-block v-show="currentBlock === 'basicInfo'" :role-auth-form-data="formData" />
+            <detail-scroll-area>
+              <basic-info-block v-show="currentBlock === 'basicInfo'" :role-auth-form-data="formData" />
+            </detail-scroll-area>
           </template>
         </responsive-splitter>
       </base-form>

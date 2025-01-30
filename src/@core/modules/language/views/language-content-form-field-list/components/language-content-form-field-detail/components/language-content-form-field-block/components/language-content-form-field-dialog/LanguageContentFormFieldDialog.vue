@@ -4,13 +4,11 @@
       <responsive-splitter>
         <template #before>
           <vertical-tabs v-model="currentBlock">
-            <!-- <q-tab name="basicInfo" :label="`${$t('g.card.basic-info.title')}`" /> -->
             <q-tab name="fieldSetting" :label="`${$t('g.card.field-setting.title')}`" />
             <q-tab name="fieldWidthSetting" :label="`${$t('g.card.field-width-setting.title')}`" />
           </vertical-tabs>
         </template>
         <template #after>
-          <!-- <basic-info-block v-show="currentBlock === 'basicInfo'" :language-content-form-field-form-data="data.state" /> -->
           <field-setting-block v-show="currentBlock === 'fieldSetting'" :language-content-form-field-form-data="data.state" />
           <field-width-setting-block v-show="currentBlock === 'fieldWidthSetting'" :language-content-form-field-form-data="data.state" />
         </template>

@@ -1,7 +1,7 @@
 <template>
   <div class="row q-col-gutter-md">
     <div class="col-24">
-      <base-form ref="form" @validationError="validationError">
+      <base-form ref="form" label-width="7rem" @validationError="validationError">
         <responsive-splitter>
           <template #before>
             <vertical-tabs v-model="currentBlock">
@@ -10,8 +10,10 @@
             </vertical-tabs>
           </template>
           <template #after>
-            <basic-info-block v-show="currentBlock === 'basicInfo'" :mailinfo-form-data="formData" />
-            <content-info-block v-show="currentBlock === 'contentInfo'" :mailinfo-form-data="formData" />
+            <detail-scroll-area>
+              <basic-info-block v-show="currentBlock === 'basicInfo'" :mailinfo-form-data="formData" />
+              <content-info-block v-show="currentBlock === 'contentInfo'" :mailinfo-form-data="formData" />
+            </detail-scroll-area>
           </template>
         </responsive-splitter>
       </base-form>

@@ -1,5 +1,5 @@
 <template>
-  <base-scroll-area class="pb-4" style="height: calc(100vh - 200px)">
+  <base-scroll-area class="lt-sm:pb-16 pb-5" style="height: calc(100vh - 200px)">
     <slot name="default" />
   </base-scroll-area>
 </template>
