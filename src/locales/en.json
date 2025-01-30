@@ -131,7 +131,8 @@
       "inventory-qty": "InventoryQty",
       "safety-inventory": "SafetyInventory",
       "component": "Component",
-      "sub-title": "SubTitle"
+      "sub-title": "SubTitle",
+      "default": "Default"
     },
     "validation": {
       "required": "{attribute} Is Required",

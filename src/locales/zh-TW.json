@@ -131,7 +131,8 @@
       "inventory-qty": "庫存數量",
       "safety-inventory": "安全庫存",
       "component": "元件",
-      "sub-title": "副標題"
+      "sub-title": "副標題",
+      "default": "預設"
     },
     "validation": {
       "required": "{attribute}必填",
