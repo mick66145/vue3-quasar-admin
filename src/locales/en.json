@@ -188,6 +188,9 @@
       },
       "advanced-info": {
         "title": "AdvancedInfo"
+      },
+      "style-info": {
+        "title": "StyleInfo"
       }
     }
   },

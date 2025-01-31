@@ -186,6 +186,9 @@
       },
       "advanced-info": {
         "title": "進階資訊"
+      },
+      "style-info": {
+        "title": "樣式資訊"
       }
     }
   },
