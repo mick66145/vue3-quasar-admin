@@ -51,11 +51,13 @@ import InputUserSelect from './form/InputUserSelect.vue'
 import InputRadio from './form/InputRadio.vue'
 import InputRadioOptionGroup from './form/InputRadioOptionGroup.vue'
 import InputRadioOtherOptionGroup from './form/InputRadioOtherOptionGroup.vue'
+import InputMediaRadioOptionGroup from './form/InputMediaRadioOptionGroup.vue'
 import InputEsign from './form/InputEsign.vue'
 import InputNumberRange from './form/InputNumberRange.vue'
 import InputTimeRange from './form/InputTimeRange.vue'
 import InputPrioritySelect from './form/InputPrioritySelect.vue'
 import InputFrequencySelect from './form/InputFrequencySelect.vue'
+import InputColor from './form/InputColor.vue'
 import BaseButton from './button/BaseButton.vue'
 import AddButton from './button/AddButton.vue'
 import DeleteButton from './button/DeleteButton.vue'
@@ -197,11 +199,13 @@ export default {
     app.component('InputRadio', InputRadio)
     app.component('InputRadioOptionGroup', InputRadioOptionGroup)
     app.component('InputRadioOtherOptionGroup', InputRadioOtherOptionGroup)
+    app.component('InputMediaRadioOptionGroup', InputMediaRadioOptionGroup)
     app.component('InputEsign', InputEsign)
     app.component('InputNumberRange', InputNumberRange)
     app.component('InputTimeRange', InputTimeRange)
     app.component('InputPrioritySelect', InputPrioritySelect)
     app.component('InputFrequencySelect', InputFrequencySelect)
+    app.component('InputColor', InputColor)
     app.component('BaseButton', BaseButton)
     app.component('AddButton', AddButton)
     app.component('DeleteButton', DeleteButton)
