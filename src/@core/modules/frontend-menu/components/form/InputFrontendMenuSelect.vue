@@ -19,6 +19,7 @@ const frontendMenuResource = FrontendMenuResource({})
 export default defineComponent({
   props: {
     modelValue: { type: [String, Object] },
+    type: { type: String },
     label: { type: String },
     useFirstCall: { type: Boolean, default: true },
     placeholder: { type: String },
@@ -26,7 +27,7 @@ export default defineComponent({
   emits: ['update:modelValue'],
   setup (props, { emit }) {
     // data
-    const { label, placeholder, useFirstCall } = toRefs(props)
+    const { type, label, placeholder, useFirstCall } = toRefs(props)
     const observeValue = useVModel(props, 'modelValue', emit)
     const frontendMenuList = ref([])
 
@@ -44,7 +45,8 @@ export default defineComponent({
     })
 
     // methods
-    const fetchData = (query) => {
+    const fetchData = () => {
+      const query = { type: type.value, orderby: 'sequence:asc,created_at:desc' }
       return frontendMenuResource.list({ query }).then((res) => {
         frontendMenuList.value = []
         frontendMenuList.value = res.list

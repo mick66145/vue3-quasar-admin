@@ -429,6 +429,16 @@
     "form": {
       "name": "FrontendMenuName",
       "parent": "Parent"
+    },
+    "detail": {
+      "title": "FrontendMenuDetail",
+      "card": {
+        "frontend-menu": {
+          "detail": {
+            "title": "FrontendMenuInfo"
+          }
+        }
+      }
     }
   },
   "member-role": {

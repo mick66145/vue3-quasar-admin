@@ -1,11 +1,7 @@
 
-import frontendMenuRouter from '@core/modules/frontend-menu/router'
-
 const cmsManageRouter = {
   path: '/',
-  group: [
-    '/frontend-menu',
-  ],
+  group: [],
   groupName: 'first',
   meta: {
     title: 'meun.cms-manage',
@@ -13,9 +9,7 @@ const cmsManageRouter = {
     icon: 'fa-solid fa-laptop-code',
     permissions: ['view cms_manage'],
   },
-  children: [
-    frontendMenuRouter,
-  ],
+  children: [],
 }
 
 export default cmsManageRouter

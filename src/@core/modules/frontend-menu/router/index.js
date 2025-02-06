@@ -1,3 +1,1 @@
-import frontendMenuRouter from './modules/frontend-menu'
-
-export default frontendMenuRouter
+export { frontendMenuRouter } from './modules/frontend-menu'

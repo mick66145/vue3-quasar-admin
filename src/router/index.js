@@ -8,6 +8,7 @@ import EntryLayout from '@/layouts/entry-layout/EntryLayout.vue'
 /* Router Modules */
 import systemInfoManageRouter from './modules/system-info-manage'
 import cmsManageRouter from './modules/cms-manage'
+import designManageRouter from './modules/design-manage'
 import userManageRouter from './modules/user-manage'
 import rolePermissionManageRouter from './modules/role-permission-manage'
 import reportManageRouter from './modules/report-manage'
@@ -99,6 +100,7 @@ export const constantRoutes = [
 export const asyncRoutes = [
   systemInfoManageRouter,
   cmsManageRouter,
+  designManageRouter,
   userManageRouter,
   rolePermissionManageRouter,
   reportManageRouter,

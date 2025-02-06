@@ -5,7 +5,7 @@
       <template #action>
         <add-button
           v-permission="['create frontend_menu']"
-          @click="showDialog({})"
+          to="/frontend-menu/create"
         />
       </template>
     </page-header>
@@ -22,7 +22,7 @@
         >
           <vxe-column :title="`${$t('frontend-menu.form.name')}`" min-width="200" field="name" tree-node />
           <vxe-column :title="`${$t('g.common.sequence')}`" width="200" field="sequence" />
-          <vxe-column :title="`${$t('g.common.is-enable')}`" width="160">
+          <vxe-column :title="`${$t('g.common.enable')}`" width="160">
             <template #default="{row}">
               <input-toggle
                 v-model="row.is_enable"
@@ -37,12 +37,13 @@
                 <edit-icon-button
                   v-permission="['update frontend_menu']"
                   class="q-mr-xs q-mb-xs"
-                  @click="showDialog({ id:row.id, mode:'edit', callRead:true })"
+                  :to="`/frontend-menu/edit/${row.id}`"
                 />
                 <add-icon-button
+                  v-if="row.type === frontendMenuTypes.dropdown"
                   v-permission="['create frontend_menu']"
                   class="q-mr-xs q-mb-xs"
-                  @click="showDialog({ data: { parent:row} })"
+                  @click="onAddSubFrontendMenu(row)"
                 />
                 <delete-icon-button
                   v-permission="['delete frontend_menu']"
@@ -55,28 +56,23 @@
         </vxe-server-table>
       </card-body>
     </q-card>
-    <frontend-menu-dialog ref="dialog" @confirm="refreshFetch" />
   </base-page>
 </template>
 
 <script>
-import FrontendMenuDialog from './components/FrontendMenuDialog.vue'
-import { defineComponent, ref, reactive } from 'vue-demi'
-import { FrontendMenuResource } from '@core/modules/frontend-menu/api'
+import { defineComponent, reactive } from 'vue-demi'
+import { useFrontendMenuStore } from '@core/modules/frontend-menu/stores'
+import { frontendMenuTypes } from '@core/modules/frontend-menu/config/config-frontend-menu'
 import { i18n } from '@/plugins/i18n'
 import useCRUD from '@/hooks/useCRUD'
 import useVxeServerDataTable from '@/hooks/useVxeServerDataTable'
 import useMessageDialog from '@/hooks/useMessageDialog'
-
-const frontendMenuResource = FrontendMenuResource({})
+import useNavigation from '@/hooks/useNavigation'
 
 export default defineComponent({
-  components: {
-    FrontendMenuDialog,
-  },
   setup () {
     // data
-    const dialog = ref()
+    const frontendMenuStore = useFrontendMenuStore()
     const filter = reactive({
       keyword: null,
       frontend_menu_id: null,
@@ -84,22 +80,24 @@ export default defineComponent({
     })
 
     // methods
-    const fetchData = async (query) => {
-      return await frontendMenuResource.list({ query }).then((res) => {
-        data.value = []
-        data.value = res.list
-        total.value = res.total
-      })
+    const fetchData = (query) => frontendMenuStore.list({ query })
+    const updateFetch = (id, payload) => frontendMenuStore.patch({ id, payload })
+    const delFetch = (id) => frontendMenuStore.destroy({ id })
+    const refreshFetch = () => getDataList({ ...mapFilter() })
+    const mapFilter = (usePage = true) => {
+      const filter = { ...search }
+      filter.page = usePage ? filter.page : null
+      filter.page_size = usePage ? filter.page_size : null
+      filter.frontend_menu_id = filter.frontend_menu_id ? filter.frontend_menu_id.id : null
+      return filter
     }
-    const updateFetch = (id, payload) => frontendMenuResource.patch({ id, payload })
-    const delFetch = (id) => frontendMenuResource.destroy({ id })
     const onDelete = async (row) => {
       const res = await messageDelete({ message: i18n.global.t('g.dialog.delete-message', { item: i18n.global.t('g.common.frontend-menu') }) })
       if (!res) return
       const [delRes] = await callDeleteFetch(row.id)
       if (delRes) {
         search.page = 1
-        refreshFetch()
+        onRefresh()
       }
     }
     const onEnable = async (row) => {
@@ -110,46 +108,44 @@ export default defineComponent({
         },
       }
       const [res] = await urlObj.edit()
-      if (res) refreshFetch()
+      if (res) onRefresh()
     }
-    const showDialog = ({ id, data, mode, callRead }) => {
-      dialog.value.showDialog({ id, data, mode, callRead })
-    }
-
-    const refreshFetch = async () => {
-      const filter = { ...search }
-      filter.frontend_menu_id = filter.frontend_menu_id ? filter.frontend_menu_id.id : null
-      await getDataList(filter)
+    const onAddSubFrontendMenu = (row) => {
+      onNavigation({ state: { parent: { id: row.id } } })
     }
 
-    const { dataTable, search, data, total, onChangePage, onChangeSort, onChangeFilter, onReset } = useVxeServerDataTable({
+    // use
+    const { dataTable, search, data, total, onChangePage, onChangeSort, onChangeFilter, onReset, onRefresh } = useVxeServerDataTable({
       searchParames: filter,
-      sortParames: [{ field: 'sequence', order: 'asc' }],
+      sortParames: [{ field: 'sequence', order: 'asc' }, { field: 'created_at', order: 'desc' }],
       unSessionStorageParames: [{ field: 'page_size' }],
       sessionStorageKey: 'dashboardFrontendMenuServerDataTable',
       callback: refreshFetch,
     })
-    const { messageDelete } = useMessageDialog()
     const { callUpdateFetch, callDeleteFetch, callReadListFetch: getDataList } = useCRUD({
       updateFetch: updateFetch,
       deleteFetch: delFetch,
       readListFetch: fetchData,
     })
+    const { messageDelete } = useMessageDialog()
+    const { onNavigation } = useNavigation({
+      to: { name: 'FrontendMenuCreate' },
+      useStore: true,
+    })
 
     return {
       dataTable,
-      dialog,
       data,
       total,
       search,
+      frontendMenuTypes,
       onChangePage,
       onChangeSort,
       onChangeFilter,
       onReset,
       onDelete,
       onEnable,
-      showDialog,
-      refreshFetch,
+      onAddSubFrontendMenu,
     }
   },
 })

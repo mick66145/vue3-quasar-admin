@@ -427,6 +427,16 @@
     "form": {
       "name": "選單名稱",
       "parent": "父層選單"
+    },
+    "detail": {
+      "title": "前台選單詳情",
+      "card": {
+        "frontend-menu": {
+          "detail": {
+            "title": "前台選單資訊"
+          }
+        }
+      }
     }
   },
   "member-role": {
