@@ -3,6 +3,7 @@ import InputCompanyJobSelect from './form/InputCompanyJobSelect.vue'
 import InputDataAccessRoleSelect from './form/InputDataAccessRoleSelect.vue'
 import ListScrollArea from './scroll-area/ListScrollArea.vue'
 import DetailScrollArea from './scroll-area/DetailScrollArea.vue'
+import { InputFrontendMenuSelect } from '@core/modules/frontend-menu/components'
 
 export default {
   install (app) {
@@ -11,5 +12,6 @@ export default {
     app.component('InputDataAccessRoleSelect', InputDataAccessRoleSelect)
     app.component('ListScrollArea', ListScrollArea)
     app.component('DetailScrollArea', DetailScrollArea)
+    app.component('InputFrontendMenuSelect', InputFrontendMenuSelect)
   },
 }
