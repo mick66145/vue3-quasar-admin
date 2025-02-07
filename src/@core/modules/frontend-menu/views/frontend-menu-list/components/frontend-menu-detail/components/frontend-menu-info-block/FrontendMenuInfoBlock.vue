@@ -24,7 +24,7 @@
 import BasicInfoBlock from './components/BasicInfoBlock.vue'
 import AdvancedInfoBlock from './components/AdvancedInfoBlock.vue'
 import { defineComponent, ref, onMounted, toRefs } from 'vue-demi'
-import { FrontendMenuViewModel } from '@core/modules/frontend-menu/models'
+import { FrontendMenuViewModel, FrontendMenuPayloadViewModel } from '@core/modules/frontend-menu/models'
 import { useFrontendMenuStore } from '@core/modules/frontend-menu/stores'
 import { useRoute, onBeforeRouteLeave } from 'vue-router'
 import useNavigation from '@/hooks/useNavigation'
@@ -68,7 +68,7 @@ export default defineComponent({
     const onSubmit = async () => {
       form.value.validate().then(async (success) => {
         if (success) {
-          const payload = { ...frontendMenuFormData.value }
+          const payload = FrontendMenuPayloadViewModel({ ...frontendMenuFormData.value })
           if (mode.value === 'create') {
             const { parent } = getNavigationData({})
             payload.parent = parent

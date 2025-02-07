@@ -11,6 +11,7 @@ const FrontendMenu = () => ({
   sequence: 0,
   is_link_blank: false,
   is_enable: true,
+  items: [],
 })
 
 export const FrontendMenuModel = (item = null) => {
@@ -26,6 +27,7 @@ export const FrontendMenuModel = (item = null) => {
       sequence: item?.sequence || 0,
       is_link_blank: item?.is_link_blank === undefined ? false : item?.is_link_blank,
       is_enable: item?.is_enable === undefined ? true : item?.is_enable,
+      items: item?.items || [],
     }
     return frontendMenuObj
   }

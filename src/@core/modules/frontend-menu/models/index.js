@@ -1,2 +1,2 @@
 export { FrontendMenuModel } from './modules/FrontendMenuModel'
-export { FrontendMenuViewModel } from './modules/FrontendMenuViewModel'
+export { FrontendMenuViewModel, FrontendMenuPayloadViewModel } from './modules/FrontendMenuViewModel'

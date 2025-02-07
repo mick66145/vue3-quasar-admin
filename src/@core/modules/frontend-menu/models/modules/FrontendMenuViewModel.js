@@ -19,3 +19,15 @@ export const FrontendMenuViewModel = (item) => {
 
   return viewModel(item)
 }
+
+export const FrontendMenuPayloadViewModel = (item) => {
+  const viewModel = (item) => {
+    const frontendMenuObj = { ...item }
+    frontendMenuObj.items = frontendMenuObj.items.map(frontendMenuItem => ({
+      ...frontendMenuItem,
+      model_type: { type: item.type, id: frontendMenuItem.id },
+    }))
+    return frontendMenuObj
+  }
+  return viewModel(item)
+}
