@@ -42,6 +42,8 @@
         @checkbox-all="onCheckboxAll"
         @checkbox-change="onCheckboxChange"
         @cell-click="onCellClick"
+        @row-dragstart="onRowDragStart"
+        @row-dragend="onRowDragend"
       >
         <slot />
       </vxe-table>
@@ -86,7 +88,7 @@ export default defineComponent({
     footerCellStyle: { type: [Object, Function] },
     isReading: { type: Boolean, default: false },
   },
-  emits: ['sort-change', 'checkbox-all', 'checkbox-change', 'update:current', 'select-all', 'update:all-checkbox-records', 'cell-click'],
+  emits: ['sort-change', 'checkbox-all', 'checkbox-change', 'update:current', 'select-all', 'update:all-checkbox-records', 'cell-click', 'row-dragstart', 'row-dragend'],
   setup (props, { emit }) {
     // data
     const dataTable = ref()
@@ -226,6 +228,12 @@ export default defineComponent({
       }
       emit('update:all-checkbox-records', value)
     }
+    const onRowDragStart = ({ row, column }) => {
+      emit('row-dragstart', { row, column })
+    }
+    const onRowDragend = ({ newRow, oldRow, dragToChild }) => {
+      emit('row-dragend', { newRow, oldRow, dragToChild })
+    }
     const onSelectAll = () => {
       emit('select-all')
     }
@@ -283,6 +291,8 @@ export default defineComponent({
       onUpdateCurrent,
       onSelectAll,
       onCellClick,
+      onRowDragStart,
+      onRowDragend,
     }
   },
 })
