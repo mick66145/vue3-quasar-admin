@@ -156,9 +156,9 @@
     "company": "公司資訊",
     "profile": "個人資訊",
     "logout": "登出",
-    "company-job": "職稱維護",
+    "company-job": "職稱",
     "user-manage": "人員管理",
-    "role": "人員角色維護",
+    "role": "人員角色",
     "system-log-manage": "系統紀錄",
     "system-info-manage": "系統資訊管理",
     "basic-setting": "基礎設定",
@@ -169,7 +169,7 @@
     "role-permission-manage": "角色權限管理"
   },
   "company-job": {
-    "title": "職稱維護",
+    "title": "職稱",
     "form": {
       "name": "職稱"
     },
@@ -183,7 +183,7 @@
     }
   },
   "user": {
-    "title": "人員帳號維護",
+    "title": "人員帳號",
     "form": {
       "name": "人員名稱",
       "company": "所屬公司",
@@ -213,7 +213,7 @@
     }
   },
   "role": {
-    "title": "人員角色維護",
+    "title": "人員角色",
     "form": {
       "name": "人員角色名稱"
     },
@@ -266,7 +266,7 @@
     }
   },
   "mailinfo": {
-    "title": "信件維護",
+    "title": "信件",
     "form": {
       "subject": "信件主旨",
       "fromname": "寄件者名稱",
@@ -290,7 +290,7 @@
     }
   },
   "company": {
-    "title": "公司維護",
+    "title": "公司",
     "detail": {
       "card": {
         "company-info": {
@@ -340,7 +340,7 @@
       },
       "title": "語系設定詳情"
     },
-    "title": "語系維護"
+    "title": "語系"
   },
   "profile": {
     "card": {
@@ -374,10 +374,10 @@
     "form": {
       "name": "資料權限群組名稱"
     },
-    "title": "資料權限維護"
+    "title": "資料權限"
   },
   "language-data": {
-    "title": "語系資料維護",
+    "title": "語系資料",
     "detail": {
       "title": "語系資料詳情",
       "card": {

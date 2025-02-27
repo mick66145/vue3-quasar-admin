@@ -15,7 +15,7 @@ const menuPermissionList = [
     childs: [
       {
         id: '43f5cb68-da47-4d2b-ba47-23368ef53909',
-        name: '信件維護',
+        name: '信件',
         permissions: [
           {
             id: 156,
@@ -48,7 +48,7 @@ const menuPermissionList = [
     childs: [
       {
         id: '1134b341-47b3-46ca-bca0-9ada30c0a4d0',
-        name: '公司維護',
+        name: '公司',
         permissions: [
           {
             id: 128,
@@ -79,7 +79,7 @@ const menuPermissionList = [
       },
       {
         id: 'c9071594-ad03-4092-ad94-d8715dc6e7cd',
-        name: '職稱維護',
+        name: '職稱',
         permissions: [
           {
             id: 124,
@@ -110,7 +110,7 @@ const menuPermissionList = [
       },
       {
         id: '9acf95ed-ce9c-46cf-808b-43c533d7f343',
-        name: '權限維護',
+        name: '權限',
         permissions: [
           {
             id: 109,
@@ -141,7 +141,7 @@ const menuPermissionList = [
       },
       {
         id: 'ce78b7b1-7bab-45bd-ac72-3aa04e5541b2',
-        name: '帳號維護',
+        name: '帳號',
         permissions: [
           {
             id: 117,
