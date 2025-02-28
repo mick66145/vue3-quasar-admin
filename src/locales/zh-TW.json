@@ -218,7 +218,8 @@
     "role-permission-manage": "角色權限管理",
     "role-manage": "人員角色管理",
     "member-role-manage": "會員角色管理",
-    "security-manage": "安全管理"
+    "security-manage": "安全管理",
+    "design-manage": "網站設計管理"
   },
   "company-job": {
     "title": "職稱",

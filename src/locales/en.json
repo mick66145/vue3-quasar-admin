@@ -220,7 +220,8 @@
     "role-permission-manage": "RolePermissionManage",
     "role-manage": "RoleManage",
     "member-role-manage": "MemberRoleManage",
-    "security-manage": "SecurityManage"
+    "security-manage": "SecurityManage",
+    "design-manage": "DesignManage"
   },
   "company-job": {
     "title": "CompanyJob",
