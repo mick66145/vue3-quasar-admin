@@ -47,7 +47,7 @@
               </div>
               <div v-if="sourceData.type === frontendMenuTypes.link || sourceData.type === frontendMenuTypes.internal_link" class="col-24">
                 <base-form-item :label="`${$t('g.common.link')}`">
-                  <input-url
+                  <input-text
                     v-model="sourceData.link"
                     class="full-width"
                     :label="`${$t('g.common.link')}`"
