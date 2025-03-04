@@ -136,8 +136,9 @@ import BasePage from './page/BasePage.vue'
 import PaddingPage from './page/PaddingPage.vue'
 import FixedFooter from './FixedFooter.vue'
 import Pagination from './Pagination.vue'
-import VxeClientTable from './VxeClientTable.vue'
-import VxeServerTable from './VxeServerTable.vue'
+import VxeClientTable from './table/VxeClientTable.vue'
+import VxeClientTreeTable from './table/VxeClientTreeTable.vue'
+import VxeServerTable from './table/VxeServerTable.vue'
 import Calendar from './calendar/Calendar.vue'
 import FileList from './FileList.vue'
 import Esign from './Esign.vue'
@@ -285,6 +286,7 @@ export default {
     app.component('FixedFooter', FixedFooter)
     app.component('Pagination', Pagination)
     app.component('VxeClientTable', VxeClientTable)
+    app.component('VxeClientTreeTable', VxeClientTreeTable)
     app.component('VxeServerTable', VxeServerTable)
     app.component('Calendar', Calendar)
     app.component('FileList', FileList)
