@@ -37,6 +37,7 @@
         @cell-click="onCellClick"
         @row-dragstart="onRowDragStart"
         @row-dragend="onRowDragend"
+        @toggle-row-expand="onToggleRowExpand"
       >
         <slot name="default" />
         <vxe-column v-if="mode === 'edit'" :title="`${$t('g.common.operate')}`" fixed="right" width="115">
@@ -60,6 +61,7 @@
       <pagination
         v-if="total > 0 && showPagination"
         :total="total"
+        :limit="limit"
         :current="current"
         :auto-scroll="false"
         @update:current="onUpdateCurrent"
@@ -76,6 +78,7 @@ export default defineComponent({
   props: {
     data: { type: Array, default () { return [] } },
     total: { type: Number, default: 0 },
+    limit: { type: Number, default: 10 },
     current: { type: Number, default: 1 },
     showPagination: { type: Boolean, default: true },
     showFooter: { type: Boolean, default: false },
@@ -94,7 +97,7 @@ export default defineComponent({
     isReading: { type: Boolean, default: false },
     mode: { type: String }, // edit
   },
-  emits: ['sort-change', 'checkbox-all', 'checkbox-change', 'update:current', 'select-all', 'update:all-checkbox-records', 'cell-click', 'row-dragstart', 'row-dragend'],
+  emits: ['sort-change', 'checkbox-all', 'checkbox-change', 'update:current', 'select-all', 'update:all-checkbox-records', 'cell-click', 'row-dragstart', 'row-dragend', 'toggle-row-expand'],
   setup (props, { emit }) {
     // data
     const dataTable = ref()
@@ -162,6 +165,9 @@ export default defineComponent({
     }
     const setAllCheckboxRow = (checked) => {
       return dataTable.value.setAllCheckboxRow(checked)
+    }
+    const setAllRowExpand = (checked) => {
+      return dataTable.value.setAllRowExpand(checked)
     }
     const clearCheckboxRow = () => {
       dataTable.value.clearCheckboxRow()
@@ -246,6 +252,9 @@ export default defineComponent({
     const onCellClick = ({ row, rowIndex }) => {
       emit('cell-click', { row, rowIndex })
     }
+    const onToggleRowExpand = ({ expanded, row, rowIndex }) => {
+      emit('toggle-row-expand', { expanded, row, rowIndex })
+    }
 
     // 客製化選取checkbbox相關
     const onSelect = (value, evt) => {
@@ -277,6 +286,7 @@ export default defineComponent({
       getCheckboxReserveRecords,
       getAllCheckboxRecords,
       setCheckboxRow,
+      setAllRowExpand,
       toggleCheckboxRow,
       setAllCheckboxRow,
       clearCheckboxRow,
@@ -297,6 +307,7 @@ export default defineComponent({
       onUpdateCurrent,
       onSelectAll,
       onCellClick,
+      onToggleRowExpand,
       onRowDragStart,
       onRowDragend,
     }
