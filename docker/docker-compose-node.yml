@@ -9,6 +9,6 @@ services:
     working_dir: /srv/app
     volumes:
       - type: bind
-        source: ./
+        source: ../
         target: /srv/app
     tty: true

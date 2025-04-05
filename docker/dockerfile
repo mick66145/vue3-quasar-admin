@@ -1,0 +1,29 @@
+# 讓使用者可在 build 時指定環境
+ARG NODE_VERSION=18
+ARG VITE_ENV=production  # 預設為 production
+
+# build stage
+FROM node:${NODE_VERSION}-alpine AS build-stage
+WORKDIR /app
+
+# 讓 ARG 變數傳遞到 ENV，確保在 build 階段可以使用
+ARG VITE_ENV
+ENV VITE_ENV=${VITE_ENV}
+
+# 複製 package.json 並安裝依賴
+COPY package.json ./
+RUN yarn install
+
+# 複製專案所有文件
+COPY . .
+
+# 根據環境選擇 .env 檔案，確保 build 使用正確的環境
+RUN cp .env.${VITE_ENV} .env
+
+RUN yarn build
+
+# production stage
+FROM nginx:1.26.3 as runtime-stage
+COPY --from=build-stage /app/dist /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
