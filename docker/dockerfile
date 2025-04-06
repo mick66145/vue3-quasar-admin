@@ -11,7 +11,9 @@ ARG VITE_ENV
 ENV VITE_ENV=${VITE_ENV}
 
 # 複製 package.json 並安裝依賴
-COPY package.json ./
+COPY package.json yarn.lock ./
+
+# 安裝依賴
 RUN yarn install
 
 # 複製專案所有文件
