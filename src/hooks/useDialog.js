@@ -74,6 +74,7 @@ export default function useDialog ({
     isShowDialog.value = true
   }
   const hideDialog = () => {
+    data.reset()
     isShowDialog.value = false
   }
   const save = async () => {
