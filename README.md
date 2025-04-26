@@ -1,35 +1,8 @@
 # vue3-quasar-backend 
 
-## Requirements (develop)
+This project provides an admin panel frontend built with Vue 3 and Vite, with documentation available in both Chinese and English.
 
-* nodejs >= 18.14.0
-* npm >= 9.3.1
+## Documentation
 
-## Develop Setup
-
-``` bash
-# clone
-$ git clone https://gitlab.com/mick66145/vue3-quasar-backend.git
-$ cd vue3-quasar-backend
-
-# install dependencies
-$ yarn install
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-```
-
-## Requirements (production)
-
-* nodejs >= 18.14.0
-* npm >= 9.3.1
-
-## Production Build Setup
-``` bash
-# install dependencies
-$ yarn install
-
-# build for production and launch server
-$ npm run build:production
-
-```
+- [中文 README](README.zh-TW.md)
+- [English README](README.en.md)
