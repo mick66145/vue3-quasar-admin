@@ -7,7 +7,7 @@ import { quasar, transformAssetUrls } from '@quasar/vite-plugin'
 import { viteMockServe } from 'vite-plugin-mock'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
-import stylelint from 'vite-plugin-stylelint'
+// import stylelint from 'vite-plugin-stylelint'
 import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 import mkcert from 'vite-plugin-mkcert'
 import { VitePWA } from 'vite-plugin-pwa'
@@ -59,6 +59,7 @@ const pwaOptions = {
         },
       },
     ],
+    maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
   },
 }
 export default defineConfig(({ command, mode }) => {
@@ -83,7 +84,7 @@ export default defineConfig(({ command, mode }) => {
         supportTs: false,
       }),
       vueJsx(),
-      stylelint(),
+      // stylelint(),
       mkcert(),
       createSvgIconsPlugin({
       // Specify the icon folder to be cached
@@ -97,7 +98,7 @@ export default defineConfig(({ command, mode }) => {
         include: resolve(dirname(fileURLToPath(import.meta.url)), './src/locales/**'),
       }),
       quasar({
-        sassVariables: 'src/styles/abstracts/quasar-variables.scss',
+        sassVariables: '@/styles/abstracts/quasar-variables.scss',
       }),
       VitePWA(pwaOptions),
     ],
@@ -125,6 +126,11 @@ export default defineConfig(({ command, mode }) => {
       input: {
         main: resolve(__dirname, 'index.html'),
         nested: resolve(__dirname, 'dist/index.html'),
+      },
+    },
+    css: {
+      preprocessorOptions: {
+        scss: {},
       },
     },
   }
