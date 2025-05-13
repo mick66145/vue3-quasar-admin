@@ -104,14 +104,19 @@ export default defineComponent({
     @apply block;
   }
 }
-.q-form--label-left {
-  &:deep(.q-form-item__label) {
-    @apply text-left;
+
+.q-form--label-left,
+.q-form--label-right {
+  &:deep(.q-form-item) {
+    @apply flex;
   }
 }
-.q-form--label-right {
-  &:deep(.q-form-item__label) {
-    @apply text-right;
-  }
+
+.q-form--label-left &:deep(.q-form-item__label) {
+  @apply text-left;
+}
+
+.q-form--label-right &:deep(.q-form-item__label) {
+  @apply text-right;
 }
 </style>
