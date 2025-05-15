@@ -2,17 +2,19 @@ import request from '@core/utils/request'
 
 export default function useResource ({
   uri,
+  config: globalConfig = {},
   listModel = (item) => item,
   getModel = (item) => item,
   postModel = (item) => item,
   patchModel = (item) => item,
   putModel = (item) => item,
 }) {
-  const list = ({ query }) => {
-    return request({
+  const list = ({ query, config = {} }) => {
+    return requestWithConfig({
       url: `/${uri}`,
       method: 'get',
       params: query,
+      ...config,
     }).then(res => res.data)
       .then(res => {
         res.data.list = [...res.data.list].map((element) => {
@@ -23,24 +25,25 @@ export default function useResource ({
         if (meta?.pagination) {
           const { count, total } = meta.pagination
           return {
-            list: list,
-            total: total,
-            count: count,
+            list,
+            total,
+            count,
           }
         } else {
-          return { list: list }
+          return { list }
         }
       },
       )
   }
 
-  const get = ({ id, query }) => {
+  const get = ({ id, query, config = {} }) => {
     const url = !id ? `/${uri}` : `/${uri}/${id}`
     id && (query = { ...query, id: +id })
-    return request({
-      url: url,
+    return requestWithConfig({
+      url,
       method: 'get',
       params: query,
+      ...config,
     }).then(res => res.data)
       .then(res => {
         const model = getModel({ ...res.data })
@@ -48,57 +51,64 @@ export default function useResource ({
       })
   }
 
-  const post = ({ payload }) => {
-    return request({
+  const post = ({ payload, config = {} }) => {
+    return requestWithConfig({
       url: `/${uri}`,
       method: 'post',
       data: postModel(payload),
+      ...config,
     }).then(res => res.data)
       .then(res => res.data)
   }
 
-  const patch = ({ id, payload }) => {
+  const patch = ({ id, payload, config = {} }) => {
     payload = { ...payload, id: +id }
-    return request({
+    return requestWithConfig({
       url: `/${uri}/${id}`,
       method: 'patch',
       data: patchModel(payload),
+      ...config,
     }).then(res => res.data)
       .then(res => res.data)
   }
 
-  const put = ({ id, payload }) => {
+  const put = ({ id, payload, config = {} }) => {
     const url = !id ? `/${uri}` : `/${uri}/${id}`
     id && (payload = { ...payload, id: +id })
-    return request({
-      url: url,
+    return requestWithConfig({
+      url,
       method: 'put',
       data: putModel(payload),
+      ...config,
     }).then(res => res.data)
       .then(res => res.data)
   }
 
-  const destroy = ({ id, query }) => {
+  const destroy = ({ id, query, config = {} }) => {
     query = { id: +id }
-    return request({
+    return requestWithConfig({
       url: `/${uri}/${id}`,
       method: 'delete',
       params: query,
+      ...config,
     }).then(res => res.data)
   }
 
-  const selectAll = ({ query }) => {
-    return request({
+  const selectAll = ({ query, config = {} }) => {
+    return requestWithConfig({
       url: `/${uri}/action/select_all`,
       method: 'get',
       params: query,
+      ...config,
     }).then(res => res.data)
       .then(res => {
         const { list } = res.data
-        return { list: list }
+        return { list }
       },
       )
   }
+
+  const requestWithConfig = (config) => request(config, globalConfig)
 
   return {
     list,
@@ -108,5 +118,6 @@ export default function useResource ({
     put,
     destroy,
     selectAll,
+    requestWithConfig,
   }
 }

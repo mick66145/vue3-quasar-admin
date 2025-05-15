@@ -84,4 +84,23 @@ service.interceptors.response.use(
   handleAuthError,
 )
 
-export default service
+const request = (config, extraConfig = {}) => {
+  return service({
+    ...config,
+    ...extraConfig,
+    headers: {
+      ...(config.headers || {}),
+      ...(extraConfig.headers || {}),
+    },
+    params: {
+      ...(config.params || {}),
+      ...(extraConfig.params || {}),
+    },
+    data: {
+      ...(config.data || {}),
+      ...(extraConfig.data || {}),
+    },
+  })
+}
+
+export default request
