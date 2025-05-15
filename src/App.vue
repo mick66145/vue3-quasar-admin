@@ -1,46 +1,39 @@
 <template>
   <message-dialog />
   <router-view />
+  <div v-show="MODE!=='production'" class="mark">{{ envLabel }}</div>
 </template>
 
 <script>
-import { defineComponent, onMounted, onBeforeUnmount } from 'vue-demi'
+import { defineComponent } from 'vue-demi'
 import { RouterView } from 'vue-router'
-import useWatermark from '@/hooks/useWatermark'
-import useScreen from '@/hooks/useScreen'
+import useEnv from '@/hooks/useEnv'
 
 export default defineComponent({
   setup () {
-    // mounted
-    onMounted(() => {
-      show()
-    })
-
-    onBeforeUnmount(() => { hide() })
-
-    // use
-    const { screenWidth } = useScreen({})
-    const { show, hide } = useWatermark({
-      text: '',
-      fontColor: 'red',
-      rotate: 0,
-      translateX: -35,
-      translateY: 20,
-      width: 150,
-      height: 50,
-      fontSize: 50,
-      offsetBottom: '0',
-      offsetLeft: `${screenWidth.value < 1440 ? (30 + screenWidth.value / 100) : 50}%`,
-      watermarkWidth: '150px',
-      watermarkHeight: '50px',
-    })
+    // data
+    const envMap = {
+      localhost: 'LOCAL',
+      dev: 'DEV',
+      beta: 'BETA',
+    }
+    const { MODE } = useEnv()
+    const envLabel = envMap[MODE] || ''
 
     return {
       RouterView,
+      envLabel,
+      MODE,
     }
   },
 })
 </script>
 
 <style lang="postcss" scoped>
+.mark {
+  @apply fixed top-[70px] left-[-25px] ;
+  @apply bg-[rgba(255,69,0,0.7)] text-white ;
+  @apply px-[50px] py-2 text-sm font-bold;
+  @apply uppercase rounded shadow-md z-[5000] -rotate-45 origin-top-left;
+}
 </style>
