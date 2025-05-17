@@ -3,6 +3,7 @@ export default function useEnv () {
     MODE,
     VITE_APP_BACKEND_HOST,
     VITE_APP_FILE_SERVER_HOST,
+    VITE_APP_CLIENT_FRONTEND_HOST,
     VITE_USE_LOCAL_MOCK,
     VITE_USE_PROD_MOCK,
   } = import.meta.env
@@ -11,6 +12,7 @@ export default function useEnv () {
     MODE,
     VITE_APP_BACKEND_HOST,
     VITE_APP_FILE_SERVER_HOST,
+    VITE_APP_CLIENT_FRONTEND_HOST,
     VITE_USE_LOCAL_MOCK,
     VITE_USE_PROD_MOCK,
   }
