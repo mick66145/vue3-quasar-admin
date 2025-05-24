@@ -85,21 +85,58 @@ service.interceptors.response.use(
 )
 
 const request = (config, extraConfig = {}) => {
+  const isUnsafeToSpread = (value) => {
+    return (
+      value instanceof FormData ||
+    value instanceof Blob ||
+    value instanceof File ||
+    value instanceof ArrayBuffer ||
+    ArrayBuffer.isView(value) || // e.g. Uint8Array
+    value instanceof URLSearchParams ||
+    typeof value?.pipe === 'function' // Stream-like
+    )
+  }
+
+  const getContentType = (data) => {
+    if (data instanceof FormData) return 'multipart/form-data'
+    if (data instanceof URLSearchParams) return 'application/x-www-form-urlencoded'
+    if (typeof data === 'object') return 'application/json'
+    return undefined
+  }
+
+  const data = extraConfig.data ?? config.data
+
+  // Decide whether to merge or pass through data
+  const finalData = isUnsafeToSpread(data)
+    ? data
+    : {
+      ...(config.data || {}),
+      ...(extraConfig.data || {}),
+    }
+
+  // Merge headers
+  const headers = {
+    ...(config.headers || {}),
+    ...(extraConfig.headers || {}),
+  }
+
+  // Auto-set Content-Type if not manually provided
+  if (!headers['Content-Type'] && finalData) {
+    const inferredType = getContentType(finalData)
+    if (inferredType) {
+      headers['Content-Type'] = inferredType
+    }
+  }
+
   return service({
     ...config,
     ...extraConfig,
-    headers: {
-      ...(config.headers || {}),
-      ...(extraConfig.headers || {}),
-    },
+    headers,
     params: {
       ...(config.params || {}),
       ...(extraConfig.params || {}),
     },
-    data: {
-      ...(config.data || {}),
-      ...(extraConfig.data || {}),
-    },
+    data: finalData,
   })
 }
 
