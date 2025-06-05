@@ -31,7 +31,7 @@
       </q-list>
     </div>
     <file-uploader
-      ref="imageUpload"
+      ref="fileUpload"
       class="full-width"
       :accept="accept"
       :max-file-size="maxFileSize"
@@ -59,7 +59,7 @@ export default defineComponent({
   setup (props, { emit }) {
     // data
     const dialog = ref()
-    const imageUpload = ref()
+    const fileUpload = ref()
 
     // computed
     const observeValue = computed({
@@ -87,11 +87,12 @@ export default defineComponent({
         file_info: {
           blobURL: URL.createObjectURL(file),
           raw: file,
-          base64: base64,
+          base64,
           name: file.name,
         },
       }
       observeValue.value.push(state)
+      fileUpload.value.removeQueuedFiles()
     }
     const onDelete = async (index) => {
       const res = await messageDelete({ title: '刪除', message: '確認刪除？' })
@@ -105,7 +106,7 @@ export default defineComponent({
 
     return {
       dialog,
-      imageUpload,
+      fileUpload,
       observeValue,
       preview,
       onFile,
