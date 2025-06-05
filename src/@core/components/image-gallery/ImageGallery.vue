@@ -82,7 +82,7 @@ export default defineComponent({
     const lightboxList = computed(() => {
       const lightboxList = observeValue.value.map(item => {
         const src = preview.value(item)
-        return { src: src, key: src, alt: item.alt }
+        return { src, key: src, alt: item.alt }
       })
       return lightboxList
     })
@@ -98,12 +98,13 @@ export default defineComponent({
           file_info: {
             blobURL: URL.createObjectURL(file),
             raw: file,
-            base64: base64,
+            base64,
             filename: '',
           },
         }
         observeValue.value.push(state)
       })
+      imageUpload.value.removeQueuedFiles()
     }
     const onPreview = (index) => {
       previewDialog.value.showDialog({ slide: index })
