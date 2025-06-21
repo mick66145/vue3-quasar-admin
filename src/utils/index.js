@@ -68,20 +68,17 @@ export function formatNumber (input, symbol, index) {
 }
 
 export const getValueByPath = function (object, prop) {
-  if (typeof object !== 'object') return object
+  if (typeof object !== 'object' || object === null) return object
   prop = prop || ''
-  const paths = prop.split('.')
-  let current = object
-  let result = null
-  for (let i = 0, j = paths.length; i < j; i++) {
-    const path = paths[i]
-    if (!current) break
 
-    if (i === j - 1) {
-      result = current[path]
-      break
-    }
-    current = current[path]
+  const normalizedProp = prop.replace(/\[(\w+)\]/g, '.$1').replace(/^\./, '')
+  const paths = normalizedProp.split('.')
+
+  let current = object
+  for (let i = 0; i < paths.length; i++) {
+    if (current == null) return undefined
+    current = current[paths[i]]
   }
-  return result
+
+  return current
 }
