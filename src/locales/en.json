@@ -149,7 +149,7 @@
       "credit-card-expired-date": "Please enter a valid credit card expiration date",
       "identification-number": "Please enter a valid identification number format",
       "gui-number": "Please enter a valid GUI Number format",
-      "tel": "Please enter numbers, hyphens, parentheses, and plus signs",
+      "tel": "Please enter numbers, hyphens, parentheses, and plus signs, with an optional extension number (starting with #)",
       "file-format": "Invalid file format",
       "image-format": "Invalid file format",
       "password": "Must be between 8 and 255 characters long and include numbers, letters, and special characters",

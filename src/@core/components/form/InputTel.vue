@@ -79,7 +79,7 @@ export default defineComponent({
     })
     const ruleList = computed(() => {
       const rule = [
-        vuelidate.regex(/^[0-9\-()+]+$/, i18n.global.t('g.validation.tel')),
+        vuelidate.regex(/^\+?\d[\d\-() ]*(#[ ]?\d+)?$/, i18n.global.t('g.validation.tel')),
       ]
       return rule.concat(rules.value)
     })
