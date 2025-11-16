@@ -9,6 +9,7 @@
 - [快速開始](#快速開始)
 - [專案架構](#專案架構)
 - [開發流程](#開發流程)
+- [功能組織方式](#功能組織方式)
 - [程式碼規範](#程式碼規範)
 - [Git 規範](#git-規範)
 - [文件撰寫](#文件撰寫)
@@ -185,13 +186,15 @@ git checkout -b feat/your-feature-name
 
 根據功能類型選擇適當的開發方式：
 
-**情況 A：新增完整功能模組**
+**情況 A：新增功能**
 
-參考 [功能模組開發指南](./module-development-guide.md)。
+首先閱讀 [功能組織方式指南](./feature-organization-guide.md) 了解如何選擇開發方式：
+- **模組化方式** - 適合完整的業務功能（參考 [功能模組開發指南](./module-development-guide.md)）
+- **非模組化方式** - 適合簡單的單一頁面功能
 
 **情況 B：修改現有功能**
 
-1. 找到對應的模組目錄
+1. 找到對應的模組或功能目錄
 2. 修改相關檔案
 3. 更新相關文檔
 
@@ -252,6 +255,56 @@ git push -u origin feat/your-feature-name
 - 及時回應 Reviewer 的意見
 - 對於建議的修改，說明原因或進行調整
 - 修改完成後通知 Reviewer 再次審查
+
+---
+
+## 功能組織方式
+
+專案支援兩種功能組織方式，請根據功能的複雜度和需求選擇合適的方式：
+
+### 1. 模組化功能（Module-based）
+
+**適用場景：**
+- 完整的業務功能模組（如：用戶管理、訂單系統）
+- 需要多個頁面（列表、新增、編輯）
+- 需要完整的 CRUD 操作
+- 功能可能被其他模組重用
+
+**目錄結構：**
+```
+src/@core/modules/{module-name}/
+├── api/
+├── models/
+├── router/
+└── views/
+```
+
+**範例：** News（最新消息）、User（用戶管理）
+
+詳細說明請參考 [功能模組開發指南](./module-development-guide.md)。
+
+### 2. 非模組化功能（Standalone）
+
+**適用場景：**
+- 簡單的單一頁面
+- 主要是資料展示
+- 不需要複雜的狀態管理
+- 快速開發原型
+
+**目錄結構：**
+```
+src/
+├── api/{feature}.js
+├── models/{Feature}Model.js
+├── router/modules/{feature}.js
+└── views/{feature}/
+```
+
+**範例：** Article（文章列表）、Dashboard（儀表板）
+
+### 如何選擇？
+
+詳細的選擇指南、開發步驟、最佳實踐請參考 [功能組織方式指南](./feature-organization-guide.md)。
 
 ---
 
@@ -590,9 +643,13 @@ const API_KEY = import.meta.env.VITE_API_KEY
 
 ## 常見問題
 
-### Q: 如何新增一個功能模組？
+### Q: 如何新增一個功能？
 
-參考 [功能模組開發指南](./module-development-guide.md)。
+首先閱讀 [功能組織方式指南](./feature-organization-guide.md) 了解如何選擇合適的開發方式（模組化 vs 非模組化）。
+
+然後參考對應的開發指南：
+- 模組化功能：[功能模組開發指南](./module-development-guide.md)
+- 非模組化功能：參考 Article 範例（`src/views/article/`）
 
 ### Q: 如何使用專案的核心元件？
 
@@ -658,12 +715,18 @@ const [res, error] = await callReadListFetch({ ...search })
 
 ### 內部文檔
 
-- [程式碼風格指南](./code-style-guide.md)
-- [UI 樣式指南](./style-guide.md)
-- [Git 規範](./git.md)
+**開發指南：**
+- [功能組織方式指南](./feature-organization-guide.md) ⭐ 新增功能必讀
 - [功能模組開發指南](./module-development-guide.md)
 - [自訂元件使用指南](./components-guide.md)
 - [Composables/Hooks 使用指南](./composables-guide.md)
+
+**規範文檔：**
+- [程式碼風格指南](./code-style-guide.md)
+- [UI 樣式指南](./style-guide.md)
+- [Git 規範](./git.md)
+- [系統架構文件風格指南](./sa-documentation-style-guide.md)
+- [系統設計文件風格指南](./sd-documentation-style-guide.md)
 
 ---
 
