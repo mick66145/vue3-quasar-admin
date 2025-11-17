@@ -117,24 +117,45 @@ src/@core/modules/news/
 ## 非模組化功能
 
 ### 完整結構
+```
+
+#### 標準 CRUD 功能（多個 Models）
+
+當功能需要 Model 和 ViewModel 時，建議使用子目錄組織：
 
 ```
 src/
 ├── api/
-│   ├── index.js                     # 總導出
-│   └── article.js                   # 文章 API
+│   └── property-usage-category.js   # API Resource
 ├── models/
-│   ├── index.js                     # 總導出
-│   └── ArticleModel.js              # 文章模型
+│   ├── index.js                     # 統一導出
+│   └── property-usage-category/     # 功能子目錄 ⭐
+│       ├── PropertyUsageCategoryModel.js      # 基礎模型
+│       └── PropertyUsageCategoryViewModel.js  # 視圖模型
 ├── router/
 │   └── modules/
-│       └── article.js               # 文章路由
+│       └── property-usage-category.js         # 路由配置
 └── views/
-    └── article/
-        ├── ArticleList.vue          # 文章列表
-        └── components/
-            └── ArticleCard.vue      # 文章卡片組件
+    └── property-usage-category/     # 視圖目錄
+        ├── PropertyUsageCategoryList.vue      # 列表頁
+        ├── PropertyUsageCategoryCreate.vue    # 新增頁
+        ├── PropertyUsageCategoryEdit.vue      # 編輯頁
+        └── components/              # 組件目錄
+            ├── PropertyUsageCategoryDetail.vue
+            ├── PropertyUsageCategoryForm.vue
+            └── PropertyUsageCategoryListSearchBlock.vue
 ```
+
+**Models 目錄組織規範：**
+
+✅ **使用子目錄當：**
+- 功能有多個 Model 文件（Model + ViewModel）
+- 需要清晰的模組邊界
+- 便於後續擴展
+
+✅ **直接放置當：**
+- 只有單一 Model 文件
+- 功能非常簡單
 
 ### 開發步驟
 
@@ -167,24 +188,63 @@ export { ArticleResource } from './article'
 
 #### 2. 創建模型層（可選）
 
-**檔案位置：** `src/models/ArticleModel.js`
+**標準 CRUD 功能（多個 Models）**
+
+**目錄結構：** `src/models/property-usage-category/`
+
+1. 創建基礎模型：`PropertyUsageCategoryModel.js`
 
 ```javascript
-export const ArticleModel = (item = {}) => {
-  return {
-    id: item?.id ?? null,
-    title: item?.title ?? '',
-    content: item?.content ?? '',
-    author: item?.author ?? '',
-    created_at: item?.created_at ?? '',
+const PropertyUsageCategory = {
+  id: null,
+  name: null,
+  createdAt: null,
+  updatedAt: null,
+}
+
+export const PropertyUsageCategoryModel = (item = null) => {
+  const model = (item) => {
+    const propertyUsageCategoryObj = {
+      id: item?.id || null,
+      name: item?.name || null,
+      createdAt: item?.createdAt || null,
+      updatedAt: item?.updatedAt || null,
+    }
+    return propertyUsageCategoryObj
   }
+
+  return model(item || PropertyUsageCategory)
 }
 ```
 
-**註冊到總導出：** `src/models/index.js`
+2. 創建視圖模型：`PropertyUsageCategoryViewModel.js`
 
 ```javascript
-export { ArticleModel } from './ArticleModel'
+import Base from '@core/models/modules/Base'
+import { PropertyUsageCategoryModel } from './PropertyUsageCategoryModel'
+
+const PropertyUsageCategory = () => ({
+  ...Base(),
+})
+
+export const PropertyUsageCategoryViewModel = (item) => {
+  const viewModel = (item) => {
+    const propertyUsageCategoryObj = {
+      ...PropertyUsageCategoryModel(item),
+      ...PropertyUsageCategory(),
+    }
+    return propertyUsageCategoryObj
+  }
+
+  return viewModel(item)
+}
+```
+
+3. **註冊到總導出：** `src/models/index.js`
+
+```javascript
+export { PropertyUsageCategoryModel } from './property-usage-category/PropertyUsageCategoryModel'
+export { PropertyUsageCategoryViewModel } from './property-usage-category/PropertyUsageCategoryViewModel'
 ```
 
 #### 3. 創建路由
