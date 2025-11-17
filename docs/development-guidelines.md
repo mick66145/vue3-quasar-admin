@@ -679,27 +679,87 @@ const [res, error] = await callReadListFetch({ ...search })
 
 ### Q: 如何添加國際化翻譯？
 
-在 `src/locales/{語言}/` 目錄下添加翻譯鍵值對：
+#### 翻譯檔案結構
 
-```javascript
-// src/locales/zh-TW/user.json
+專案支援 2 種語言，翻譯檔案位於 `src/locales/` 目錄：
+
+- `zh-TW.json` - 繁體中文
+- `en.json` - 英文
+
+#### 命名規範
+
+**1. 通用名稱（g.common）**
+
+在 `g.common` 區塊中添加功能的通用名稱：
+
+```json
 {
-  "title": "使用者管理",
-  "form": {
-    "name": "姓名",
-    "email": "電子郵件"
+  "g": {
+    "common": {
+      "property-usage-category": "資產使用類型",
+      "user": "人員"
+    }
   }
 }
 ```
 
-使用：
+- 使用 kebab-case（小寫字母，單詞間用短橫線連接）
+- 適用於選單、通用標籤等場景
+
+**2. 功能專屬翻譯區塊**
+
+為每個功能建立獨立的翻譯區塊，使用 kebab-case 命名：
+
+```json
+{
+  "property-usage-category": {
+    "title": "資產使用類型",
+    "create": "新增資產使用類型",
+    "edit": "編輯資產使用類型",
+    "form": {
+      "name": "使用類型名稱"
+    },
+    "detail": {
+      "title": "資產使用類型詳情"
+    }
+  }
+}
+```
+
+**標準結構：**
+
+- `title` - 功能主標題
+- `create` - 新增頁面標題
+- `edit` - 編輯頁面標題
+- `form.*` - 表單欄位標籤
+- `detail.title` - 詳情頁面標題
+- `detail.card.*` - 詳情卡片區塊標題
+
+#### 使用方式
+
+在 Vue 組件中使用 `$t()` 函數：
 
 ```vue
 <template>
-  <div>{{ $t('user.title') }}</div>
-  <input-text :label="$t('user.form.name')" />
+  <div>
+    <!-- 功能標題 -->
+    <page-header>{{ $t('property-usage-category.title') }}</page-header>
+
+    <!-- 表單欄位 -->
+    <input-text :label="$t('property-usage-category.form.name')" />
+
+    <!-- 通用標籤 -->
+    <span>{{ $t('g.common.property-usage-category') }}</span>
+  </div>
 </template>
 ```
+
+#### 添加新功能翻譯的步驟
+
+1. **在 g.common 添加通用名稱**（2 種語言）
+2. **建立功能專屬區塊**（2 種語言）
+3. **遵循標準結構**：title, create, edit, form, detail
+4. **測試翻譯**：切換語言確保所有文字正確顯示
 
 ---
 
