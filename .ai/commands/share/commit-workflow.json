@@ -1,0 +1,22 @@
+{
+  "name": "Commit & Push",
+  "description": "將本地修改的程式碼提交至 Git，並推送到遠端分支。請依照指引輸入符合規範的 commit message 與正確的分支名稱。",
+  "steps": [
+    {
+      "name": "commit & push",
+      "run": [
+        "git add .",
+        "echo '請輸入提交訊息（如 fix(module): 修正 XXX 問題 或 feat(module): 更新 XXX 功能）'",
+        "git commit -m 'Your commit message here'",
+        "echo '請確認您的分支名稱，並輸入以推送代碼（如 git push -u origin [your-feature-branch-name]）'",
+        "git push -u origin [your-feature-branch-name]"
+      ]
+    },
+    {
+      "name": "產生 PR 描述草稿",
+      "run": [
+        "echo '請到 GitHub/GitLab 建立 PR，並根據自動化流程產生的內容補充描述。'"
+      ]
+    }
+  ]
+}

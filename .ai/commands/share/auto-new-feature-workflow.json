@@ -1,0 +1,231 @@
+{
+  "name": "自動化新增功能開發流程",
+  "description": "根據 docs/api-spec 下的 API 文件規範，自動開發前端功能、建立分支、commit/push 並產生 PR",
+  "steps": [
+    {
+      "name": "1. 讀取開發規範",
+      "description": "讀取專案的開發規範文件，確保遵循專案標準",
+      "run": [
+        "cat ./docs/development-guidelines.md",
+        "cat ./docs/development/feature-organization-guide.md"
+      ]
+    },
+    {
+      "name": "2. 列出可用的 API 文件",
+      "description": "顯示 docs/api-spec 目錄下所有可用的 API 功能模組",
+      "run": [
+        "echo '=== 可用的 API 功能模組 ==='",
+        "ls -la ./docs/api-spec/",
+        "echo ''",
+        "echo '請選擇要開發的功能模組名稱'"
+      ]
+    },
+    {
+      "name": "3. 讀取 API 文件",
+      "description": "讀取選定功能模組的 SA (系統分析) 和 SD (系統設計) 文件",
+      "input": {
+        "feature_name": "功能模組名稱 (例如: property-usage-category)"
+      },
+      "run": [
+        "echo '=== 讀取 API 文件 ==='",
+        "echo '功能模組: ${feature_name}'",
+        "echo ''",
+        "echo '--- 系統分析文件 (SA) ---'",
+        "cat ./docs/api-spec/${feature_name}/${feature_name}-sa.md",
+        "echo ''",
+        "echo '--- 系統設計文件 (SD) ---'",
+        "cat ./docs/api-spec/${feature_name}/${feature_name}-sd.md"
+      ]
+    },
+    {
+      "name": "4. 確認開發模式",
+      "description": "根據功能複雜度選擇模組化或非模組化開發方式",
+      "options": [
+        {
+          "name": "modular",
+          "description": "模組化開發 - 適用於複雜功能，檔案放在 src/@core/modules/ 下",
+          "structure": [
+            "src/@core/modules/{feature}/api/restful/{feature}.js",
+            "src/@core/modules/{feature}/models/modules/{Feature}Model.js",
+            "src/@core/modules/{feature}/router/modules/{feature}.js",
+            "src/@core/modules/{feature}/views/{feature}-list/",
+            "src/locales/*.json"
+          ]
+        },
+        {
+          "name": "non-modular",
+          "description": "非模組化開發 - 適用於簡單功能，檔案分散在各目錄下",
+          "structure": [
+            "src/api/{feature}.js",
+            "src/models/{Feature}Model.js",
+            "src/router/modules/{feature}.js",
+            "src/views/{feature}/",
+            "src/locales/*.json"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "5. 建立功能分支",
+      "description": "從 master 分支切出新的功能分支",
+      "run": [
+        "git checkout master",
+        "git pull origin master",
+        "BRANCH_NAME=feat/${feature_name}",
+        "echo \"建立功能分支: $BRANCH_NAME\"",
+        "git checkout -b $BRANCH_NAME"
+      ]
+    },
+    {
+      "name": "6. 開發功能 - API 層",
+      "description": "建立 API Resource 層，使用 useResource hook",
+      "tasks": [
+        "根據 SD 文件中的 API 端點建立 Resource",
+        "使用 useResource 實現標準 CRUD 方法 (list, get, post, patch, put, destroy, selectAll)",
+        "如有特殊 API 方法，額外添加自定義方法"
+      ],
+      "example": {
+        "modular": "src/@core/modules/{feature}/api/restful/{feature}.js",
+        "non-modular": "src/api/{feature}.js"
+      }
+    },
+    {
+      "name": "7. 開發功能 - Model 層",
+      "description": "建立資料模型，定義欄位結構",
+      "tasks": [
+        "根據 SD 文件中的資料結構建立 Model",
+        "定義所有欄位及預設值",
+        "建立 ViewModel 用於 API 回應資料處理",
+        "更新 models/index.js 匯出模型 (非模組化)"
+      ],
+      "example": {
+        "modular": "src/@core/modules/{feature}/models/modules/{Feature}Model.js",
+        "non-modular": "src/models/{Feature}Model.js"
+      }
+    },
+    {
+      "name": "8. 開發功能 - Router 層",
+      "description": "建立路由配置",
+      "tasks": [
+        "建立路由模組檔案",
+        "定義父路由和子路由 (List, Create, Edit)",
+        "設定權限控制 (permissions)",
+        "設定 i18n 標題和圖示"
+      ],
+      "example": {
+        "modular": "src/@core/modules/{feature}/router/modules/{feature}.js",
+        "non-modular": "src/router/modules/{feature}.js"
+      }
+    },
+    {
+      "name": "9. 開發功能 - View 層",
+      "description": "建立所有視圖頁面和元件",
+      "tasks": [
+        "建立 List 頁面 (使用 vxe-server-table)",
+        "建立 Create 頁面",
+        "建立 Edit 頁面",
+        "建立 Detail 元件 (處理 create/edit 邏輯)",
+        "建立 Form 元件 (表單欄位)",
+        "建立 SearchBlock 元件 (搜尋過濾)"
+      ],
+      "components": [
+        "{Feature}List.vue - 列表頁",
+        "{Feature}Create.vue - 新增頁",
+        "{Feature}Edit.vue - 編輯頁",
+        "components/{Feature}Detail.vue - 詳情元件",
+        "components/{Feature}Form.vue - 表單元件",
+        "components/{Feature}ListSearchBlock.vue - 搜尋元件"
+      ]
+    },
+    {
+      "name": "10. 添加國際化翻譯",
+      "description": "為所有支援的語言添加翻譯",
+      "languages": [
+        "zh-TW (繁體中文)",
+        "en (英文)"
+      ],
+      "tasks": [
+        "在 g.common 區塊添加功能名稱翻譯",
+        "添加功能專屬翻譯區塊 (title, detail.title, form.*, create, edit)"
+      ],
+      "files": [
+        "src/locales/zh-TW.json",
+        "src/locales/en.json"
+      ]
+    },
+    {
+      "name": "11. 註冊路由",
+      "description": "將路由模組註冊到主路由配置",
+      "tasks": [
+        "在 src/router/index.js 導入路由模組",
+        "將路由添加到 asyncRoutes 陣列中"
+      ],
+      "file": "src/router/index.js"
+    },
+    {
+      "name": "13. Commit 變更",
+      "description": "提交所有變更到 Git",
+      "run": [
+        "git add .",
+        "git status",
+        "echo ''",
+        "echo '=== 準備建立 Commit ==='",
+        "echo 'Commit 訊息格式: feat({feature_name}): 新增{功能中文名稱}功能'",
+        "echo ''",
+        "echo '包含以下檔案：'",
+        "echo '- API 層'",
+        "echo '- Model 層'",
+        "echo '- Router 層'",
+        "echo '- View 層 (List/Create/Edit/Components)'",
+        "echo '- i18n 翻譯 (6種語言)'",
+        "echo ''",
+        "git commit -m \"feat(${feature_name}): 新增功能\n\n🤖 Generated with Claude Code\n\nCo-Authored-By: Claude <noreply@anthropic.com>\""
+      ]
+    }
+  ],
+  "notes": {
+    "feature_structure": {
+      "modular": {
+        "description": "適用於複雜功能，具有完整的業務邏輯",
+        "location": "src/@core/modules/{feature}/",
+        "folders": [
+          "api/restful/",
+          "models/modules/",
+          "router/modules/",
+          "views/{feature}-list/"
+        ]
+      },
+      "non-modular": {
+        "description": "適用於簡單的 CRUD 功能或基礎設定",
+        "locations": [
+          "src/api/{feature}.js",
+          "src/models/{Feature}Model.js",
+          "src/router/modules/{feature}.js",
+          "src/views/{feature}/"
+        ]
+      }
+    },
+    "key_patterns": {
+      "api": "使用 useResource hook 實現標準 CRUD",
+      "model": "定義欄位結構及預設值",
+      "router": "包含 List/Create/Edit 三個路由",
+      "views": "使用 vxe-server-table 展示列表",
+      "i18n": "需支援 6 種語言",
+      "permissions": "每個操作都需要權限控制"
+    },
+    "checklist": [
+      "✅ API 文件已讀取並理解",
+      "✅ 開發模式已選擇 (模組化/非模組化)",
+      "✅ API 層已實現",
+      "✅ Model 層已建立",
+      "✅ Router 已配置",
+      "✅ Views 已開發",
+      "✅ i18n 翻譯已完成 (6種語言)",
+      "✅ Router 已註冊",
+      "✅ 建置測試通過",
+      "✅ Git commit 完成",
+      "✅ Push 到遠端",
+      "✅ PR 已建立"
+    ]
+  }
+}
